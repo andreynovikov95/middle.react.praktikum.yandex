@@ -1,10 +1,15 @@
-body {
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, a {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+body {
+  font-family: 'Adamina', serif;
 }
 
 code {
