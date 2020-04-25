@@ -1,18 +1,12 @@
 import React from 'react';
-import ChatBar from 'components/ChatBar/ChatBar';
+import LeftColumn from 'components/LeftColumn/LeftColumn';
 
-const date = new Date()
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <ChatBar
-        date={`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}
-        author='The Shrek 2'
-        chatName='Group Chat'
-        lastMessage='tas odio. Ut sit amet...'
-        icon='react'
-      />
+    <div className="app">
+      <LeftColumn />
     </div>
   );
 }
