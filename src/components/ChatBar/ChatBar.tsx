@@ -28,9 +28,9 @@ const ChatBar: React.SFC<IProps> = (props: IProps) => {
 
     return (
         <div
-         className={cx('bar', {
-             'bar_selected': id === chatId
-         })}
+        className={cx('bar', {
+            'bar_selected': id === chatId
+        })}
          onClick={selectChat(id)}
         >
             <div className={'bar__icon'}>

@@ -3,30 +3,30 @@ import ChatBar from 'components/ChatBar/ChatBar';
 
 import './ChatList.css'
 import {
-    chatList,
-    convertDate
+    getChatList
 } from './ChatList.mock'
 
 interface IProps {
   chatId?: number;
+  authors: object[],
+  chats: object[],
+  messages: object[],
   selectChat: any;
 };
 
 const ChatList: React.SFC<IProps> = (props: IProps) => {
   const {
     chatId,
+    authors,
+    chats,
+    messages,
     selectChat
   } = props
+  const chatList = getChatList(chats, messages, authors)
 
   return (
     <div className="chatList">
       {chatList
-        .sort((a, b) => {
-            const dateA = convertDate(a.date)
-            const dateB = convertDate(b.date)
-
-            return Date.parse(dateB) - Date.parse(dateA)
-        })
         .map(({
                 author,
                 date,
@@ -52,5 +52,12 @@ const ChatList: React.SFC<IProps> = (props: IProps) => {
     </div>
   );
 }
+
+ChatList.defaultProps = {
+  authors: [],
+  chats: [],
+  messages: [],
+  selectChat: () => {}
+};
 
 export default ChatList;

@@ -4,18 +4,18 @@ import './RightColumn.css'
 
 interface IProps {
     chatId?: number,
-    dates: object[];
+    chats: object[];
 };
 
 const RightColumn: React.SFC<IProps> = (props: IProps) => {
     const {
         chatId,
-        dates,
+        chats,
     } = props
 
     return (
-        <div className={'dates'}>
-            {dates.length > 0 && 
+        <div className={'chats'}>
+            {chats.length > 0 && 
                 <div>
                     Здесь будут данные чата {chatId}
                 </div>
@@ -25,7 +25,7 @@ const RightColumn: React.SFC<IProps> = (props: IProps) => {
 };
 
 RightColumn.defaultProps = {
-    dates: []
+    chats: []
 };
 
 export default RightColumn;

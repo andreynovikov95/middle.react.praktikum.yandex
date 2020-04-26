@@ -5,7 +5,9 @@ import './LeftColumn.css'
 
 interface IProps {
   chatId?: number,
-  dates: object[],
+  authors: object[],
+  chats: object[],
+  messages: object[],
   selectChat: any
 };
 
@@ -13,6 +15,9 @@ interface IProps {
 const LeftColumn: React.SFC<IProps> = (props: IProps) => {
   const {
     chatId,
+    authors,
+    chats,
+    messages,
     selectChat
   } = props
 
@@ -20,6 +25,9 @@ const LeftColumn: React.SFC<IProps> = (props: IProps) => {
       <div className='leftColumn'>
         <ChatList
           chatId={chatId}
+          authors={authors}
+          chats={chats}
+          messages={messages}
           selectChat={selectChat}
         />
       </div>
@@ -27,7 +35,9 @@ const LeftColumn: React.SFC<IProps> = (props: IProps) => {
 }
 
 LeftColumn.defaultProps = {
-  dates: [],
+  authors: [],
+  chats: [],
+  messages: [],
   selectChat: () => {}
 };
 

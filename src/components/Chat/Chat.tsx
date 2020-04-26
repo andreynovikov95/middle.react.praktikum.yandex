@@ -4,11 +4,15 @@ import RightColumn from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
-  DATES
+  AUTHORS,
+  CHATS,
+  MESSAGES
 } from './Chat.mock'
 
 interface IProps {
-  dates: object[];
+  authors: object[];
+  chats: object[];
+  messages: object[];
 }
 
 interface IState {
@@ -17,7 +21,9 @@ interface IState {
 
 class Chat extends React.Component<IProps, IState>  {
   public static defaultProps: Partial<IProps> = {
-    dates: DATES
+    authors: AUTHORS,
+    chats: CHATS,
+    messages: MESSAGES
   };
 
   public state: IState = {
@@ -32,7 +38,9 @@ class Chat extends React.Component<IProps, IState>  {
 
   public render() {
     const {
-      dates
+      authors,
+      chats,
+      messages
     } = this.props
     const {
       chatId
@@ -42,13 +50,15 @@ class Chat extends React.Component<IProps, IState>  {
       <div className="chat">
         <LeftColumn
           chatId={chatId}
-          dates={dates}
+          authors={authors}
+          chats={chats}
+          messages={messages}
           selectChat={this.selectChat}
         />
         {typeof this.state.chatId === 'number' && (
           <RightColumn
             chatId={chatId}
-            dates={dates}
+            chats={chats}
           />
         )}
       </div>
