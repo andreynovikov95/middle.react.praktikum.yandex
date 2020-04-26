@@ -16,7 +16,7 @@ function ChatList() {
             const dateA = convertDate(a.date)
             const dateB = convertDate(b.date)
 
-            return Date.parse(dateA) - Date.parse(dateB)
+            return Date.parse(dateB) - Date.parse(dateA)
         })
         .map(({
                 author,
