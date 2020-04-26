@@ -1,12 +1,13 @@
 import React from 'react';
-import LeftColumn from 'components/LeftColumn/LeftColumn';
+import Chat from 'components/Chat/Chat'
 
 import './App.css'
 
 function App() {
+
   return (
     <div className="app">
-      <LeftColumn />
+      <Chat />
     </div>
   );
 }
