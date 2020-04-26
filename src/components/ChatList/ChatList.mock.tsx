@@ -5,7 +5,7 @@ const year = date.getFullYear()
 
 const MAX_YEAR = 2019
 
-const getRandomDate = (maxRange, minRange = 1) => {
+const getRandomDate = (maxRange: number, minRange = 1) => {
     return minRange + Math.round(Math.random() * (maxRange - minRange))
 }
 
@@ -90,3 +90,8 @@ export const chatList = [
         icon: 'react' 
     }
 ]
+
+export const convertDate = (date: string) => date
+    .split('/')
+    .reverse()
+    .join('-')
