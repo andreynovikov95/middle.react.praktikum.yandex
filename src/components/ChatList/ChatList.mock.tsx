@@ -1,15 +1,48 @@
+const MAX_MONTH = 12
+const MIN_YEAR = 2019
+
 const date = new Date()
 const day = date.getDate()
-const month = date.getMonth()
+const month = date.getMonth() + 1
 const year = date.getFullYear()
 
-const MAX_YEAR = 2019
+const getFebruary = (year: number) => year % 4 === 0
+    ? 29
+    : 28
 
-const getRandomDate = (maxRange: number, minRange = 1) => {
-    return minRange + Math.round(Math.random() * (maxRange - minRange))
+const getMaxDay = (day: number, year: number) => {
+    switch (day) {
+        case 2:
+            return getFebruary(year)
+
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return 30
+
+        default:
+            return 31
+    }
 }
 
-const getDate = () => `${getRandomDate(day)}/${getRandomDate(month)}/${getRandomDate(year, MAX_YEAR)}`
+const getRandomDate = (maxRange: number, minRange = 1) => minRange + Math.round(Math.random() * (maxRange - minRange))
+
+const getRandomMonth = (randomYear: number) => randomYear === year
+    ? getRandomDate(month)
+    : getRandomDate(MAX_MONTH)
+
+const getDate = () => {
+    const randomYear = getRandomDate(year, MIN_YEAR)
+    const randomMonth = getRandomMonth(randomYear)
+
+    let maxDay = day
+    if (randomMonth !== month && randomYear !== year) {
+        maxDay = getMaxDay(randomMonth, randomYear)
+    }
+
+    return `${getRandomDate(maxDay)}/${randomMonth}/${randomYear}`
+}
 
 export const chatList = [
     {
