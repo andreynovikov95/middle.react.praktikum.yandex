@@ -7,8 +7,17 @@ import {
     convertDate
 } from './ChatList.mock'
 
+interface IProps {
+  chatId?: number;
+  selectChat: any;
+};
 
-function ChatList() {
+const ChatList: React.SFC<IProps> = (props: IProps) => {
+  const {
+    chatId,
+    selectChat
+  } = props
+
   return (
     <div className="chatList">
       {chatList
@@ -29,11 +38,14 @@ function ChatList() {
             return (
                 <ChatBar
                     key={index}
+                    id={index}
+                    chatId={chatId}
                     author={author}
                     date={date}
                     chatName={chatName}
                     lastMessage={lastMessage}
                     icon={icon}
+                    selectChat={selectChat}
                 />
             )
         })}

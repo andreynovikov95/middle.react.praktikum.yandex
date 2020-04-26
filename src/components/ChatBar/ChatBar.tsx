@@ -1,26 +1,38 @@
 import * as React from 'react'
+import cx from 'classnames'
 
 import './ChatBar.css'
 
 interface IProps {
+    id: number,
+    chatId?: number,
     author: string;
     chatName: string;
     date: string;
     lastMessage: string;
     icon: string;
+    selectChat: any;
 };
 
 const ChatBar: React.SFC<IProps> = (props: IProps) => {
     const {
+        id,
+        chatId,
         date,
         author,
         chatName,
         lastMessage,
-        icon
+        icon,
+        selectChat
     } = props
 
     return (
-        <div className={'bar'}>
+        <div
+         className={cx('bar', {
+             'bar_selected': id === chatId
+         })}
+         onClick={selectChat(id)}
+        >
             <div className={'bar__icon'}>
                 <img src={`icons/${icon}.svg`} alt={author}/>
             </div>
