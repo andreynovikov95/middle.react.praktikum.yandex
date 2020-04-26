@@ -3,20 +3,25 @@ const convertDate = (date: string) => date
     .reverse()
     .join('-')
 
-export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Array<any>) => {
+export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Array<any>, dateMeassages: Array<any>) => {
     return chats
         .map(({
             messagesId,
-            date,
             chatName,
             icon
         }) => {
                 const chatMessages: Array<any> = messages[messagesId]
                 const {
+                    dateMessagesId,
+                    date
+                } = chatMessages[chatMessages.length - 1]
+                const lastDateMeassages = dateMeassages[dateMessagesId]
+                const {
                     authorId,
                     message
-                } = chatMessages[chatMessages.length - 1]
+                } = lastDateMeassages[lastDateMeassages.length - 1]
                 const author = authors[authorId].name
+
                 return ({
                     author,
                     date,

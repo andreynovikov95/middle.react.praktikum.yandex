@@ -9,6 +9,7 @@ import {
 interface IProps {
   chatId?: number;
   authors: object[],
+  dateMeassages: object[],
   chats: object[],
   messages: object[],
   selectChat: any;
@@ -18,11 +19,12 @@ const ChatList: React.SFC<IProps> = (props: IProps) => {
   const {
     chatId,
     authors,
+    dateMeassages,
     chats,
     messages,
     selectChat
   } = props
-  const chatList = getChatList(chats, messages, authors)
+  const chatList = getChatList(chats, messages, authors, dateMeassages)
 
   return (
     <div className="chatList">

@@ -1,363 +1,408 @@
-const MAX_MONTH = 12
-const MIN_YEAR = 2019
-
-const date = new Date()
-const day = date.getDate()
-const month = date.getMonth() + 1
-const year = date.getFullYear()
-
-const getFebruary = (year: number) => year % 4 === 0
-    ? 29
-    : 28
-
-const getMaxDay = (day: number, year: number) => {
-    switch (day) {
-        case 2:
-            return getFebruary(year)
-
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            return 30
-
-        default:
-            return 31
-    }
-}
-
-const getRandomDate = (maxRange: number, minRange = 1) => minRange + Math.round(Math.random() * (maxRange - minRange))
-
-const getRandomMonth = (randomYear: number) => randomYear === year
-    ? getRandomDate(month)
-    : getRandomDate(MAX_MONTH)
-
-const getDate = () => {
-    const randomYear = getRandomDate(year, MIN_YEAR)
-    const randomMonth = getRandomMonth(randomYear)
-
-    let maxDay = day
-    if (randomMonth !== month && randomYear !== year) {
-        maxDay = getMaxDay(randomMonth, randomYear)
-    }
-
-    return `${getRandomDate(maxDay)}/${randomMonth}/${randomYear}`
-}
-
 export const CHATS = [
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 0,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 1,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 2,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 3,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 4,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 5,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 6,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 7,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 8,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
         messagesId: 9,
-        icon: 'react' 
+        icon: 'react'
     },
     {
         chatName: 'Group chat',
-        date: getDate(),
-        messagesId: 10,
-        icon: 'react' 
+        messagesId: 3,
+        icon: 'react'
     }
 ]
 
 export const MESSAGES = [
     [
         {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 0,
+            date: '14/3/2020',
         },
         {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 8,
+            date: '17/3/2020',
         }
     ],
     [
         {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 0,
+            date: '13/3/2020',
         },
         {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 9,
+            date: '17/3/2020',
         }
     ],
     [
         {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 8,
+            date: '20/1/2020',
         },
         {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 2,
+            date: '7/6/2019',
         }
     ],
     [
         {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 3,
+            date: '17/3/2020',
         },
         {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 4,
+            date: '18/3/2020',
         }
     ],
     [
         {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 0,
+            date: '17/3/2020',
         },
         {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 1,
+            date: '19/3/2020',
         }
     ],
     [
         {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 9,
+            date: '7/6/2019',
         },
         {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 1,
+            date: '21/6/2019',
         }
     ],
     [
         {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 8,
+            date: '5/12/2019',
         },
         {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 0,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 7,
+            date: '17/1/2020',
         }
     ],
     [
         {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 1,
+            date: '20/1/2020',
         },
         {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 2,
+            date: '9/2/2020',
         }
     ],
     [
         {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 3,
+            date: '8/3/2020',
         },
         {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 4,
+            date: '11/3/2020',
         }
     ],
     [
         {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 6,
+            date: '13/3/2020',
         },
         {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            dateMessagesId: 5,
+            date: '14/3/2020',
         }
-    ],
-    [
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        },
-        {
-            authorId: 3,
-            message: 'tas odio. Ut sit amet...'
-        }
-    ],
+    ]
 ]
 
+export const DATE_MESSAGES = [
+    [
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 0,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 1,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 2,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ],
+    [
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        },
+        {
+            authorId: 3,
+            message: 'tas odio. Ut sit amet...'
+        }
+    ]
+]
 
 export const AUTHORS = [
     {
