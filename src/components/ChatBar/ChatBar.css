@@ -5,6 +5,11 @@
     height: 80px;
 }
 
+.bar:hover {
+    background-color: #e5e5e5;
+    cursor: pointer;
+}
+
 .bar__icon {
     margin: 0 15px;
     display: flex;
@@ -42,5 +47,5 @@
 
 .bar__message__content_author {
     font-size: 14px;
-    color: #848482;
+    color: #637893;
 }
