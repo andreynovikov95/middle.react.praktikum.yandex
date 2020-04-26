@@ -1,0 +1,51 @@
+.bar {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    height: 80px;
+}
+
+.bar:hover {
+    background-color: #e5e5e5;
+    cursor: pointer;
+}
+
+.bar__icon {
+    margin: 0 15px;
+    display: flex;
+}
+
+.bar__message {
+    padding-right: 15px;
+    display: block;
+    flex-grow: 1;
+}
+
+.bar__message__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bar__message__title__name {
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.bar__message__title__date {
+    display: inline-block;
+    font-size: 13px;
+    font-family: 'Noto Sans JP', sans-serif;;
+    color: #848482;
+}
+
+.bar__message__content {
+    display: block;
+    font-size: 15px;
+}
+
+.bar__message__content_author {
+    font-size: 14px;
+    color: #637893;
+}
