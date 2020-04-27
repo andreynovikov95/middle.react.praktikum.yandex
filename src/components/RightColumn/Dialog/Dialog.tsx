@@ -1,6 +1,8 @@
 import * as React from 'react'
 
-import DateMessages from './DateMessages/DateMessages'
+import DateMessages from './Messages/Messages'
+
+import './Dialog.css'
 
 interface IProps {
     authors: object[],

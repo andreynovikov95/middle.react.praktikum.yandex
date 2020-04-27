@@ -1,0 +1,45 @@
+.messages {
+    margin-top: 18px;
+    padding: 0 75px;
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.dateMessages {
+    display: flex;
+    flex-direction: column;
+}
+
+.dateMessages__date {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 165px;
+    height: 36px;
+    background-color: #EAEAE9;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dateMessages__messages {
+    display: block;
+}
+
+.message {
+    margin-bottom: 36px;
+    display: flex;
+}
+
+.message__avatar {
+    margin-right: 5px;
+    width: 50px;
+}
+
+.message__text {
+    margin-bottom: 8px;
+    display: block;
+}
+
