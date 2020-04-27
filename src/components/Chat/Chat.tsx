@@ -34,9 +34,9 @@ class Chat extends React.Component<IProps, IState>  {
   }
 
   public selectChat = (id: string) => () => {
-    //if (this.state.selectedChatId !== id) {
+    if (this.state.selectedChatId !== id) {
       this.setState({ selectedChatId: id })
-    //}
+    }
   }
 
   public render() {
@@ -49,8 +49,7 @@ class Chat extends React.Component<IProps, IState>  {
     const {
       selectedChatId
     } = this.state
-      console.log('chats', chats)
-      console.log('selectedChatId', selectedChatId)
+
     return (
       <div className="chat">
         <LeftColumn

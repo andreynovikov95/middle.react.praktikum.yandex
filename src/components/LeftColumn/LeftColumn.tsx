@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatList from 'components/ChatList/ChatList';
+import ChatList from 'components/LeftColumn/ChatList/ChatList';
 
 import './LeftColumn.css'
 

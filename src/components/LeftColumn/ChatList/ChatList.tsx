@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatBar from 'components/ChatBar/ChatBar';
+import ChatBar from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 
 import './ChatList.css'
 import {
