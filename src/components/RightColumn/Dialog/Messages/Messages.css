@@ -6,6 +6,21 @@
     overflow-y: auto;
 }
 
+.messages__panel {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.messages__panel__textarea {
+    margin: 0 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 546px;
+    height: 34px;
+    resize: none;   
+}
+
 .dateMessages {
     display: flex;
     flex-direction: column;
@@ -22,6 +37,9 @@
     background-color: #EAEAE9;
     border-radius: 10px;
     text-align: center;
+    font-size: 18px;
+    font-family: 'Noto Serif JP';
+    font-weight: 500;
 }
 
 .dateMessages__messages {
@@ -41,19 +59,13 @@
 .message__text {
     margin-bottom: 8px;
     display: block;
+    flex-grow: 1;
 }
 
-.message__panel {
-    margin-bottom: 25px;
+.message__time {
     display: flex;
-    justify-content: center;
-}
-
-.message__panel__textarea {
-    margin: 0 20px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    width: 546px;
-    height: 34px;
-    resize: none;   
+    align-items: center;
+    font-size: 15px;
+    font-family: 'Noto Sans JP';
+    color: #848482
 }

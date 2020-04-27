@@ -10,7 +10,8 @@ interface IProps {
 
 const renderMessages = (messages: Array<any>, authors: Array<any>) => messages.map(({
     authorId,
-    message
+    message,
+    time
 })  => {
     const {
         name,
@@ -29,6 +30,9 @@ const renderMessages = (messages: Array<any>, authors: Array<any>) => messages.m
                 <div>
                     {message}
                 </div>
+            </div>
+            <div className={'message__time'}>
+                {time}
             </div>
         </div>
     )
@@ -62,10 +66,10 @@ const Messages: React.SFC<IProps> = (props: IProps) => {
     return (
         <div className={'messages'}>
             {renderDateMessages(chatMessages, dateMeassages, authors)}
-            <div className={'message__pannel'}>
+            <div className={'messages__panel'}>
                 <img src='icons/clip.svg' alt='clip' />
                 <textarea
-                    className={'message__pannel__textarea'}
+                    className={'messages__panel__textarea'}
                     required
                 />
                 <img src='icons/send.svg' alt='clip' />

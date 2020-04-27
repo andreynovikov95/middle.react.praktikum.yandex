@@ -176,111 +176,136 @@ export const DATE_MESSAGES = [
     [
         {
             authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '23:40:06'
         },
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         }
     ],
     [
         {
             authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '23:40:06'
         },
         {
             authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         }
     ],
     [
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '23:40:06'
         },
         {
             authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '06:14:31'
         },
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '06:49:32'
         },
         {
             authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '08:38:10'
         }
     ],
     [
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '23:40:06'
         },
         {
             authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '06:14:31'
         },
         {
             authorId: 3,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '06:49:32'
         },
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '08:38:10'
         }
     ],
     [
         {
             authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '23:40:06'
         },
         {
             authorId: 2,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '04:47:07'
         },
         {
             authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '06:14:31'
         },
         {
             authorId: 1,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '06:49:32'
         },
         {
             authorId: 0,
-            message: 'tas odio. Ut sit amet...'
+            message: 'tas odio. Ut sit amet...',
+            time: '08:38:10'
         }
     ],
     [
