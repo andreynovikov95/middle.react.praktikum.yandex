@@ -62,6 +62,14 @@ const Messages: React.SFC<IProps> = (props: IProps) => {
     return (
         <div className={'messages'}>
             {renderDateMessages(chatMessages, dateMeassages, authors)}
+            <div className={'message__pannel'}>
+                <img src='icons/clip.svg' alt='clip' />
+                <textarea
+                    className={'message__pannel__textarea'}
+                    required
+                />
+                <img src='icons/send.svg' alt='clip' />
+            </div>
         </div>
     )
 };
