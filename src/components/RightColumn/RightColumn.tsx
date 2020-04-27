@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useMemo } from 'react'
 
 import Dialog from './Dialog/Dialog'
 
@@ -23,7 +23,9 @@ const RightColumn: React.SFC<IProps> = (props: IProps) => {
         chats,
         messages
     } = props
-    const chatMessages = getChatMessages(selectedChatId, chats, messages)
+    const chatMessages = useMemo(() => getChatMessages(selectedChatId, chats, messages),
+        [selectedChatId, chats, messages]
+    )
 
     return (
         <div className={'chats'}>

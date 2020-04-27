@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import './Messages.css'
 
@@ -10,6 +10,7 @@ interface IProps {
 
 const renderMessages = (messages: Array<any>, authors: Array<any>) => messages.map(({
     authorId,
+    messageId,
     message,
     time
 })  => {
@@ -19,7 +20,10 @@ const renderMessages = (messages: Array<any>, authors: Array<any>) => messages.m
     } = authors[authorId]
 
     return (
-        <div className={'message'}>
+        <div
+         className={'message'}
+         key={messageId}
+        >
             <div className={'message__avatar'}>
                 <img src={avatar} alt={name} />
             </div>
@@ -38,14 +42,21 @@ const renderMessages = (messages: Array<any>, authors: Array<any>) => messages.m
     )
 })
 
-const renderDateMessages = (chatMessages: Array<any>, messages: Array<any>, authors: Array<any>) => chatMessages.map(({
+const renderDateMessages = (
+    chatMessages: Array<any>,
+    messages: Array<any>,
+    authors: Array<any>
+) => chatMessages.map(({
     date,
     dateMessagesId,
 })  => {
     const dateMessages = messages[dateMessagesId]
 
     return (
-        <div className={'dateMessages'}>
+        <div
+         className={'dateMessages'}
+         key={dateMessagesId}
+        >
             <div className={'dateMessages__date'}>
                 {date}
             </div>

@@ -176,26 +176,31 @@ export const DATE_MESSAGES = [
     [
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '23:40:06'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         }
@@ -203,26 +208,31 @@ export const DATE_MESSAGES = [
     [
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '23:40:06'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         }
@@ -230,26 +240,31 @@ export const DATE_MESSAGES = [
     [
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '23:40:06'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '06:14:31'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '06:49:32'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '08:38:10'
         }
@@ -257,26 +272,31 @@ export const DATE_MESSAGES = [
     [
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '23:40:06'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '06:14:31'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '06:49:32'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '08:38:10'
         }
@@ -284,26 +304,31 @@ export const DATE_MESSAGES = [
     [
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '23:40:06'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '04:47:07'
         },
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '06:14:31'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '06:49:32'
         },
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...',
             time: '08:38:10'
         }
@@ -311,132 +336,162 @@ export const DATE_MESSAGES = [
     [
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         }
     ],
     [
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 0,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         }
     ],
     [
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         }
     ],
     [
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 1,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         }
     ],
     [
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 2,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         }
     ],
     [
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         },
         {
             authorId: 3,
+            messageId: shortid.generate(),
             message: 'tas odio. Ut sit amet...'
         }
     ]
