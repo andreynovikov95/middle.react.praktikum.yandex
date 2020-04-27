@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import ChatBar from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 
 import './ChatList.css'
@@ -24,7 +24,9 @@ const ChatList: React.SFC<IProps> = (props: IProps) => {
     messages,
     selectChat
   } = props
-  const chatList = getChatList(chats, messages, authors, dateMeassages)
+  const chatList = useMemo(() => getChatList(chats, messages, authors, dateMeassages),
+    [chats, messages, authors, dateMeassages]
+  )
 
   return (
     <div className="chatList">
