@@ -7,7 +7,7 @@ import {
 } from './ChatList.mock'
 
 interface IProps {
-  chatId?: number;
+  selectedChatId: string;
   authors: object[],
   dateMeassages: object[],
   chats: object[],
@@ -17,7 +17,7 @@ interface IProps {
 
 const ChatList: React.SFC<IProps> = (props: IProps) => {
   const {
-    chatId,
+    selectedChatId,
     authors,
     dateMeassages,
     chats,
@@ -31,6 +31,7 @@ const ChatList: React.SFC<IProps> = (props: IProps) => {
       {chatList
         .map(({
                 author,
+                chatId,
                 date,
                 chatName,
                 lastMessage,
@@ -39,9 +40,9 @@ const ChatList: React.SFC<IProps> = (props: IProps) => {
 
             return (
                 <ChatBar
-                    key={index}
-                    id={index}
+                    key={chatId}
                     chatId={chatId}
+                    selectedChatId={selectedChatId}
                     author={author}
                     date={date}
                     chatName={chatName}

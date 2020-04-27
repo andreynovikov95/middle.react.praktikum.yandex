@@ -6,6 +6,7 @@ const convertDate = (date: string) => date
 export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Array<any>, dateMeassages: Array<any>) => {
     return chats
         .map(({
+            chatId,
             messagesId,
             chatName,
             icon
@@ -24,6 +25,7 @@ export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Ar
 
                 return ({
                     author,
+                    chatId,
                     date,
                     chatName,
                     lastMessage: message,

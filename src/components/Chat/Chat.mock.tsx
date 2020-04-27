@@ -1,55 +1,68 @@
+import shortid from 'shortid'
+
 export const CHATS = [
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 0,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 1,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 2,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 3,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 4,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 5,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 6,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 7,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 8,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 9,
         icon: 'react'
     },
     {
+        chatId: shortid.generate(),
         chatName: 'Group chat',
         messagesId: 3,
         icon: 'react'

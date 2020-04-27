@@ -18,7 +18,7 @@ interface IProps {
 }
 
 interface IState {
-  chatId?: number;
+  selectedChatId: string;
 }
 
 class Chat extends React.Component<IProps, IState>  {
@@ -30,13 +30,13 @@ class Chat extends React.Component<IProps, IState>  {
   };
 
   public state: IState = {
-      chatId: undefined
+    selectedChatId: ''
   }
 
-  public selectChat = (id: number) => () => {
-    if (this.state.chatId !== id) {
-      this.setState({ chatId: id })
-    }
+  public selectChat = (id: string) => () => {
+    //if (this.state.selectedChatId !== id) {
+      this.setState({ selectedChatId: id })
+    //}
   }
 
   public render() {
@@ -47,25 +47,27 @@ class Chat extends React.Component<IProps, IState>  {
       messages
     } = this.props
     const {
-      chatId
+      selectedChatId
     } = this.state
-
+      console.log('chats', chats)
+      console.log('selectedChatId', selectedChatId)
     return (
       <div className="chat">
         <LeftColumn
-          chatId={chatId}
+          selectedChatId={selectedChatId}
           authors={authors}
           dateMeassages={dateMeassages}
           chats={chats}
           messages={messages}
           selectChat={this.selectChat}
         />
-        {typeof this.state.chatId === 'number' && (
+        {selectedChatId && (
           <RightColumn
-            chatId={chatId}
+            selectedChatId={selectedChatId}
             authors={authors}
             chats={chats}
             messages={messages}
+            dateMeassages={dateMeassages}
           />
         )}
       </div>
