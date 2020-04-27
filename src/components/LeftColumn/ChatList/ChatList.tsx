@@ -36,7 +36,7 @@ const ChatList: React.SFC<IProps> = (props: IProps) => {
                 chatName,
                 lastMessage,
                 icon
-            }, index) => {
+            }) => {
 
             return (
                 <ChatBar
