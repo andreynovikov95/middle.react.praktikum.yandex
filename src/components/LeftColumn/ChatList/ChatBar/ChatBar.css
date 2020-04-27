@@ -10,6 +10,10 @@
     cursor: pointer;
 }
 
+.bar_selected {
+    background-color: #e5e5e5;
+}
+
 .bar__icon {
     margin: 0 15px;
     display: flex;
