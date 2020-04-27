@@ -1,31 +1,48 @@
 import * as React from 'react'
 
+import Dialog from './Dialog/Dialog'
+
 import './RightColumn.css'
+import {
+    getChatMessages
+} from './RightColumn.mock'
 
 interface IProps {
-    chatId?: number,
-    dates: object[];
+    selectedChatId: string,
+    authors: object[],
+    dateMeassages: object[],
+    chats: object[],
+    messages: object[]
 };
 
 const RightColumn: React.SFC<IProps> = (props: IProps) => {
     const {
-        chatId,
-        dates,
+        selectedChatId,
+        authors,
+        dateMeassages,
+        chats,
+        messages
     } = props
+    const chatMessages = getChatMessages(selectedChatId, chats, messages)
 
     return (
-        <div className={'dates'}>
-            {dates.length > 0 && 
-                <div>
-                    Здесь будут данные чата {chatId}
-                </div>
+        <div className={'chats'}>
+            {chatMessages.length > 0 && 
+                <Dialog
+                    authors={authors}
+                    dateMeassages={dateMeassages}
+                    chatMessages={chatMessages}
+                />
             }
         </div>
     )
 };
 
 RightColumn.defaultProps = {
-    dates: []
+    authors: [],
+    dateMeassages: [],
+    chats: [],
+    messages: []
 };
 
 export default RightColumn;

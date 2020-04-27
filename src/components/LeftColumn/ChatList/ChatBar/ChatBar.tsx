@@ -4,8 +4,8 @@ import cx from 'classnames'
 import './ChatBar.css'
 
 interface IProps {
-    id: number,
-    chatId?: number,
+    chatId: string,
+    selectedChatId: string,
     author: string;
     chatName: string;
     date: string;
@@ -16,7 +16,7 @@ interface IProps {
 
 const ChatBar: React.SFC<IProps> = (props: IProps) => {
     const {
-        id,
+        selectedChatId,
         chatId,
         date,
         author,
@@ -28,10 +28,10 @@ const ChatBar: React.SFC<IProps> = (props: IProps) => {
 
     return (
         <div
-         className={cx('bar', {
-             'bar_selected': id === chatId
-         })}
-         onClick={selectChat(id)}
+            className={cx('bar', {
+                'bar_selected': chatId === selectedChatId
+            })}
+            onClick={selectChat(chatId)}
         >
             <div className={'bar__icon'}>
                 <img src={`icons/${icon}.svg`} alt={author}/>

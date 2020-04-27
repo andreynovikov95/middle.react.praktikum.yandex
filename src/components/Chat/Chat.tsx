@@ -4,51 +4,69 @@ import RightColumn from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
-  DATES
+  AUTHORS,
+  DATE_MESSAGES,
+  CHATS,
+  MESSAGES
 } from './Chat.mock'
 
 interface IProps {
-  dates: object[];
+  authors: object[];
+  dateMeassages: Array<any>;
+  chats: object[];
+  messages: object[];
 }
 
 interface IState {
-  chatId?: number;
+  selectedChatId: string;
 }
 
 class Chat extends React.Component<IProps, IState>  {
   public static defaultProps: Partial<IProps> = {
-    dates: DATES
+    authors: AUTHORS,
+    dateMeassages: DATE_MESSAGES,
+    chats: CHATS,
+    messages: MESSAGES
   };
 
   public state: IState = {
-      chatId: undefined
+    selectedChatId: ''
   }
 
-  public selectChat = (id: number) => () => {
-    if (this.state.chatId !== id) {
-      this.setState({ chatId: id })
+  public selectChat = (id: string) => () => {
+    if (this.state.selectedChatId !== id) {
+      this.setState({ selectedChatId: id })
     }
   }
 
   public render() {
     const {
-      dates
+      authors,
+      dateMeassages,
+      chats,
+      messages
     } = this.props
     const {
-      chatId
+      selectedChatId
     } = this.state
 
     return (
       <div className="chat">
         <LeftColumn
-          chatId={chatId}
-          dates={dates}
+          selectedChatId={selectedChatId}
+          authors={authors}
+          dateMeassages={dateMeassages}
+          chats={chats}
+          messages={messages}
           selectChat={this.selectChat}
         />
-        {typeof this.state.chatId === 'number' && (
+        {selectedChatId && (
           <RightColumn
-            chatId={chatId}
-            dates={dates}
+            selectedChatId={selectedChatId}
+            authors={authors}
+            chats={chats}
+            messages={messages}
+            dateMeassages={dateMeassages}
           />
         )}
       </div>
