@@ -13,34 +13,22 @@ interface IProps {
 };
 
 
-export const LeftColumn: React.SFC<IProps> = (props: IProps) => {
-  const {
+export const LeftColumn = ({
     selectedChatId,
     authors,
     dateMeassages,
     chats,
     messages,
     selectChat
-  } = props
-
-  return (
-      <div className='leftColumn'>
-        <ChatList
-          selectedChatId={selectedChatId}
-          authors={authors}
-          dateMeassages={dateMeassages}
-          chats={chats}
-          messages={messages}
-          selectChat={selectChat}
-        />
-      </div>
-  );
-}
-
-LeftColumn.defaultProps = {
-  authors: [],
-  dateMeassages: [],
-  chats: [],
-  messages: [],
-  selectChat: () => {}
-};
+}: IProps) => (
+    <div className='leftColumn'>
+      <ChatList
+        selectedChatId={selectedChatId}
+        authors={authors}
+        dateMeassages={dateMeassages}
+        chats={chats}
+        messages={messages}
+        selectChat={selectChat}
+      />
+    </div>
+);

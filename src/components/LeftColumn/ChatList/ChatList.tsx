@@ -15,15 +15,18 @@ interface IProps {
   selectChat: any;
 };
 
-export const ChatList: React.SFC<IProps> = (props: IProps) => {
-  const {
-    selectedChatId,
-    authors,
-    dateMeassages,
-    chats,
-    messages,
-    selectChat
-  } = props
+// TODO Вопрос: нужно ли указывать значения по умолчания
+// для массивов, объектов и функций? какая реальная польза?
+// Ведь можно обратить к полю, и выйдет ошибка, а функция не отработает, там где должна
+
+export const ChatList = ({
+  selectedChatId,
+  authors = [],
+  dateMeassages = [],
+  chats = [],
+  messages = [],
+  selectChat = () => {}
+}: IProps) => {
   const chatList = useMemo(() => getChatList(chats, messages, authors, dateMeassages),
     [chats, messages, authors, dateMeassages]
   )
@@ -57,10 +60,3 @@ export const ChatList: React.SFC<IProps> = (props: IProps) => {
     </div>
   );
 }
-
-ChatList.defaultProps = {
-  authors: [],
-  chats: [],
-  messages: [],
-  selectChat: () => {}
-};

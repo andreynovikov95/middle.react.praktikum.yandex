@@ -15,14 +15,13 @@ interface IProps {
     messages: object[]
 };
 
-export const RightColumn: React.SFC<IProps> = (props: IProps) => {
-    const {
-        selectedChatId,
-        authors,
-        dateMeassages,
-        chats,
-        messages
-    } = props
+export const RightColumn = ({
+    selectedChatId,
+    authors = [],
+    dateMeassages = [],
+    chats = [],
+    messages = []
+}: IProps) => {
     const chatMessages = useMemo(() => getChatMessages(selectedChatId, chats, messages),
         [selectedChatId, chats, messages]
     )
@@ -38,11 +37,4 @@ export const RightColumn: React.SFC<IProps> = (props: IProps) => {
             }
         </div>
     )
-};
-
-RightColumn.defaultProps = {
-    authors: [],
-    dateMeassages: [],
-    chats: [],
-    messages: []
 };

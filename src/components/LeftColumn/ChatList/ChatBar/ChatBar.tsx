@@ -14,18 +14,16 @@ interface IProps {
     selectChat: any;
 };
 
-export const ChatBar: React.SFC<IProps> = (props: IProps) => {
-    const {
-        selectedChatId,
-        chatId,
-        date,
-        author,
-        chatName,
-        lastMessage,
-        icon,
-        selectChat
-    } = props
-
+export const ChatBar = ({
+    selectedChatId,
+    chatId,
+    date = '01/05/2020',
+    author = 'Shrek 2',
+    chatName = 'Group Chat',
+    lastMessage = 'tas odio. Ut sit amet...',
+    icon = 'react',
+    selectChat = () => {}
+}: IProps) => {
     return (
         <div
             className={cx('bar', {
@@ -54,11 +52,4 @@ export const ChatBar: React.SFC<IProps> = (props: IProps) => {
             </div>
         </div>
     )
-};
-
-ChatBar.defaultProps = {
-    author: 'Shrek 2',
-    chatName: 'Group Chat',
-    lastMessage: 'tas odio. Ut sit amet...',
-    icon: 'react'
 };

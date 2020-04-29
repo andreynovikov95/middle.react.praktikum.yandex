@@ -48,7 +48,7 @@ const renderDateMessages = (
     authors: Array<any>
 ) => chatMessages.map(({
     date,
-    dateMessagesId,
+    dateMessagesId
 })  => {
     const dateMessages = messages[dateMessagesId]
 
@@ -67,30 +67,20 @@ const renderDateMessages = (
     )
 })
 
-export const Messages: React.SFC<IProps> = (props: IProps) => {
-    const {
-        authors,
-        dateMeassages,
-        chatMessages
-    } = props
-
-    return (
-        <div className={'messages'}>
-            {renderDateMessages(chatMessages, dateMeassages, authors)}
-            <div className={'messages__panel'}>
-                <img src='icons/clip.svg' alt='clip' />
-                <textarea
-                    className={'messages__panel__textarea'}
-                    required
-                />
-                <img src='icons/send.svg' alt='clip' />
-            </div>
+export const Messages = ({
+    authors = [],
+    dateMeassages = [],
+    chatMessages = []
+}: IProps) => (
+    <div className={'messages'}>
+        {renderDateMessages(chatMessages, dateMeassages, authors)}
+        <div className={'messages__panel'}>
+            <img src='icons/clip.svg' alt='clip' />
+            <textarea
+                className={'messages__panel__textarea'}
+                required
+            />
+            <img src='icons/send.svg' alt='clip' />
         </div>
-    )
-};
-
-Messages.defaultProps = {
-    authors: [],
-    dateMeassages: [],
-    chatMessages: []
-};
+    </div>
+);

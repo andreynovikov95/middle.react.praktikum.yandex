@@ -10,13 +10,11 @@ interface IProps {
     dateMeassages: object[]
 };
 
-export const Dialog: React.SFC<IProps> = (props: IProps) => {
-    const {
-        authors,
-        chatMessages,
-        dateMeassages
-    } = props
-
+export const Dialog = ({
+    authors = [],
+    chatMessages = [],
+    dateMeassages = []
+}: IProps) => {
     return (
         <div className={'dialog'}>
             <Messages
@@ -26,10 +24,4 @@ export const Dialog: React.SFC<IProps> = (props: IProps) => {
             />
         </div>
     )
-};
-
-Dialog.defaultProps = {
-    authors: [],
-    chatMessages: [],
-    dateMeassages: []
 };

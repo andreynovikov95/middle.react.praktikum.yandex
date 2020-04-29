@@ -22,7 +22,7 @@ interface IState {
 }
 
 export class Chat extends React.Component<IProps, IState>  {
-  public static defaultProps: Partial<IProps> = {
+  public static defaultProps: IProps = {
     authors: AUTHORS,
     dateMeassages: DATE_MESSAGES,
     chats: CHATS,
