@@ -14,7 +14,7 @@ interface IProps {
     selectChat: any;
 };
 
-const ChatBar: React.SFC<IProps> = (props: IProps) => {
+export const ChatBar: React.SFC<IProps> = (props: IProps) => {
     const {
         selectedChatId,
         chatId,
@@ -62,5 +62,3 @@ ChatBar.defaultProps = {
     lastMessage: 'tas odio. Ut sit amet...',
     icon: 'react'
 };
-
-export default ChatBar;

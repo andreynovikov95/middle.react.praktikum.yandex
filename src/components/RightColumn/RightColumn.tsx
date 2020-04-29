@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 
-import Dialog from './Dialog/Dialog'
+import { Dialog } from './Dialog/Dialog'
 
 import './RightColumn.css'
 import {
@@ -15,7 +15,7 @@ interface IProps {
     messages: object[]
 };
 
-const RightColumn: React.SFC<IProps> = (props: IProps) => {
+export const RightColumn: React.SFC<IProps> = (props: IProps) => {
     const {
         selectedChatId,
         authors,
@@ -46,5 +46,3 @@ RightColumn.defaultProps = {
     chats: [],
     messages: []
 };
-
-export default RightColumn;

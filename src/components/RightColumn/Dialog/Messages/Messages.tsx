@@ -67,7 +67,7 @@ const renderDateMessages = (
     )
 })
 
-const Messages: React.SFC<IProps> = (props: IProps) => {
+export const Messages: React.SFC<IProps> = (props: IProps) => {
     const {
         authors,
         dateMeassages,
@@ -94,5 +94,3 @@ Messages.defaultProps = {
     dateMeassages: [],
     chatMessages: []
 };
-
-export default Messages;

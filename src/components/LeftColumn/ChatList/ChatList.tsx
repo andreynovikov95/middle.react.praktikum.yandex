@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import ChatBar from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
+import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 
 import './ChatList.css'
 import {
@@ -15,7 +15,7 @@ interface IProps {
   selectChat: any;
 };
 
-const ChatList: React.SFC<IProps> = (props: IProps) => {
+export const ChatList: React.SFC<IProps> = (props: IProps) => {
   const {
     selectedChatId,
     authors,
@@ -64,5 +64,3 @@ ChatList.defaultProps = {
   messages: [],
   selectChat: () => {}
 };
-
-export default ChatList;

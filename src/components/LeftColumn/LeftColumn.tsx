@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatList from 'components/LeftColumn/ChatList/ChatList';
+import { ChatList } from 'components/LeftColumn/ChatList/ChatList';
 
 import './LeftColumn.css'
 
@@ -13,7 +13,7 @@ interface IProps {
 };
 
 
-const LeftColumn: React.SFC<IProps> = (props: IProps) => {
+export const LeftColumn: React.SFC<IProps> = (props: IProps) => {
   const {
     selectedChatId,
     authors,
@@ -44,5 +44,3 @@ LeftColumn.defaultProps = {
   messages: [],
   selectChat: () => {}
 };
-
-export default LeftColumn;

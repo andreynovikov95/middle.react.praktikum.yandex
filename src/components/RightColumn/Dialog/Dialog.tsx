@@ -1,6 +1,6 @@
 import React from 'react'
 
-import DateMessages from './Messages/Messages'
+import { Messages } from './Messages/Messages'
 
 import './Dialog.css'
 
@@ -10,7 +10,7 @@ interface IProps {
     dateMeassages: object[]
 };
 
-const Dialog: React.SFC<IProps> = (props: IProps) => {
+export const Dialog: React.SFC<IProps> = (props: IProps) => {
     const {
         authors,
         chatMessages,
@@ -19,7 +19,7 @@ const Dialog: React.SFC<IProps> = (props: IProps) => {
 
     return (
         <div className={'dialog'}>
-            <DateMessages
+            <Messages
                 authors={authors}
                 chatMessages={chatMessages}
                 dateMeassages={dateMeassages}
@@ -33,5 +33,3 @@ Dialog.defaultProps = {
     chatMessages: [],
     dateMeassages: []
 };
-
-export default Dialog;

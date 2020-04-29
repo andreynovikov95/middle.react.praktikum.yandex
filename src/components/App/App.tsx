@@ -1,15 +1,10 @@
 import React from 'react';
-import Chat from 'components/Chat/Chat'
+import { Chat } from 'components/Chat/Chat'
 
 import './App.css'
 
-function App() {
-
-  return (
+export const App = () => (
     <div className="app">
       <Chat />
     </div>
   );
-}
-
-export default App;

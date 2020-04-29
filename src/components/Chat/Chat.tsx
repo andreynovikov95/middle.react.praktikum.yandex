@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftColumn from 'components/LeftColumn/LeftColumn';
-import RightColumn from 'components/RightColumn/RightColumn';
+import { LeftColumn } from 'components/LeftColumn/LeftColumn';
+import { RightColumn } from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
@@ -21,7 +21,7 @@ interface IState {
   selectedChatId: string;
 }
 
-class Chat extends React.Component<IProps, IState>  {
+export class Chat extends React.Component<IProps, IState>  {
   public static defaultProps: Partial<IProps> = {
     authors: AUTHORS,
     dateMeassages: DATE_MESSAGES,
@@ -73,5 +73,3 @@ class Chat extends React.Component<IProps, IState>  {
     );
   }
 }
-
-export default Chat;
