@@ -3,8 +3,12 @@ const convertDate = (date: string) => date
     .reverse()
     .join('-')
 
-export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Array<any>, dateMeassages: Array<any>) => {
-    return chats
+export const getChatList = (
+    chats: Array<any>,
+    messages: Array<any>,
+    authors: Array<any>,
+    dateMeassages: Array<any>
+) => chats
         .map(({
             chatId,
             messagesId,
@@ -38,4 +42,3 @@ export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Ar
 
             return Date.parse(dateB) - Date.parse(dateA)
         })
-}
