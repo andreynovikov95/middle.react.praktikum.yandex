@@ -18,7 +18,7 @@ interface IProps {
   dateMeassages: DataDateMeassages,
   chats: DataChats,
   messages: DataMesseges,
-  selectChat: any;
+  selectChat: Function;
 };
 
 // TODO Вопрос: нужно ли указывать значения по умолчания

@@ -39,7 +39,7 @@ export class Chat extends React.Component<IProps, IState>  {
     selectedChatId: ''
   }
 
-  public selectChat = (id: string) => () => {
+  public selectChat = (id: string): Function => (id: string): void => {
     if (this.state.selectedChatId !== id) {
       this.setState({ selectedChatId: id })
     }

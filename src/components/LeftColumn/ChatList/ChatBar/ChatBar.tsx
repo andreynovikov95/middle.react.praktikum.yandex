@@ -11,7 +11,7 @@ interface IProps {
     date: string;
     lastMessage: string;
     icon: string;
-    selectChat: any;
+    selectChat: Function;
 };
 
 export const ChatBar = ({
