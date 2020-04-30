@@ -1,5 +1,11 @@
 import React, { useMemo } from 'react';
 import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
+import {
+  DataAuthors,
+  DataDateMeassages,
+  DataChats,
+  DataMesseges
+} from 'components/Chat/Chat.d'
 
 import './ChatList.css'
 import {
@@ -8,10 +14,10 @@ import {
 
 interface IProps {
   selectedChatId: string;
-  authors: object[],
-  dateMeassages: object[],
-  chats: object[],
-  messages: object[],
+  authors: DataAuthors,
+  dateMeassages: DataDateMeassages,
+  chats: DataChats,
+  messages: DataMesseges,
   selectChat: any;
 };
 

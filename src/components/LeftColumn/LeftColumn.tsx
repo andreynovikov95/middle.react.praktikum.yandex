@@ -1,14 +1,20 @@
 import React from 'react';
 import { ChatList } from 'components/LeftColumn/ChatList/ChatList';
+import {
+  DataAuthors,
+  DataDateMeassages,
+  DataChats,
+  DataMesseges
+} from 'components/Chat/Chat.d'
 
 import './LeftColumn.css'
 
 interface IProps {
   selectedChatId: string,
-  authors: object[],
-  dateMeassages: object[],
-  chats: object[],
-  messages: object[],
+  authors: DataAuthors,
+  dateMeassages: DataDateMeassages,
+  chats: DataChats,
+  messages: DataMesseges,
   selectChat: any
 };
 

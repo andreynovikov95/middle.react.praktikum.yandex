@@ -6,13 +6,19 @@ import './RightColumn.css'
 import {
     getChatMessages
 } from './RightColumn.mock'
+import {
+    DataAuthors,
+    DataDateMeassages,
+    DataChats,
+    DataMesseges
+} from 'components/Chat/Chat.d'
 
 interface IProps {
     selectedChatId: string,
-    authors: object[],
-    dateMeassages: object[],
-    chats: object[],
-    messages: object[]
+    authors: DataAuthors,
+    dateMeassages: DataDateMeassages,
+    chats: DataChats,
+    messages: DataMesseges
 };
 
 export const RightColumn = ({

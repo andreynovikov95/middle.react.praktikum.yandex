@@ -9,12 +9,18 @@ import {
   CHATS,
   MESSAGES
 } from './Chat.mock'
+import {
+  DataAuthors,
+  DataDateMeassages,
+  DataChats,
+  DataMesseges
+} from './Chat.d'
 
 interface IProps {
-  authors: object[];
-  dateMeassages: Array<any>;
-  chats: object[];
-  messages: object[];
+  authors: DataAuthors;
+  dateMeassages: DataDateMeassages;
+  chats: DataChats;
+  messages: DataMesseges;
 }
 
 interface IState {
