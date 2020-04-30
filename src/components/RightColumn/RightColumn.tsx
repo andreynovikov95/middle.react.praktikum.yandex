@@ -1,28 +1,33 @@
 import React, { useMemo } from 'react'
 
-import Dialog from './Dialog/Dialog'
+import { Dialog } from './Dialog/Dialog'
 
 import './RightColumn.css'
 import {
     getChatMessages
 } from './RightColumn.mock'
+import {
+    DataAuthors,
+    DataDateMeassages,
+    DataChats,
+    DataMesseges
+} from 'components/Chat/Chat.d'
 
 interface IProps {
     selectedChatId: string,
-    authors: object[],
-    dateMeassages: object[],
-    chats: object[],
-    messages: object[]
+    authors: DataAuthors,
+    dateMeassages: DataDateMeassages,
+    chats: DataChats,
+    messages: DataMesseges
 };
 
-const RightColumn: React.SFC<IProps> = (props: IProps) => {
-    const {
-        selectedChatId,
-        authors,
-        dateMeassages,
-        chats,
-        messages
-    } = props
+export const RightColumn = ({
+    selectedChatId,
+    authors = [],
+    dateMeassages = [],
+    chats = [],
+    messages = []
+}: IProps) => {
     const chatMessages = useMemo(() => getChatMessages(selectedChatId, chats, messages),
         [selectedChatId, chats, messages]
     )
@@ -39,12 +44,3 @@ const RightColumn: React.SFC<IProps> = (props: IProps) => {
         </div>
     )
 };
-
-RightColumn.defaultProps = {
-    authors: [],
-    dateMeassages: [],
-    chats: [],
-    messages: []
-};
-
-export default RightColumn;

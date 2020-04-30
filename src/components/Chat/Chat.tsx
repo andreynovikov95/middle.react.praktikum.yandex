@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftColumn from 'components/LeftColumn/LeftColumn';
-import RightColumn from 'components/RightColumn/RightColumn';
+import { LeftColumn } from 'components/LeftColumn/LeftColumn';
+import { RightColumn } from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
@@ -9,20 +9,26 @@ import {
   CHATS,
   MESSAGES
 } from './Chat.mock'
+import {
+  DataAuthors,
+  DataDateMeassages,
+  DataChats,
+  DataMesseges
+} from './Chat.d'
 
 interface IProps {
-  authors: object[];
-  dateMeassages: Array<any>;
-  chats: object[];
-  messages: object[];
+  authors: DataAuthors;
+  dateMeassages: DataDateMeassages;
+  chats: DataChats;
+  messages: DataMesseges;
 }
 
 interface IState {
   selectedChatId: string;
 }
 
-class Chat extends React.Component<IProps, IState>  {
-  public static defaultProps: Partial<IProps> = {
+export class Chat extends React.Component<IProps, IState>  {
+  public static defaultProps: IProps = {
     authors: AUTHORS,
     dateMeassages: DATE_MESSAGES,
     chats: CHATS,
@@ -33,7 +39,7 @@ class Chat extends React.Component<IProps, IState>  {
     selectedChatId: ''
   }
 
-  public selectChat = (id: string) => () => {
+  public selectChat = (id: string): Function => (): void => {
     if (this.state.selectedChatId !== id) {
       this.setState({ selectedChatId: id })
     }
@@ -73,5 +79,3 @@ class Chat extends React.Component<IProps, IState>  {
     );
   }
 }
-
-export default Chat;
