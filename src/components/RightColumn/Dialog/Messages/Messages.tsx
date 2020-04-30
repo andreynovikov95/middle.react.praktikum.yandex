@@ -24,8 +24,8 @@ const renderMessages = (
     time
 })  => {
     const {
-        name,
-        avatar
+        name = 'The Shrek 2',
+        avatar = '/images/shrek2.png'
     } = authors[authorId]
 
     return (

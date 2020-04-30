@@ -23,7 +23,7 @@ interface IChat  {
 
  export type DataChats = DataChat[];
 
-interface IMessage {
+export interface IMessage {
     dateMessagesId: number,
     date: string
 };
