@@ -1,22 +1,31 @@
 import React from 'react'
 
+import {
+    DataAuthors,
+    DataDateMeassages,
+    DataChats,
+    IDateMessage
+} from 'components/Chat/Chat.d'
 import './Messages.css'
 
 interface IProps {
-    authors: object[],
-    dateMeassages: object[],
-    chatMessages: object[]
+    authors: DataAuthors,
+    dateMeassages: DataDateMeassages,
+    chatMessages: DataChats
 };
 
-const renderMessages = (messages: Array<any>, authors: Array<any>) => messages.map(({
+const renderMessages = (
+    messages: Array<IDateMessage>,
+    authors: DataAuthors
+) => messages.map(({
     authorId,
     messageId,
     message,
     time
 })  => {
     const {
-        name,
-        avatar
+        name = 'The Shrek 2',
+        avatar = '/images/shrek2.png'
     } = authors[authorId]
 
     return (
@@ -43,12 +52,12 @@ const renderMessages = (messages: Array<any>, authors: Array<any>) => messages.m
 })
 
 const renderDateMessages = (
-    chatMessages: Array<any>,
-    messages: Array<any>,
-    authors: Array<any>
+    chatMessages: DataChats,
+    messages: DataDateMeassages,
+    authors: DataAuthors
 ) => chatMessages.map(({
     date,
-    dateMessagesId,
+    dateMessagesId
 })  => {
     const dateMessages = messages[dateMessagesId]
 
@@ -67,32 +76,20 @@ const renderDateMessages = (
     )
 })
 
-const Messages: React.SFC<IProps> = (props: IProps) => {
-    const {
-        authors,
-        dateMeassages,
-        chatMessages
-    } = props
-
-    return (
-        <div className={'messages'}>
-            {renderDateMessages(chatMessages, dateMeassages, authors)}
-            <div className={'messages__panel'}>
-                <img src='icons/clip.svg' alt='clip' />
-                <textarea
-                    className={'messages__panel__textarea'}
-                    required
-                />
-                <img src='icons/send.svg' alt='clip' />
-            </div>
+export const Messages = ({
+    authors = [],
+    dateMeassages = [],
+    chatMessages = []
+}: IProps) => (
+    <div className={'messages'}>
+        {renderDateMessages(chatMessages, dateMeassages, authors)}
+        <div className={'messages__panel'}>
+            <img src='icons/clip.svg' alt='clip' />
+            <textarea
+                className={'messages__panel__textarea'}
+                required
+            />
+            <img src='icons/send.svg' alt='clip' />
         </div>
-    )
-};
-
-Messages.defaultProps = {
-    authors: [],
-    dateMeassages: [],
-    chatMessages: []
-};
-
-export default Messages;
+    </div>
+);

@@ -1,29 +1,27 @@
 import React, { useMemo } from 'react';
-import ChatBar from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
+import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 
 import './ChatList.css'
 import {
     getChatList
 } from './ChatList.mock'
+import {
+  IProps
+} from './ChatList.d'
 
-interface IProps {
-  selectedChatId: string;
-  authors: object[],
-  dateMeassages: object[],
-  chats: object[],
-  messages: object[],
-  selectChat: any;
-};
+// TODO Вопрос: нужно ли указывать значения по умолчанию
+// для массивов, объектов и функций? какая реальная польза?
+// Ведь можно обратиться к полю, и выйдет ошибка,
+// а функция не отработает, там где должна (но и не поломает приложение на проде)
 
-const ChatList: React.SFC<IProps> = (props: IProps) => {
-  const {
-    selectedChatId,
-    authors,
-    dateMeassages,
-    chats,
-    messages,
-    selectChat
-  } = props
+export const ChatList = ({
+  selectedChatId,
+  authors = [],
+  dateMeassages = [],
+  chats = [],
+  messages = [],
+  selectChat = () => {}
+}: IProps) => {
   const chatList = useMemo(() => getChatList(chats, messages, authors, dateMeassages),
     [chats, messages, authors, dateMeassages]
   )
@@ -57,12 +55,3 @@ const ChatList: React.SFC<IProps> = (props: IProps) => {
     </div>
   );
 }
-
-ChatList.defaultProps = {
-  authors: [],
-  chats: [],
-  messages: [],
-  selectChat: () => {}
-};
-
-export default ChatList;

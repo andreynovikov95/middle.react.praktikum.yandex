@@ -1,27 +1,43 @@
-const convertDate = (date: string) => date
+import {
+    DataAuthors,
+    DataDateMeassages,
+    DataChats,
+    DataMesseges,
+    IMessage
+} from 'components/Chat/Chat.d'
+
+import {
+    DataChatList
+} from './ChatList.d'
+
+const convertDate = (date: string): string => date
     .split('/')
     .reverse()
     .join('-')
 
-export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Array<any>, dateMeassages: Array<any>) => {
-    return chats
+export const getChatList = (
+    chats: DataChats,
+    messages: DataMesseges,
+    authors: DataAuthors,
+    dateMeassages: DataDateMeassages
+) : DataChatList => chats
         .map(({
             chatId,
             messagesId,
-            chatName,
-            icon
+            chatName = 'Group chat',
+            icon = 'react'
         }) => {
-                const chatMessages: Array<any> = messages[messagesId]
+                const chatMessages: Array<IMessage> = messages[messagesId]
                 const {
-                    dateMessagesId,
-                    date
+                    dateMessagesId = 0,
+                    date = '18/3/2020'
                 } = chatMessages[chatMessages.length - 1]
                 const lastDateMeassages = dateMeassages[dateMessagesId]
                 const {
-                    authorId,
-                    message
+                    authorId = 0,
+                    message = 'tas odio. Ut sit amet...'
                 } = lastDateMeassages[lastDateMeassages.length - 1]
-                const author = authors[authorId].name
+                const author = authors[authorId].name || 'Anonymous'
 
                 return ({
                     author,
@@ -38,4 +54,3 @@ export const getChatList = (chats: Array<any>, messages: Array<any>, authors: Ar
 
             return Date.parse(dateB) - Date.parse(dateA)
         })
-}
