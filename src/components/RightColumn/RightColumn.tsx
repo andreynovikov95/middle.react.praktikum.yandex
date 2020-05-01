@@ -1,15 +1,13 @@
 import React, { useMemo } from 'react'
 
-import { Dialog } from './Dialog/Dialog'
+import { Messages } from './Messages/Messages'
 
 import './RightColumn.css'
-import {
-    getChatMessages
-} from './RightColumn.mock'
 import {
     TDataAuthors,
     TDataDateMessages,
     TDataChats,
+    TDataChatMesseges,
     TDataChatsMesseges
 } from 'components/Chat/Chat'
 
@@ -20,6 +18,27 @@ type TProps = {
     chats: TDataChats,
     messages: TDataChatsMesseges
 };
+
+const getChatMessages = (
+    selectedChatId?: string,
+    chats: TDataChats = [],
+    messages: TDataChatsMesseges = []
+) : TDataChatMesseges => {
+    let selectedChat
+    if (selectedChatId) {
+        selectedChat = chats.find(
+            ({ chatId }: {
+                chatId: string
+            }) => chatId === selectedChatId
+        )
+   }
+
+    if (selectedChat) {
+        return messages[selectedChat.messagesId]
+    } else {
+         return []
+    }
+}
 
 export const RightColumn = ({
     selectedChatId,
@@ -33,12 +52,12 @@ export const RightColumn = ({
     )
 
     return (
-        <div className={'chats'}>
+        <div className={'rightColumn'}>
             {chatMessages.length > 0 && 
-                <Dialog
+                <Messages
                     authors={authors}
-                    dateMeassages={dateMeassages}
                     chatMessages={chatMessages}
+                    dateMeassages={dateMeassages}
                 />
             }
         </div>
