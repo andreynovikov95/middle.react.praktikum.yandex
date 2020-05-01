@@ -1,9 +1,9 @@
 import {
-    DataAuthors,
-    DataDateMeassages,
-    DataChats,
-    DataMesseges,
-    IMessage
+    TDataAuthors,
+    TDataChats,
+    TDataChatMesseges,
+    TDataDateMessages,
+    TDataChatsMesseges,
 } from 'components/Chat/Chat'
 
 import {
@@ -16,10 +16,10 @@ const convertDate = (date: string): string => date
     .join('-')
 
 export const getChatList = (
-    chats: DataChats,
-    messages: DataMesseges,
-    authors: DataAuthors,
-    dateMeassages: DataDateMeassages
+    chats: TDataChats,
+    messages: TDataChatsMesseges,
+    authors: TDataAuthors,
+    dateMeassages: TDataDateMessages
 ) : DataChatList => chats
         .map(({
             chatId,
@@ -27,7 +27,7 @@ export const getChatList = (
             chatName = 'Group chat',
             icon = 'react'
         }) => {
-                const chatMessages: Array<IMessage> = messages[messagesId]
+                const chatMessages: TDataChatMesseges = messages[messagesId]
                 const {
                     dateMessagesId = 0,
                     date = '18/3/2020'

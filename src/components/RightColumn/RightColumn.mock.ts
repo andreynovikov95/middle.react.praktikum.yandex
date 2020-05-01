@@ -1,14 +1,14 @@
 import {
-    DataChats,
-    DataMesseges,
-    IMessage
+    TDataChats,
+    TDataChatsMesseges,
+    TDataChatMesseges
 } from 'components/Chat/Chat'
 
 export const getChatMessages = (
     selectedChatId?: string,
-    chats: DataChats = [],
-    messages: DataMesseges = []
-) : Array<IMessage> => {
+    chats: TDataChats = [],
+    messages: TDataChatsMesseges = []
+) : TDataChatMesseges => {
     let selectedChat
     if (selectedChatId) {
         selectedChat = chats.find(

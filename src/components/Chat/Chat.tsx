@@ -10,58 +10,60 @@ import {
   MESSAGES
 } from './Chat.mock'
 
-interface IAuthor {
+type TAuthor = {
   name: string,
   avatar: string
 }
 
-export type DataAuthors = IAuthor[];
+export type TDataAuthors = TAuthor[];
 
-export interface IDateMessage {
+export type TDateMessage = {
   authorId: number,
   messageId: string,
   message: string,
   time: string
 };
+ 
+export type TDataDateMessages = TDateMessage[][];
 
-export type DataDateMeassages = IDateMessage[][];
-
-interface IChat  {
+type TChat = {
   chatId: string,
   chatName: string,
   icon: string,
   messagesId: number
 };
 
-export type DataChats = IChat[];
+export type TDataChats = TChat[];
 
-export interface IMessage {
+export type TMessage = {
   dateMessagesId: number,
   date: string
 };
 
-export type DataMesseges = IMessage[][];
+export type TDataChatMesseges = TMessage[];
 
-interface IProps {
-  authors: DataAuthors;
-  dateMeassages: DataDateMeassages;
-  chats: DataChats;
-  messages: DataMesseges;
+export type TDataChatsMesseges = TDataChatMesseges[];
+
+type TProps = {
+  authors: TDataAuthors,
+  dateMeassages: TDataDateMessages,
+  chats: TDataChats,
+  messages: TDataChatsMesseges
 }
 
-interface IState {
+type TState = {
   selectedChatId: string;
 }
 
-export class Chat extends React.Component<IProps, IState>  {
-  public static defaultProps: IProps = {
+export class Chat extends React.Component<TProps, TState>  {
+  public static defaultProps: TProps = {
     authors: AUTHORS,
     dateMeassages: DATE_MESSAGES,
     chats: CHATS,
     messages: MESSAGES
   };
 
-  public state: IState = {
+  public state: TState = {
     selectedChatId: ''
   }
 

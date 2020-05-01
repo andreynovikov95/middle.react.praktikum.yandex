@@ -1,22 +1,25 @@
 import React from 'react'
 
 import {
-    DataAuthors,
-    DataDateMeassages,
-    IDateMessage,
-    IMessage
+    TDataAuthors,
+    TDataChatMesseges,
+    TDataDateMessages,
+    TDateMessage
 } from 'components/Chat/Chat'
+
 import './Messages.css'
 
-interface IProps {
-    authors: DataAuthors,
-    dateMeassages: DataDateMeassages,
-    chatMessages: Array<IMessage>
+type TDateMessages = TDateMessage[]
+
+type TProps = {
+    authors: TDataAuthors,
+    chatMessages: TDataChatMesseges,
+    dateMeassages: TDataDateMessages
 };
 
 const renderMessages = (
-    messages: Array<IDateMessage>,
-    authors: DataAuthors
+    messages: TDateMessages,
+    authors: TDataAuthors
 ) => messages.map(({
     authorId,
     messageId,
@@ -52,9 +55,9 @@ const renderMessages = (
 })
 
 const renderDateMessages = (
-    chatMessages: Array<IMessage>,
-    messages: DataDateMeassages,
-    authors: DataAuthors
+    chatMessages: TDataChatMesseges,
+    messages: TDataDateMessages,
+    authors: TDataAuthors
 ) => chatMessages.map(({
     date,
     dateMessagesId
@@ -80,7 +83,7 @@ export const Messages = ({
     authors = [],
     dateMeassages = [],
     chatMessages = []
-}: IProps) => (
+}: TProps) => (
     <div className={'messages'}>
         {renderDateMessages(chatMessages, dateMeassages, authors)}
         <div className={'messages__panel'}>

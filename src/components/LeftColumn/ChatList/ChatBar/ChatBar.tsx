@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import './ChatBar.css'
 
-interface IProps {
+type TProps = {
     chatId: string,
     selectedChatId: string,
     author: string;
@@ -23,7 +23,7 @@ export const ChatBar = ({
     lastMessage = 'tas odio. Ut sit amet...',
     icon = 'react',
     selectChat
-}: IProps) => (
+}: TProps) => (
     <div
         className={cx('bar', {
             'bar_selected': chatId === selectedChatId

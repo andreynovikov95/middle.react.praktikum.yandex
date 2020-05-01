@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 import {
-  DataAuthors,
-  DataDateMeassages,
-  DataChats,
-  DataMesseges
+  TDataAuthors,
+  TDataDateMessages,
+  TDataChats,
+  TDataChatsMesseges
 } from 'components/Chat/Chat'
 
 import './ChatList.css'
@@ -12,16 +12,16 @@ import {
     getChatList
 } from './ChatList.mock'
 
-export interface IProps {
+export type TProps = {
   selectedChatId: string;
-  authors: DataAuthors,
-  dateMeassages: DataDateMeassages,
-  chats: DataChats,
-  messages: DataMesseges,
-  selectChat: (id: string) => () => void;
+  authors: TDataAuthors,
+  dateMeassages: TDataDateMessages,
+  chats: TDataChats,
+  messages: TDataChatsMesseges,
+  selectChat: (id: string) => () => void
 };
 
-interface IChatList {
+type TChatList = {
   author: string,
   chatId: string,
   date: string,
@@ -30,7 +30,7 @@ interface IChatList {
   icon: string
 }
 
-export type DataChatList = IChatList[];
+export type DataChatList = TChatList[];
 
 export const ChatList = ({
   selectedChatId,
@@ -39,7 +39,7 @@ export const ChatList = ({
   chats = [],
   messages = [],
   selectChat
-}: IProps) => {
+}: TProps) => {
   const chatList = useMemo(() => getChatList(chats, messages, authors, dateMeassages),
     [chats, messages, authors, dateMeassages]
   )
@@ -54,9 +54,7 @@ export const ChatList = ({
                 chatName,
                 lastMessage,
                 icon
-            }) => {
-
-            return (
+            }) => (
                 <ChatBar
                     key={chatId}
                     chatId={chatId}
@@ -69,7 +67,7 @@ export const ChatList = ({
                     selectChat={selectChat}
                 />
             )
-        })}
+        )}
     </div>
   );
 }

@@ -7,18 +7,18 @@ import {
     getChatMessages
 } from './RightColumn.mock'
 import {
-    DataAuthors,
-    DataDateMeassages,
-    DataChats,
-    DataMesseges
+    TDataAuthors,
+    TDataDateMessages,
+    TDataChats,
+    TDataChatsMesseges
 } from 'components/Chat/Chat'
 
-interface IProps {
+type TProps = {
     selectedChatId: string,
-    authors: DataAuthors,
-    dateMeassages: DataDateMeassages,
-    chats: DataChats,
-    messages: DataMesseges
+    authors: TDataAuthors,
+    dateMeassages: TDataDateMessages,
+    chats: TDataChats,
+    messages: TDataChatsMesseges
 };
 
 export const RightColumn = ({
@@ -27,7 +27,7 @@ export const RightColumn = ({
     dateMeassages = [],
     chats = [],
     messages = []
-}: IProps) => {
+}: TProps) => {
     const chatMessages = useMemo(() => getChatMessages(selectedChatId, chats, messages),
         [selectedChatId, chats, messages]
     )
