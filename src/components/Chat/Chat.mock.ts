@@ -1,4 +1,5 @@
 import shortid from 'shortid'
+import { loremIpsum } from "lorem-ipsum";
 
 export const CHATS = [
     {
@@ -177,31 +178,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         }
     ],
@@ -209,31 +210,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         }
     ],
@@ -241,31 +242,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:14:31'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:49:32'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '08:38:10'
         }
     ],
@@ -273,31 +274,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:14:31'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:49:32'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '08:38:10'
         }
     ],
@@ -305,31 +306,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:14:31'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:49:32'
         },
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '08:38:10'
         }
     ],
@@ -337,31 +338,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '04:47:07'
         },
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:14:31'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '06:49:32'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '08:38:10'
         }
     ],
@@ -369,31 +370,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:41:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:42:06'
         },
         {
             authorId: 0,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:43:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:44:06'
         }
     ],
@@ -401,31 +402,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:45:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:46:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:47:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:48:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:49:06'
         }
     ],
@@ -433,31 +434,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '22:40:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '22:45:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:40:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:45:06'
         },
         {
             authorId: 1,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '23:50:06'
         }
     ],
@@ -465,31 +466,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '10:40:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '11:40:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '12:40:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '13:40:06'
         },
         {
             authorId: 2,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '14:40:06'
         }
     ],
@@ -497,31 +498,31 @@ export const DATE_MESSAGES = [
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '15:40:06'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '16:40:06'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '17:40:06'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '18:40:06'
         },
         {
             authorId: 3,
             messageId: shortid.generate(),
-            message: 'tas odio. Ut sit amet...',
+            message: loremIpsum({ count: 3 }),
             time: '19:40:06'
         }
     ]
