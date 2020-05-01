@@ -1,4 +1,6 @@
 .rightColumn {
+    display: flex;
+    flex-direction: column-reverse;
     flex-grow: 1;
     background-color: #f1feff;
 }

@@ -53,13 +53,11 @@ export const RightColumn = ({
 
     return (
         <div className={'rightColumn'}>
-            {chatMessages.length > 0 && 
-                <Messages
-                    authors={authors}
-                    chatMessages={chatMessages}
-                    dateMeassages={dateMeassages}
-                />
-            }
+            <Messages
+                authors={authors}
+                chatMessages={chatMessages}
+                dateMeassages={dateMeassages}
+            />
         </div>
     )
 };

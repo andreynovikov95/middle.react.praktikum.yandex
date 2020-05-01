@@ -17,6 +17,10 @@ type TProps = {
     dateMeassages: TDataDateMessages
 };
 
+// TODO вопрос: куда выносить константы
+// раньше выноси в mock 
+const EMPTY_CHAT_TEXT = 'You have no messages yet'
+
 const renderMessages = (
     messages: TDateMessages,
     authors: TDataAuthors
@@ -85,7 +89,14 @@ export const Messages = ({
     chatMessages = []
 }: TProps) => (
     <div className={'messages'}>
-        {renderDateMessages(chatMessages, dateMeassages, authors)}
+        {chatMessages.length > 0
+            ? renderDateMessages(chatMessages, dateMeassages, authors)
+            : (
+                <div  className={'messages__emptyChat'}>
+                    {EMPTY_CHAT_TEXT}
+                </div>
+            )
+        }
         <div className={'messages__panel'}>
             <img src='icons/clip.svg' alt='clip' />
             <textarea
