@@ -7,7 +7,8 @@ import {
   AUTHORS,
   DATE_MESSAGES,
   CHATS,
-  MESSAGES
+  MESSAGES,
+  PLACEHOLDER_TEXT
 } from './Chat.mock'
 
 type TAuthor = {
@@ -97,15 +98,20 @@ export class Chat extends PureComponent  {
           messages={messages}
           selectChat={this.selectChat}
         />
-        {selectedChatId && (
-          <RightColumn
+        {selectedChatId
+         ? <RightColumn
             selectedChatId={selectedChatId}
             authors={authors}
             chats={chats}
             messages={messages}
             dateMeassages={dateMeassages}
           />
-        )}
+          : <div className="chat__placeholder">
+              <div className="chat__placeholder__text">
+                {PLACEHOLDER_TEXT}
+              </div>
+            </div>
+          }
       </div>
     );
   }

@@ -1,6 +1,8 @@
 import shortid from 'shortid'
 import { loremIpsum } from "lorem-ipsum";
 
+export const PLACEHOLDER_TEXT = 'Please select a chat to start messaging'
+
 export const CHATS = [
     {
         chatId: shortid.generate(),
