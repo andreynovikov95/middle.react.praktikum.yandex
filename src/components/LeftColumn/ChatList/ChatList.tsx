@@ -1,18 +1,79 @@
 import React, { useMemo } from 'react';
 import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
+import {
+  TDataAuthors,
+  TDataChats,
+  TDataChatMesseges,
+  TDataChatsMesseges,
+  TDataDateMessages
+} from 'components/Chat/Chat'
 
 import './ChatList.css'
-import {
-    getChatList
-} from './ChatList.mock'
-import {
-  IProps
-} from './ChatList.d'
 
-// TODO Вопрос: нужно ли указывать значения по умолчанию
-// для массивов, объектов и функций? какая реальная польза?
-// Ведь можно обратиться к полю, и выйдет ошибка,
-// а функция не отработает, там где должна (но и не поломает приложение на проде)
+export type TProps = {
+  selectedChatId: string;
+  authors: TDataAuthors,
+  chats: TDataChats,
+  dateMeassages: TDataDateMessages,
+  messages: TDataChatsMesseges,
+  selectChat: (id: string) => () => void
+};
+
+type TChatList = {
+  author: string,
+  chatId: string,
+  date: string,
+  chatName: string,
+  lastMessage: string,
+  icon: string
+}
+
+export type DataChatList = TChatList[];
+
+const convertDate = (date: string): string => date
+  .split('/')
+  .reverse()
+  .join('-')
+
+const prepareChatList = (
+  chats: TDataChats,
+  messages: TDataChatsMesseges,
+  authors: TDataAuthors,
+  dateMeassages: TDataDateMessages
+) : DataChatList => chats
+      .map(({
+          chatId,
+          messagesId,
+          chatName = 'Group chat',
+          icon = 'react'
+      }) => {
+              const chatMessages: TDataChatMesseges = messages[messagesId]
+              const {
+                  dateMessagesId = 0,
+                  date = '18/3/2020'
+              } = chatMessages[chatMessages.length - 1]
+              const lastDateMeassages = dateMeassages[dateMessagesId]
+              const {
+                  authorId = 0,
+                  message = 'tas odio. Ut sit amet...'
+              } = lastDateMeassages[lastDateMeassages.length - 1]
+              const author = authors[authorId].name || 'Anonymous'
+
+              return ({
+                  author,
+                  chatId,
+                  date,
+                  chatName,
+                  lastMessage: message,
+                  icon
+          })
+      })
+      .sort((a, b) => {
+          const dateA = convertDate(a.date)
+          const dateB = convertDate(b.date)
+
+          return Date.parse(dateB) - Date.parse(dateA)
+      })
 
 export const ChatList = ({
   selectedChatId,
@@ -20,9 +81,9 @@ export const ChatList = ({
   dateMeassages = [],
   chats = [],
   messages = [],
-  selectChat = () => {}
-}: IProps) => {
-  const chatList = useMemo(() => getChatList(chats, messages, authors, dateMeassages),
+  selectChat
+}: TProps) => {
+  const chatList = useMemo(() => prepareChatList(chats, messages, authors, dateMeassages),
     [chats, messages, authors, dateMeassages]
   )
 
@@ -36,9 +97,7 @@ export const ChatList = ({
                 chatName,
                 lastMessage,
                 icon
-            }) => {
-
-            return (
+            }) => (
                 <ChatBar
                     key={chatId}
                     chatId={chatId}
@@ -51,7 +110,7 @@ export const ChatList = ({
                     selectChat={selectChat}
                 />
             )
-        })}
+        )}
     </div>
   );
 }

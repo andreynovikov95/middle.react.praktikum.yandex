@@ -1,22 +1,29 @@
 import React from 'react'
 
 import {
-    DataAuthors,
-    DataDateMeassages,
-    DataChats,
-    IDateMessage
-} from 'components/Chat/Chat.d'
+    TDataAuthors,
+    TDataChatMesseges,
+    TDataDateMessages,
+    TDateMessage
+} from 'components/Chat/Chat'
+
 import './Messages.css'
 
-interface IProps {
-    authors: DataAuthors,
-    dateMeassages: DataDateMeassages,
-    chatMessages: DataChats
+type TDateMessages = TDateMessage[]
+
+type TProps = {
+    authors: TDataAuthors,
+    chatMessages: TDataChatMesseges,
+    dateMeassages: TDataDateMessages
 };
 
+// TODO вопрос: куда выносить константы
+// раньше выносил в mock, чтобы не было по 300+ строчек кода
+const EMPTY_CHAT_TEXT = 'You have no messages yet'
+
 const renderMessages = (
-    messages: Array<IDateMessage>,
-    authors: DataAuthors
+    messages: TDateMessages,
+    authors: TDataAuthors
 ) => messages.map(({
     authorId,
     messageId,
@@ -52,9 +59,9 @@ const renderMessages = (
 })
 
 const renderDateMessages = (
-    chatMessages: DataChats,
-    messages: DataDateMeassages,
-    authors: DataAuthors
+    chatMessages: TDataChatMesseges,
+    messages: TDataDateMessages,
+    authors: TDataAuthors
 ) => chatMessages.map(({
     date,
     dateMessagesId
@@ -80,9 +87,16 @@ export const Messages = ({
     authors = [],
     dateMeassages = [],
     chatMessages = []
-}: IProps) => (
+}: TProps) => (
     <div className={'messages'}>
-        {renderDateMessages(chatMessages, dateMeassages, authors)}
+        {chatMessages.length > 0
+            ? renderDateMessages(chatMessages, dateMeassages, authors)
+            : (
+                <div  className={'messages__emptyChat'}>
+                    {EMPTY_CHAT_TEXT}
+                </div>
+            )
+        }
         <div className={'messages__panel'}>
             <img src='icons/clip.svg' alt='clip' />
             <textarea

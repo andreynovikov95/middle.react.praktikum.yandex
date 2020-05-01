@@ -1,21 +1,21 @@
 import React from 'react';
 import { ChatList } from 'components/LeftColumn/ChatList/ChatList';
 import {
-  DataAuthors,
-  DataDateMeassages,
-  DataChats,
-  DataMesseges
-} from 'components/Chat/Chat.d'
+  TDataAuthors,
+  TDataDateMessages,
+  TDataChats,
+  TDataChatsMesseges
+} from 'components/Chat/Chat'
 
 import './LeftColumn.css'
 
-interface IProps {
+type TProps = {
   selectedChatId: string,
-  authors: DataAuthors,
-  dateMeassages: DataDateMeassages,
-  chats: DataChats,
-  messages: DataMesseges,
-  selectChat: Function
+  authors: TDataAuthors,
+  dateMeassages: TDataDateMessages,
+  chats: TDataChats,
+  messages: TDataChatsMesseges,
+  selectChat: (id: string) => () => void
 };
 
 
@@ -26,7 +26,7 @@ export const LeftColumn = ({
     chats,
     messages,
     selectChat
-}: IProps) => (
+}: TProps) => (
     <div className='leftColumn'>
       <ChatList
         selectedChatId={selectedChatId}

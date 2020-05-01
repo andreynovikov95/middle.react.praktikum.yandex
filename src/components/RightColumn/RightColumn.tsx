@@ -1,25 +1,44 @@
 import React, { useMemo } from 'react'
 
-import { Dialog } from './Dialog/Dialog'
+import { Messages } from './Messages/Messages'
 
 import './RightColumn.css'
 import {
-    getChatMessages
-} from './RightColumn.mock'
-import {
-    DataAuthors,
-    DataDateMeassages,
-    DataChats,
-    DataMesseges
-} from 'components/Chat/Chat.d'
+    TDataAuthors,
+    TDataDateMessages,
+    TDataChats,
+    TDataChatMesseges,
+    TDataChatsMesseges
+} from 'components/Chat/Chat'
 
-interface IProps {
+type TProps = {
     selectedChatId: string,
-    authors: DataAuthors,
-    dateMeassages: DataDateMeassages,
-    chats: DataChats,
-    messages: DataMesseges
+    authors: TDataAuthors,
+    dateMeassages: TDataDateMessages,
+    chats: TDataChats,
+    messages: TDataChatsMesseges
 };
+
+const getChatMessages = (
+    selectedChatId: string,
+    chats: TDataChats = [],
+    messages: TDataChatsMesseges = []
+) : TDataChatMesseges => {
+    let selectedChat
+    if (selectedChatId) {
+        selectedChat = chats.find(
+            ({ chatId }: {
+                chatId: string
+            }) => chatId === selectedChatId
+        )
+   }
+
+    if (selectedChat) {
+        return messages[selectedChat.messagesId]
+    } else {
+         return []
+    }
+}
 
 export const RightColumn = ({
     selectedChatId,
@@ -27,20 +46,18 @@ export const RightColumn = ({
     dateMeassages = [],
     chats = [],
     messages = []
-}: IProps) => {
+}: TProps) => {
     const chatMessages = useMemo(() => getChatMessages(selectedChatId, chats, messages),
         [selectedChatId, chats, messages]
     )
 
     return (
-        <div className={'chats'}>
-            {chatMessages.length > 0 && 
-                <Dialog
-                    authors={authors}
-                    dateMeassages={dateMeassages}
-                    chatMessages={chatMessages}
-                />
-            }
+        <div className={'rightColumn'}>
+            <Messages
+                authors={authors}
+                chatMessages={chatMessages}
+                dateMeassages={dateMeassages}
+            />
         </div>
     )
 };
