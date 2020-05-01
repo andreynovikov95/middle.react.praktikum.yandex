@@ -47,7 +47,7 @@ const renderMessages = (
                 <div className={'message__text__name'}>
                     {name}
                 </div>
-                <div>
+                <div className={'message__text__message'}>
                     {message}
                 </div>
             </div>

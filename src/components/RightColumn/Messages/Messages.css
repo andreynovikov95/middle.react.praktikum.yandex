@@ -64,6 +64,11 @@
     font-weight: 900;
 }
 
+.message__text__message {
+    padding-right: 38px;
+    text-align: justify;
+}
+
 .message__time {
     display: flex;
     align-items: center;
