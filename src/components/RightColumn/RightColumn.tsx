@@ -45,6 +45,7 @@ const renderPanel = () => (
         <img src='icons/clip.svg' alt='clip' />
         <textarea
             className={'panel__textarea'}
+            placeholder='Write a message...'
             required
         />
         <img
