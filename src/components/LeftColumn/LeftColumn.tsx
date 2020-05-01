@@ -15,7 +15,7 @@ interface IProps {
   dateMeassages: DataDateMeassages,
   chats: DataChats,
   messages: DataMesseges,
-  selectChat: Function
+  selectChat: (id: string) => () => void
 };
 
 

@@ -20,7 +20,7 @@ export const ChatList = ({
   dateMeassages = [],
   chats = [],
   messages = [],
-  selectChat = () => {}
+  selectChat
 }: IProps) => {
   const chatList = useMemo(() => getChatList(chats, messages, authors, dateMeassages),
     [chats, messages, authors, dateMeassages]
