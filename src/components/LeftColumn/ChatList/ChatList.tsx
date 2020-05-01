@@ -30,6 +30,7 @@ type TChatList = {
 
 export type DataChatList = TChatList[];
 
+// TODO use unix timestamp for date
 const convertDate = (date: string): string => date
   .split('/')
   .reverse()

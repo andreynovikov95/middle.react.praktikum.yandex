@@ -1,6 +1,6 @@
 .rightColumn {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     flex-grow: 1;
     align-items: center;
     background-color: #f1feff;
@@ -11,7 +11,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
     background-color: #f1feff;
     overflow: hidden;
 }
@@ -21,13 +20,17 @@
     padding: 8px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    width: 546px;
+    width: 525px;
     height: 34px;
     resize: none;   
 }
 
+.panel__clip {
+    padding-right: 6px;
+    transition: 0.5s;
+}
+
 .panel__clip:hover {
     cursor: pointer;
-    transition: 0.5s;
     rotate: 45deg;
 }
