@@ -47,7 +47,11 @@ const renderPanel = () => (
             className={'panel__textarea'}
             required
         />
-        <img src='icons/send.svg' alt='clip' />
+        <img
+            className={'panel__clip'}
+            src='icons/send.svg'
+            alt='clip'
+        />
     </div>
 )
 

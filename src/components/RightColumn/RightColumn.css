@@ -25,3 +25,9 @@
     height: 34px;
     resize: none;   
 }
+
+.panel__clip:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    rotate: 45deg;
+}
