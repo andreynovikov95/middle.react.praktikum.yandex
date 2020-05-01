@@ -18,7 +18,7 @@ type TProps = {
 };
 
 // TODO вопрос: куда выносить константы
-// раньше выноси в mock 
+// раньше выносил в mock, чтобы не было по 300+ строчек кода
 const EMPTY_CHAT_TEXT = 'You have no messages yet'
 
 const renderMessages = (

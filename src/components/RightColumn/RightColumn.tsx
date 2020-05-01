@@ -20,7 +20,7 @@ type TProps = {
 };
 
 const getChatMessages = (
-    selectedChatId?: string,
+    selectedChatId: string,
     chats: TDataChats = [],
     messages: TDataChatsMesseges = []
 ) : TDataChatMesseges => {

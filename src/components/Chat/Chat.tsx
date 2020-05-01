@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { LeftColumn } from 'components/LeftColumn/LeftColumn';
 import { RightColumn } from 'components/RightColumn/RightColumn';
 
@@ -44,44 +44,47 @@ export type TDataChatMesseges = TMessage[];
 
 export type TDataChatsMesseges = TDataChatMesseges[];
 
-type TProps = {
+type TState = {
+  selectedChatId: string,
   authors: TDataAuthors,
   dateMeassages: TDataDateMessages,
   chats: TDataChats,
   messages: TDataChatsMesseges
 }
 
-type TState = {
-  selectedChatId: string;
-}
-
-export class Chat extends React.Component<TProps, TState>  {
-  public static defaultProps: TProps = {
-    authors: AUTHORS,
-    dateMeassages: DATE_MESSAGES,
-    chats: CHATS,
-    messages: MESSAGES
-  };
-
+export class Chat extends PureComponent  {
   public state: TState = {
-    selectedChatId: ''
+    selectedChatId: '',
+    authors: [],
+    dateMeassages: [],
+    chats: [],
+    messages: []
+  }
+
+   componentDidMount = () => {
+     this.setState({
+      authors: AUTHORS,
+      dateMeassages: DATE_MESSAGES,
+      chats: CHATS,
+      messages: MESSAGES
+    })
   }
 
   public selectChat = (id: string): () => void => (): void => {
-    if (this.state.selectedChatId !== id) {
+    if (this.state.selectedChatId === id) {
+      this.setState({ selectedChatId: '' })
+    } else {
       this.setState({ selectedChatId: id })
     }
   }
 
   public render() {
     const {
+      selectedChatId,
       authors,
       dateMeassages,
       chats,
       messages
-    } = this.props
-    const {
-      selectedChatId
     } = this.state
 
     return (
