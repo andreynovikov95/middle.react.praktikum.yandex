@@ -2,5 +2,26 @@
     display: flex;
     flex-direction: column-reverse;
     flex-grow: 1;
+    align-items: center;
     background-color: #f1feff;
+}
+
+.panel {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: #f1feff;
+    overflow: hidden;
+}
+
+.panel__textarea {
+    margin: 0 20px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 546px;
+    height: 34px;
+    resize: none;   
 }

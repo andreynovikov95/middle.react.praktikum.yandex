@@ -97,13 +97,5 @@ export const Messages = ({
                 </div>
             )
         }
-        <div className={'messages__panel'}>
-            <img src='icons/clip.svg' alt='clip' />
-            <textarea
-                className={'messages__panel__textarea'}
-                required
-            />
-            <img src='icons/send.svg' alt='clip' />
-        </div>
     </div>
 );

@@ -40,6 +40,17 @@ const getChatMessages = (
     }
 }
 
+const renderPanel = () => (
+    <div className={'panel'}>
+        <img src='icons/clip.svg' alt='clip' />
+        <textarea
+            className={'panel__textarea'}
+            required
+        />
+        <img src='icons/send.svg' alt='clip' />
+    </div>
+)
+
 export const RightColumn = ({
     selectedChatId,
     authors = [],
@@ -58,6 +69,7 @@ export const RightColumn = ({
                 chatMessages={chatMessages}
                 dateMeassages={dateMeassages}
             />
+            {renderPanel()}
         </div>
     )
 };
