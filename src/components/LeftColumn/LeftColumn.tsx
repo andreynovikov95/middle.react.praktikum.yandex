@@ -5,7 +5,7 @@ import {
   DataDateMeassages,
   DataChats,
   DataMesseges
-} from 'components/Chat/Chat.d'
+} from 'components/Chat/Chat'
 
 import './LeftColumn.css'
 

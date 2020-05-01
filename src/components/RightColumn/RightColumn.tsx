@@ -11,7 +11,7 @@ import {
     DataDateMeassages,
     DataChats,
     DataMesseges
-} from 'components/Chat/Chat.d'
+} from 'components/Chat/Chat'
 
 interface IProps {
     selectedChatId: string,

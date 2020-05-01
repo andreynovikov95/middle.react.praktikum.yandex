@@ -4,11 +4,11 @@ import {
     DataChats,
     DataMesseges,
     IMessage
-} from 'components/Chat/Chat.d'
+} from 'components/Chat/Chat'
 
 import {
     DataChatList
-} from './ChatList.d'
+} from './ChatList'
 
 const convertDate = (date: string): string => date
     .split('/')

@@ -1,16 +1,15 @@
 import {
     DataChats,
-    DataMesseges
-} from 'components/Chat/Chat.d'
+    DataMesseges,
+    IMessage
+} from 'components/Chat/Chat'
 
-// TODO getChatMessages подсвечивается в IDEA,
-// но почему
 export const getChatMessages = (
     selectedChatId?: string,
     chats: DataChats = [],
     messages: DataMesseges = []
-) : DataChats => {
-    let selectedChat = []
+) : Array<IMessage> => {
+    let selectedChat
     if (selectedChatId) {
         selectedChat = chats.find(
             ({ chatId }: {

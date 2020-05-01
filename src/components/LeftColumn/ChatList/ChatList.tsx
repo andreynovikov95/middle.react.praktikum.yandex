@@ -1,18 +1,36 @@
 import React, { useMemo } from 'react';
 import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
+import {
+  DataAuthors,
+  DataDateMeassages,
+  DataChats,
+  DataMesseges
+} from 'components/Chat/Chat'
 
 import './ChatList.css'
 import {
     getChatList
 } from './ChatList.mock'
-import {
-  IProps
-} from './ChatList.d'
 
-// TODO Вопрос: нужно ли указывать значения по умолчанию
-// для массивов, объектов и функций? какая реальная польза?
-// Ведь можно обратиться к полю, и выйдет ошибка,
-// а функция не отработает, там где должна (но и не поломает приложение на проде)
+export interface IProps {
+  selectedChatId: string;
+  authors: DataAuthors,
+  dateMeassages: DataDateMeassages,
+  chats: DataChats,
+  messages: DataMesseges,
+  selectChat: (id: string) => () => void;
+};
+
+interface IChatList {
+  author: string,
+  chatId: string,
+  date: string,
+  chatName: string,
+  lastMessage: string,
+  icon: string
+}
+
+export type DataChatList = IChatList[];
 
 export const ChatList = ({
   selectedChatId,

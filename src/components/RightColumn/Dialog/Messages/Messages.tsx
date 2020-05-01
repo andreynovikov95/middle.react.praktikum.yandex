@@ -3,15 +3,15 @@ import React from 'react'
 import {
     DataAuthors,
     DataDateMeassages,
-    DataChats,
-    IDateMessage
-} from 'components/Chat/Chat.d'
+    IDateMessage,
+    IMessage
+} from 'components/Chat/Chat'
 import './Messages.css'
 
 interface IProps {
     authors: DataAuthors,
     dateMeassages: DataDateMeassages,
-    chatMessages: DataChats
+    chatMessages: Array<IMessage>
 };
 
 const renderMessages = (
@@ -52,7 +52,7 @@ const renderMessages = (
 })
 
 const renderDateMessages = (
-    chatMessages: DataChats,
+    chatMessages: Array<IMessage>,
     messages: DataDateMeassages,
     authors: DataAuthors
 ) => chatMessages.map(({

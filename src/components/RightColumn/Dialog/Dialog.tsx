@@ -2,8 +2,8 @@ import React from 'react'
 import {
     DataAuthors,
     DataDateMeassages,
-    DataChats
-} from 'components/Chat/Chat.d'
+    IMessage
+} from 'components/Chat/Chat'
 
 import { Messages } from './Messages/Messages'
 
@@ -11,7 +11,7 @@ import './Dialog.css'
 
 interface IProps {
     authors: DataAuthors,
-    chatMessages: DataChats,
+    chatMessages: Array<IMessage>,
     dateMeassages: DataDateMeassages
 };
 
