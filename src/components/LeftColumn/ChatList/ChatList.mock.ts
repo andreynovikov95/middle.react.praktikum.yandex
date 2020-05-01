@@ -15,7 +15,7 @@ const convertDate = (date: string): string => date
     .reverse()
     .join('-')
 
-export const getChatList = (
+export const prepareChatList = (
     chats: TDataChats,
     messages: TDataChatsMesseges,
     authors: TDataAuthors,

@@ -9,7 +9,7 @@ import {
 
 import './ChatList.css'
 import {
-    getChatList
+    prepareChatList
 } from './ChatList.mock'
 
 export type TProps = {
@@ -40,7 +40,7 @@ export const ChatList = ({
   messages = [],
   selectChat
 }: TProps) => {
-  const chatList = useMemo(() => getChatList(chats, messages, authors, dateMeassages),
+  const chatList = useMemo(() => prepareChatList(chats, messages, authors, dateMeassages),
     [chats, messages, authors, dateMeassages]
   )
 
