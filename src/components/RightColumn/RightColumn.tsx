@@ -1,23 +1,35 @@
 import React, { useMemo } from 'react'
+import shortid from 'shortid'
 
 import { Messages } from './Messages/Messages'
 
 import './RightColumn.css'
 import {
     TDataAuthors,
-    TDataDateMessages,
     TDataChats,
     TDataChatMesseges,
-    TDataChatsMesseges
+    TDataChatsMesseges,
+    TDateMessage
 } from 'components/Chat/Chat'
+
+export type TSendFuntion = (message: TDateMessage, chateMeassages: TDataChatMesseges, chatIndex: number) => () => void
 
 type TProps = {
     selectedChatId: string,
     authors: TDataAuthors,
-    dateMeassages: TDataDateMessages,
     chats: TDataChats,
-    messages: TDataChatsMesseges
+    messages: TDataChatsMesseges,
+    sendMessage: TSendFuntion
 };
+
+const getIndexChatMessage = (
+    selectedChatId: string,
+    chats: TDataChats = []
+) : number => chats.findIndex(
+    ({ chatId }: {
+        chatId: string
+    }) => chatId === selectedChatId
+)
 
 const getChatMessages = (
     selectedChatId: string,
@@ -40,7 +52,7 @@ const getChatMessages = (
     }
 }
 
-const renderPanel = () => (
+const renderPanel = (sendMessage: TSendFuntion, chatMessages: TDataChatMesseges, chatIndex: number) => (
     <div className={'panel'}>
         <img src='icons/clip.svg' alt='clip' />
         <textarea
@@ -52,6 +64,12 @@ const renderPanel = () => (
             className={'panel__clip'}
             src='icons/send.svg'
             alt='clip'
+            onClick={sendMessage({
+                authorId: 3,
+                messageId: shortid.generate(),
+                message: 'Hi!',
+                time: '04:47:07'
+            }, chatMessages, chatIndex)}
         />
     </div>
 )
@@ -59,12 +77,15 @@ const renderPanel = () => (
 export const RightColumn = ({
     selectedChatId,
     authors = [],
-    dateMeassages = [],
     chats = [],
-    messages = []
+    messages = [],
+    sendMessage
 }: TProps) => {
     const chatMessages = useMemo(() => getChatMessages(selectedChatId, chats, messages),
         [selectedChatId, chats, messages]
+    )
+    const chatIndex = useMemo(() => getIndexChatMessage(selectedChatId, chats),
+        [selectedChatId, chats]
     )
 
     return (
@@ -72,9 +93,8 @@ export const RightColumn = ({
             <Messages
                 authors={authors}
                 chatMessages={chatMessages}
-                dateMeassages={dateMeassages}
             />
-            {renderPanel()}
+            {renderPanel(sendMessage, chatMessages, chatIndex)}
         </div>
     )
 };

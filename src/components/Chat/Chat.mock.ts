@@ -63,469 +63,748 @@ export const CHATS = [
         chatName: 'Group chat',
         messagesId: 9,
         icon: 'react'
-    },
-    {
-        chatId: shortid.generate(),
-        chatName: 'Group chat',
-        messagesId: 3,
-        icon: 'react'
     }
 ]
 
 export const MESSAGES = [
     [
         {
-            dateMessagesId: 0,
+            dateMessagesId: shortid.generate(),
             date: '14/3/2020',
+            dateMessages: [
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                }
+            ],
         },
         {
-            dateMessagesId: 8,
-            date: '17/3/2020',
+            dateMessagesId: shortid.generate(),
+            date: '15/3/2020',
+            dateMessages:     [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 0,
+            dateMessagesId: shortid.generate(),
             date: '13/3/2020',
+            dateMessages: [
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                }
+            ]
         },
         {
-            dateMessagesId: 9,
+            dateMessagesId: shortid.generate(),
             date: '17/3/2020',
+            dateMessages:  [
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '15:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '16:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '17:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '18:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '19:40:06'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 8,
-            date: '20/1/2020',
-        },
-        {
-            dateMessagesId: 2,
+            dateMessagesId: shortid.generate(),
             date: '7/6/2019',
+            dateMessages:     [
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '10:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '11:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '12:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '13:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '14:40:06'
+                }
+            ]
+        },
+        {
+            dateMessagesId: shortid.generate(),
+            date: '20/1/2020',
+            dateMessages: [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 3,
+            dateMessagesId: shortid.generate(),
             date: '17/3/2020',
+            dateMessages:     [
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         },
         {
-            dateMessagesId: 4,
+            dateMessagesId: shortid.generate(),
             date: '18/3/2020',
+            dateMessages: [
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 0,
+            dateMessagesId: shortid.generate(),
             date: '17/3/2020',
+            dateMessages: [
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                }
+            ]
         },
         {
-            dateMessagesId: 1,
+            dateMessagesId: shortid.generate(),
             date: '19/3/2020',
+            dateMessages: [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 9,
+            dateMessagesId: shortid.generate(),
             date: '7/6/2019',
+            dateMessages:  [
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '15:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '16:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '17:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '18:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '19:40:06'
+                }
+            ]
         },
         {
-            dateMessagesId: 1,
+            dateMessagesId: shortid.generate(),
             date: '21/6/2019',
+            dateMessages: [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 8,
+            dateMessagesId: shortid.generate(),
             date: '5/12/2019',
+            dateMessages:     [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '22:40:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '22:45:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:45:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:50:06'
+                }
+            ]
         },
         {
-            dateMessagesId: 7,
+            dateMessagesId: shortid.generate(),
             date: '17/1/2020',
+            dateMessages:     [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:45:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:46:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:47:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:48:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:49:06'
+                }
+            ],
         }
     ],
     [
         {
-            dateMessagesId: 1,
+            dateMessagesId: shortid.generate(),
             date: '20/1/2020',
+            dateMessages: [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         },
         {
-            dateMessagesId: 2,
+            dateMessagesId: shortid.generate(),
             date: '9/2/2020',
+            dateMessages:     [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 3,
+            dateMessagesId: shortid.generate(),
             date: '8/3/2020',
+            dateMessages: [
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         },
         {
-            dateMessagesId: 4,
+            dateMessagesId: shortid.generate(),
             date: '11/3/2020',
+            dateMessages: [
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ],
     [
         {
-            dateMessagesId: 6,
+            dateMessagesId: shortid.generate(),
             date: '13/3/2020',
+            dateMessages:     [
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:41:06'
+                },
+                {
+                    authorId: 1,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:42:06'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:43:06'
+                },
+                {
+                    authorId: 2,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:44:06'
+                }
+            ]
         },
         {
-            dateMessagesId: 5,
+            dateMessagesId: shortid.generate(),
             date: '14/3/2020',
-        }
-    ]
-]
-
-export const DATE_MESSAGES = [
-    [
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        }
-    ],
-    [
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        }
-    ],
-    [
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:14:31'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:49:32'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '08:38:10'
-        }
-    ],
-    [
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:14:31'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:49:32'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '08:38:10'
-        }
-    ],
-    [
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:14:31'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:49:32'
-        },
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '08:38:10'
-        }
-    ],
-    [
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '04:47:07'
-        },
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:14:31'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '06:49:32'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '08:38:10'
-        }
-    ],
-    [
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:41:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:42:06'
-        },
-        {
-            authorId: 0,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:43:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:44:06'
-        }
-    ],
-    [
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:45:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:46:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:47:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:48:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:49:06'
-        }
-    ],
-    [
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '22:40:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '22:45:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:40:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:45:06'
-        },
-        {
-            authorId: 1,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '23:50:06'
-        }
-    ],
-    [
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '10:40:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '11:40:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '12:40:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '13:40:06'
-        },
-        {
-            authorId: 2,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '14:40:06'
-        }
-    ],
-    [
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '15:40:06'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '16:40:06'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '17:40:06'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '18:40:06'
-        },
-        {
-            authorId: 3,
-            messageId: shortid.generate(),
-            message: loremIpsum({ count: 3 }),
-            time: '19:40:06'
+            dateMessages:     [
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '23:40:06'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '04:47:07'
+                },
+                {
+                    authorId: 0,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:14:31'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '06:49:32'
+                },
+                {
+                    authorId: 3,
+                    messageId: shortid.generate(),
+                    message: loremIpsum({ count: 3 }),
+                    time: '08:38:10'
+                }
+            ]
         }
     ]
 ]
