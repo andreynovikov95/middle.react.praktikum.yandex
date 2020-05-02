@@ -81,8 +81,10 @@ export class Chat extends PureComponent<{}, TState>   {
     chatIndex: number
   ): () => void => (): void => {
     let hasCurrentDate = false
+    const nowDate = new Date();
+    const date = `${nowDate.getDate()}/${nowDate.getMonth()}/${nowDate.getFullYear()}`
     const newChatMessages = chatMessages.map((item) => {
-      if (item.date === '02/05/2020') {
+      if (item.date === date) {
         item.dateMessages.push(message)
 
         hasCurrentDate = true
@@ -92,9 +94,10 @@ export class Chat extends PureComponent<{}, TState>   {
     })
 
   if (!hasCurrentDate) {
+
     newChatMessages.push({
       dateMessagesId: shortid.generate(),
-      date: '02/05/2020',
+      date,
       dateMessages: [message]
     })
 
