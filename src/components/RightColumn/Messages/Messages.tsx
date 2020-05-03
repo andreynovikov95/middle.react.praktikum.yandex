@@ -30,7 +30,7 @@ const renderMessages = (
 })  => {
     const {
         name = 'The Shrek 2',
-        avatar = '/images/shrek2.png'
+        avatar = '/react-messenger/images/shrek2.png'
     } = authors[authorId]
 
     return (
@@ -39,7 +39,7 @@ const renderMessages = (
          key={messageId}
         >
             <div className={'message__avatar'}>
-                <img src={avatar} alt={name} />
+                <img src={`/react-messenger//images/${avatar}`} alt={name} />
             </div>
             <div className={'message__text'}>
                 <div className={'message__text__name'}>

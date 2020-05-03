@@ -812,18 +812,18 @@ export const MESSAGES = [
 export const AUTHORS = [
     {
         name: 'The Shrek 1',
-        avatar: '/images/shrek1.png'
+        avatar: 'shrek1.png'
     },
     {
         name: 'The Shrek 2',
-        avatar: '/images/shrek2.png'
+        avatar: 'shrek2.png'
     },
     {
         name: 'Rick Dalton 1',
-        avatar: '/images/RickDalton1.png'
+        avatar: 'RickDalton1.png'
     },
     {
         name: 'Rick Dalton 2',
-        avatar: '/images/RickDalton2.png'
+        avatar: 'RickDalton2.png'
     }
 ]
