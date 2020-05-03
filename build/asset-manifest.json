@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-messenger/static/css/main.4e52c1bf.chunk.css",
+    "main.js": "/react-messenger/static/js/main.dd5573cc.chunk.js",
+    "main.js.map": "/react-messenger/static/js/main.dd5573cc.chunk.js.map",
+    "runtime-main.js": "/react-messenger/static/js/runtime-main.e659759f.js",
+    "runtime-main.js.map": "/react-messenger/static/js/runtime-main.e659759f.js.map",
+    "static/js/2.564c9b8a.chunk.js": "/react-messenger/static/js/2.564c9b8a.chunk.js",
+    "static/js/2.564c9b8a.chunk.js.map": "/react-messenger/static/js/2.564c9b8a.chunk.js.map",
+    "index.html": "/react-messenger/index.html",
+    "precache-manifest.13666dbd8e833b0f0296c497176fcf50.js": "/react-messenger/precache-manifest.13666dbd8e833b0f0296c497176fcf50.js",
+    "service-worker.js": "/react-messenger/service-worker.js",
+    "static/css/main.4e52c1bf.chunk.css.map": "/react-messenger/static/css/main.4e52c1bf.chunk.css.map",
+    "static/js/2.564c9b8a.chunk.js.LICENSE.txt": "/react-messenger/static/js/2.564c9b8a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e659759f.js",
+    "static/js/2.564c9b8a.chunk.js",
+    "static/css/main.4e52c1bf.chunk.css",
+    "static/js/main.dd5573cc.chunk.js"
+  ]
+}
