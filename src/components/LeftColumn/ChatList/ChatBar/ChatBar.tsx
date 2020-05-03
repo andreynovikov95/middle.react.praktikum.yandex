@@ -25,7 +25,7 @@ export const ChatBar = ({
     selectChat
 }: TProps) => {
     let message = lastMessage.length > 19
-        ? lastMessage.slice(0, 19).trim()
+        ? `${lastMessage.slice(0, 19).trim()}...`
         : lastMessage
 
     return (
@@ -51,7 +51,7 @@ export const ChatBar = ({
                     <span className='bar__message__content_author'>
                         {author}:
                     </span>
-                    {' '}{message}...
+                    {' '}{message}
                 </div>
             </div>
         </div>

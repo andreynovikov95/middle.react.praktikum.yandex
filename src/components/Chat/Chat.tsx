@@ -52,7 +52,7 @@ type TState = {
 }
 
 export class Chat extends PureComponent<{}, TState>   {
-  public state: TState = {
+  public state = {
     selectedChatId: '',
     authors: [],
     chats: [],
@@ -79,10 +79,10 @@ export class Chat extends PureComponent<{}, TState>   {
     message: TDateMessage,
     chatMessages: TDataChatMesseges,
     chatIndex: number
-  ): () => void => (): void => {
+  ): void => {
     let hasCurrentDate = false
     const nowDate = new Date();
-    const date = `${nowDate.getDate()}/${nowDate.getMonth()}/${nowDate.getFullYear()}`
+    const date = `${nowDate.getDate()}/${nowDate.getMonth() + 1}/${nowDate.getFullYear()}`
     const newChatMessages = chatMessages.map((item) => {
       if (item.date === date) {
         item.dateMessages.push(message)
