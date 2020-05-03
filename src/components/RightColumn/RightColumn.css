@@ -1,4 +1,36 @@
-.chats {
+.rightColumn {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    align-items: center;
     background-color: #f1feff;
+}
+
+.panel {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1feff;
+    overflow: hidden;
+}
+
+.panel__textarea {
+    margin: 0 20px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 525px;
+    height: 34px;
+    resize: none;   
+}
+
+.panel__clip {
+    padding-right: 6px;
+    transition: 0.5s;
+}
+
+.panel__clip:hover {
+    cursor: pointer;
+    rotate: 45deg;
 }

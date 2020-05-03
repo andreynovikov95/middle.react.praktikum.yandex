@@ -1,22 +1,27 @@
 import React from 'react'
 
 import {
-    DataAuthors,
-    DataDateMeassages,
-    DataChats,
-    IDateMessage
-} from 'components/Chat/Chat.d'
+    TDataAuthors,
+    TDataChatMesseges,
+    TDateMessage
+} from 'components/Chat/Chat'
+
 import './Messages.css'
 
-interface IProps {
-    authors: DataAuthors,
-    dateMeassages: DataDateMeassages,
-    chatMessages: DataChats
+type TDateMessages = TDateMessage[]
+
+type TProps = {
+    authors: TDataAuthors,
+    chatMessages: TDataChatMesseges
 };
 
+// TODO вопрос: куда выносить константы
+// раньше выносил в mock, чтобы не было по 300+ строчек кода
+const EMPTY_CHAT_TEXT = 'You have no messages yet'
+
 const renderMessages = (
-    messages: Array<IDateMessage>,
-    authors: DataAuthors
+    messages: TDateMessages,
+    authors: TDataAuthors
 ) => messages.map(({
     authorId,
     messageId,
@@ -40,7 +45,7 @@ const renderMessages = (
                 <div className={'message__text__name'}>
                     {name}
                 </div>
-                <div>
+                <div className={'message__text__message'}>
                     {message}
                 </div>
             </div>
@@ -52,19 +57,17 @@ const renderMessages = (
 })
 
 const renderDateMessages = (
-    chatMessages: DataChats,
-    messages: DataDateMeassages,
-    authors: DataAuthors
+    chatMessages: TDataChatMesseges,
+    authors: TDataAuthors
 ) => chatMessages.map(({
     date,
-    dateMessagesId
+    dateMessagesId,
+    dateMessages
 })  => {
-    const dateMessages = messages[dateMessagesId]
-
     return (
         <div
-         className={'dateMessages'}
-         key={dateMessagesId}
+            className={'dateMessages'}
+            key={dateMessagesId}
         >
             <div className={'dateMessages__date'}>
                 {date}
@@ -78,18 +81,16 @@ const renderDateMessages = (
 
 export const Messages = ({
     authors = [],
-    dateMeassages = [],
     chatMessages = []
-}: IProps) => (
+}: TProps) => (
     <div className={'messages'}>
-        {renderDateMessages(chatMessages, dateMeassages, authors)}
-        <div className={'messages__panel'}>
-            <img src='icons/clip.svg' alt='clip' />
-            <textarea
-                className={'messages__panel__textarea'}
-                required
-            />
-            <img src='icons/send.svg' alt='clip' />
-        </div>
+        {chatMessages.length > 0
+            ? renderDateMessages(chatMessages, authors)
+            : (
+                <div  className={'messages__emptyChat'}>
+                    {EMPTY_CHAT_TEXT}
+                </div>
+            )
+        }
     </div>
 );

@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import './ChatBar.css'
 
-interface IProps {
+type TProps = {
     chatId: string,
     selectedChatId: string,
     author: string;
@@ -11,7 +11,7 @@ interface IProps {
     date: string;
     lastMessage: string;
     icon: string;
-    selectChat: Function;
+    selectChat: (id: string) => () => void;
 };
 
 export const ChatBar = ({
@@ -22,8 +22,12 @@ export const ChatBar = ({
     chatName = 'Group Chat',
     lastMessage = 'tas odio. Ut sit amet...',
     icon = 'react',
-    selectChat = () => {}
-}: IProps) => {
+    selectChat
+}: TProps) => {
+    let message = lastMessage.length > 19
+        ? `${lastMessage.slice(0, 19).trim()}...`
+        : lastMessage
+
     return (
         <div
             className={cx('bar', {
@@ -47,9 +51,9 @@ export const ChatBar = ({
                     <span className='bar__message__content_author'>
                         {author}:
                     </span>
-                    {' '}{lastMessage}
+                    {' '}{message}
                 </div>
             </div>
         </div>
     )
-};
+}
