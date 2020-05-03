@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
+import shortid from 'shortid'
 import { LeftColumn } from 'components/LeftColumn/LeftColumn';
 import { RightColumn } from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
   AUTHORS,
-  DATE_MESSAGES,
   CHATS,
-  MESSAGES
+  MESSAGES,
+  PLACEHOLDER_TEXT
 } from './Chat.mock'
 
 type TAuthor = {
@@ -23,8 +24,6 @@ export type TDateMessage = {
   message: string,
   time: string
 };
- 
-export type TDataDateMessages = TDateMessage[][];
 
 type TChat = {
   chatId: string,
@@ -36,8 +35,9 @@ type TChat = {
 export type TDataChats = TChat[];
 
 export type TMessage = {
-  dateMessagesId: number,
-  date: string
+  dateMessagesId: string,
+  date: string,
+  dateMessages: TDateMessage[]
 };
 
 export type TDataChatMesseges = TMessage[];
@@ -47,16 +47,14 @@ export type TDataChatsMesseges = TDataChatMesseges[];
 type TState = {
   selectedChatId: string,
   authors: TDataAuthors,
-  dateMeassages: TDataDateMessages,
   chats: TDataChats,
   messages: TDataChatsMesseges
 }
 
-export class Chat extends PureComponent  {
-  public state: TState = {
+export class Chat extends PureComponent<{}, TState>   {
+  public state = {
     selectedChatId: '',
     authors: [],
-    dateMeassages: [],
     chats: [],
     messages: []
   }
@@ -64,7 +62,6 @@ export class Chat extends PureComponent  {
    componentDidMount = () => {
      this.setState({
       authors: AUTHORS,
-      dateMeassages: DATE_MESSAGES,
       chats: CHATS,
       messages: MESSAGES
     })
@@ -78,11 +75,50 @@ export class Chat extends PureComponent  {
     }
   }
 
+  public hanleSendMessage = (
+    message: TDateMessage,
+    chatMessages: TDataChatMesseges,
+    chatIndex: number
+  ): void => {
+    let hasCurrentDate = false
+    const nowDate = new Date();
+    const date = `${nowDate.getDate()}/${nowDate.getMonth() + 1}/${nowDate.getFullYear()}`
+    const newChatMessages = chatMessages.map((item) => {
+      if (item.date === date) {
+        item.dateMessages.push(message)
+
+        hasCurrentDate = true
+      }
+
+      return item
+    })
+
+  if (!hasCurrentDate) {
+
+    newChatMessages.push({
+      dateMessagesId: shortid.generate(),
+      date,
+      dateMessages: [message]
+    })
+
+    return this.setState(prevState => ({
+      messages: [
+        ...prevState.messages,
+        prevState.messages[chatIndex] = [...newChatMessages]
+      ]}))
+  }
+
+  this.setState(prevState => ({
+    messages: [
+      ...prevState.messages,
+      [...newChatMessages]
+    ]}))
+  }
+
   public render() {
     const {
       selectedChatId,
       authors,
-      dateMeassages,
       chats,
       messages
     } = this.state
@@ -92,20 +128,24 @@ export class Chat extends PureComponent  {
         <LeftColumn
           selectedChatId={selectedChatId}
           authors={authors}
-          dateMeassages={dateMeassages}
           chats={chats}
           messages={messages}
           selectChat={this.selectChat}
         />
-        {selectedChatId && (
-          <RightColumn
+        {selectedChatId
+         ? <RightColumn
             selectedChatId={selectedChatId}
             authors={authors}
             chats={chats}
             messages={messages}
-            dateMeassages={dateMeassages}
+            sendMessage={this.hanleSendMessage}
           />
-        )}
+          : <div className="chat__placeholder">
+              <div className="chat__placeholder__text">
+                {PLACEHOLDER_TEXT}
+              </div>
+            </div>
+          }
       </div>
     );
   }

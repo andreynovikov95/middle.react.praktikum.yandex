@@ -4,8 +4,7 @@ import {
   TDataAuthors,
   TDataChats,
   TDataChatMesseges,
-  TDataChatsMesseges,
-  TDataDateMessages
+  TDataChatsMesseges
 } from 'components/Chat/Chat'
 
 import './ChatList.css'
@@ -14,7 +13,6 @@ export type TProps = {
   selectedChatId: string;
   authors: TDataAuthors,
   chats: TDataChats,
-  dateMeassages: TDataDateMessages,
   messages: TDataChatsMesseges,
   selectChat: (id: string) => () => void
 };
@@ -30,6 +28,7 @@ type TChatList = {
 
 export type DataChatList = TChatList[];
 
+// TODO use unix timestamp for date
 const convertDate = (date: string): string => date
   .split('/')
   .reverse()
@@ -38,8 +37,7 @@ const convertDate = (date: string): string => date
 const prepareChatList = (
   chats: TDataChats,
   messages: TDataChatsMesseges,
-  authors: TDataAuthors,
-  dateMeassages: TDataDateMessages
+  authors: TDataAuthors
 ) : DataChatList => chats
       .map(({
           chatId,
@@ -49,14 +47,13 @@ const prepareChatList = (
       }) => {
               const chatMessages: TDataChatMesseges = messages[messagesId]
               const {
-                  dateMessagesId = 0,
-                  date = '18/3/2020'
+                  dateMessages = [],
+                  date
               } = chatMessages[chatMessages.length - 1]
-              const lastDateMeassages = dateMeassages[dateMessagesId]
               const {
                   authorId = 0,
                   message = 'tas odio. Ut sit amet...'
-              } = lastDateMeassages[lastDateMeassages.length - 1]
+              } = dateMessages[dateMessages.length - 1]
               const author = authors[authorId].name || 'Anonymous'
 
               return ({
@@ -78,13 +75,12 @@ const prepareChatList = (
 export const ChatList = ({
   selectedChatId,
   authors = [],
-  dateMeassages = [],
   chats = [],
   messages = [],
   selectChat
 }: TProps) => {
-  const chatList = useMemo(() => prepareChatList(chats, messages, authors, dateMeassages),
-    [chats, messages, authors, dateMeassages]
+  const chatList = useMemo(() => prepareChatList(chats, messages, authors),
+    [chats, messages, authors]
   )
 
   return (

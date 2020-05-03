@@ -53,3 +53,7 @@
     font-size: 14px;
     color: #637893;
 }
+
+.bar__message__content_message {
+    overflow: hidden;
+}
