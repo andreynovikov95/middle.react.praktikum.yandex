@@ -28,6 +28,11 @@ type TChatList = {
 
 export type DataChatList = TChatList[];
 
+// Вопрос: Думал про {chatId: [message1, message2]},
+// но проблема в том, что у меня не БД, и я вручную проставляю айдишники
+// чтобы не следить за этим, использую shortid.generate()
+// Вот это плохо себе представляю  Record<chatId, Maessage[]> можно пример? 
+
 // TODO use unix timestamp for date
 const convertDate = (date: string): string => date
   .split('/')

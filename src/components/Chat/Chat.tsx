@@ -60,11 +60,11 @@ export class Chat extends PureComponent<{}, TState>   {
   }
 
    componentDidMount = () => {
-     this.setState({
-      authors: AUTHORS,
-      chats: CHATS,
-      messages: MESSAGES
-    })
+     this.setState(prevState => ({
+      authors: [...prevState.authors, ...AUTHORS],
+      chats: [...prevState.chats, ...CHATS],
+      messages: [...prevState.messages, ...MESSAGES]
+    }))
   }
 
   public selectChat = (id: string): () => void => (): void => {

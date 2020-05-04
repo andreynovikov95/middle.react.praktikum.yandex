@@ -15,9 +15,7 @@ type TProps = {
     chatMessages: TDataChatMesseges
 };
 
-// TODO вопрос: куда выносить константы
-// раньше выносил в mock, чтобы не было по 300+ строчек кода
-const EMPTY_CHAT_TEXT = 'You have no messages yet'
+const EMPTY_CHAT_TEXT = 'You have no messages yet';
 
 const renderMessages = (
     messages: TDateMessages,
@@ -54,7 +52,7 @@ const renderMessages = (
             </div>
         </div>
     )
-})
+});
 
 const renderDateMessages = (
     chatMessages: TDataChatMesseges,
