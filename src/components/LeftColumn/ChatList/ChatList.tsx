@@ -20,19 +20,13 @@ export type TProps = {
 type TChatList = {
   author: string,
   chatId: string,
-  date: string,
+  date: number,
   chatName: string,
   lastMessage: string,
   icon: string
 }
 
 export type DataChatList = TChatList[];
-
-// TODO use unix timestamp for date
-const convertDate = (date: string): string => date
-  .split('/')
-  .reverse()
-  .join('-')
 
 const prepareChatList = (
   chats: TDataChats,
@@ -65,12 +59,7 @@ const prepareChatList = (
                   icon
           })
       })
-      .sort((a, b) => {
-          const dateA = convertDate(a.date)
-          const dateB = convertDate(b.date)
-
-          return Date.parse(dateB) - Date.parse(dateA)
-      })
+      .sort((a, b) => b.date - a.date)
 
 export const ChatList = ({
   selectedChatId,

@@ -97,8 +97,7 @@ export class RightColumn extends PureComponent<TProps, TState> {
             shiftKey
         } = event
 
-        if (key === 'Enter' && !shiftKey) {   
-            event.preventDefault()      
+        if (key === 'Enter' && !shiftKey) {       
             this.handleClick(chatMessages, chatIndex)()
         }
     }

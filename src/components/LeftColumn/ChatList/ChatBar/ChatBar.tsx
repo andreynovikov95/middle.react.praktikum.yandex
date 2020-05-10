@@ -8,7 +8,7 @@ type TProps = {
     selectedChatId: string,
     author: string;
     chatName: string;
-    date: string;
+    date: number;
     lastMessage: string;
     icon: string;
     selectChat: (id: string) => () => void;
@@ -17,7 +17,7 @@ type TProps = {
 export const ChatBar = ({
     selectedChatId,
     chatId,
-    date = '01/05/2020',
+    date = 1556668800000, // '01/05/2020'
     author = 'Shrek 2',
     chatName = 'Group Chat',
     lastMessage = 'tas odio. Ut sit amet...',
@@ -27,6 +27,7 @@ export const ChatBar = ({
     let message = lastMessage.length > 19
         ? `${lastMessage.slice(0, 19).trim()}...`
         : lastMessage
+    const formatDate = new Date(date)
 
     return (
         <div
@@ -44,7 +45,7 @@ export const ChatBar = ({
                         {chatName}
                     </h1>
                     <div className={'bar__message__title__date'}>
-                        {date}
+                        {`${formatDate.getUTCDay() + 1}/${formatDate.getUTCDate()}/${formatDate.getFullYear()}`}
                     </div>
                 </div>
                 <div className={'bar__message__content'}>
