@@ -15,9 +15,17 @@ type TProps = {
     chatMessages: TDataChatMesseges
 };
 
-// TODO вопрос: куда выносить константы
-// раньше выносил в mock, чтобы не было по 300+ строчек кода
 const EMPTY_CHAT_TEXT = 'You have no messages yet'
+
+const getFormatDate = (date: number) => new Date(date)
+    .toLocaleString("en-US", {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        weekday: 'short',
+        timeZone: 'UTC'
+    }) 
+    .replace(/,/g, '')
 
 const renderMessages = (
     messages: TDateMessages,
@@ -64,13 +72,15 @@ const renderDateMessages = (
     dateMessagesId,
     dateMessages
 })  => {
+    const formatDate = getFormatDate(date)
+
     return (
         <div
             className={'dateMessages'}
             key={dateMessagesId}
         >
             <div className={'dateMessages__date'}>
-                {date}
+                {formatDate}
             </div>
             <div className={'dateMessages__messages'}>
                 {renderMessages(dateMessages, authors)}
