@@ -30,36 +30,6 @@ type TState = {
     textareaValue: string
 }
 
-const getIndexChatMessage = (
-    selectedChatId: string,
-    chats: TDataChats = []
-) : number => chats.findIndex(
-    ({ chatId }: {
-        chatId: string
-    }) => chatId === selectedChatId
-);
-
-const getChatMessages = (
-    selectedChatId: string,
-    chats: TDataChats = [],
-    messages: TDataChatsMesseges = []
-) : TDataChatMesseges => {
-    let selectedChat
-    if (selectedChatId) {
-        selectedChat = chats.find(
-            ({ chatId }: {
-                chatId: string
-            }) => chatId === selectedChatId
-        )
-   }
-
-    if (selectedChat) {
-        return messages[selectedChat.messagesId]
-    } else {
-         return []
-    }
-};
-
 //TODO add draft
 export class RightColumn extends PureComponent<TProps, TState> {
     public textareaRef: React.RefObject<HTMLTextAreaElement>;
@@ -131,7 +101,37 @@ export class RightColumn extends PureComponent<TProps, TState> {
             event.preventDefault()      
             this.handleClick(chatMessages, chatIndex)()
         }
-      }
+    }
+
+    getIndexChatMessage = (
+        selectedChatId: string,
+        chats: TDataChats = []
+    ) : number => chats.findIndex(
+        ({ chatId }: {
+            chatId: string
+        }) => chatId === selectedChatId
+    );
+    
+    getChatMessages = (
+        selectedChatId: string,
+        chats: TDataChats = [],
+        messages: TDataChatsMesseges = []
+    ) : TDataChatMesseges => {
+        let selectedChat
+        if (selectedChatId) {
+            selectedChat = chats.find(
+                ({ chatId }: {
+                    chatId: string
+                }) => chatId === selectedChatId
+            )
+       }
+    
+        if (selectedChat) {
+            return messages[selectedChat.messagesId]
+        } else {
+             return []
+        }
+    };
 
     renderPanel = (
         chatMessages: TDataChatMesseges,
@@ -164,8 +164,8 @@ export class RightColumn extends PureComponent<TProps, TState> {
             messages = []
         } = this.props
         // TODO вынести в контейнер
-        const chatMessages: TDataChatMesseges = getChatMessages(selectedChatId, chats, messages)
-        const chatIndex: number = getIndexChatMessage(selectedChatId, chats)
+        const chatMessages: TDataChatMesseges = this.getChatMessages(selectedChatId, chats, messages)
+        const chatIndex: number = this.getIndexChatMessage(selectedChatId, chats)
 
         return (
             <div className={'rightColumn'}>
