@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import shortid from 'shortid'
 
 import { Messages } from './Messages/Messages'
@@ -30,38 +30,8 @@ type TState = {
     textareaValue: string
 }
 
-const getIndexChatMessage = (
-    selectedChatId: string,
-    chats: TDataChats = []
-) : number => chats.findIndex(
-    ({ chatId }: {
-        chatId: string
-    }) => chatId === selectedChatId
-);
-
-const getChatMessages = (
-    selectedChatId: string,
-    chats: TDataChats = [],
-    messages: TDataChatsMesseges = []
-) : TDataChatMesseges => {
-    let selectedChat
-    if (selectedChatId) {
-        selectedChat = chats.find(
-            ({ chatId }: {
-                chatId: string
-            }) => chatId === selectedChatId
-        )
-   }
-
-    if (selectedChat) {
-        return messages[selectedChat.messagesId]
-    } else {
-         return []
-    }
-};
-
 //TODO add draft
-export class RightColumn extends Component<TProps, TState> {
+export class RightColumn extends PureComponent<TProps, TState> {
     public textareaRef: React.RefObject<HTMLTextAreaElement>;
 
     constructor(props: TProps) {
@@ -105,8 +75,7 @@ export class RightColumn extends Component<TProps, TState> {
                 time: `${nowDate.getHours()}:${nowDate.getMinutes()}:${nowDate.getSeconds()}`
             }, chatMessages, chatIndex)
 
-            this.handleResetTextareaValue()
-            this.textareaRef.current?.focus();
+            this.handleResetTextareaValue();
         }
     }
 
@@ -117,6 +86,52 @@ export class RightColumn extends Component<TProps, TState> {
         this.textareaRef.current?.focus();
     }
 
+    handleKeyDown = (
+        chatMessages: TDataChatMesseges,
+        chatIndex: number
+    ): (event: React.KeyboardEvent<HTMLTextAreaElement>) => void => (
+        event: React.KeyboardEvent<HTMLTextAreaElement>
+    ) => {
+        const {
+            key,
+            shiftKey
+        } = event
+
+        if (key === 'Enter' && !shiftKey) {       
+            this.handleClick(chatMessages, chatIndex)()
+        }
+    }
+
+    getIndexChatMessage = (
+        selectedChatId: string,
+        chats: TDataChats = []
+    ) : number => chats.findIndex(
+        ({ chatId }: {
+            chatId: string
+        }) => chatId === selectedChatId
+    );
+    
+    getChatMessages = (
+        selectedChatId: string,
+        chats: TDataChats = [],
+        messages: TDataChatsMesseges = []
+    ) : TDataChatMesseges => {
+        let selectedChat
+        if (selectedChatId) {
+            selectedChat = chats.find(
+                ({ chatId }: {
+                    chatId: string
+                }) => chatId === selectedChatId
+            )
+       }
+    
+        if (selectedChat) {
+            return messages[selectedChat.messagesId]
+        } else {
+             return []
+        }
+    };
+
     renderPanel = (
         chatMessages: TDataChatMesseges,
         chatIndex: number
@@ -126,9 +141,10 @@ export class RightColumn extends Component<TProps, TState> {
             <textarea
                 className={'panel__textarea'}
                 ref={this.textareaRef} 
-                onChange={this.handleChange}
                 placeholder='Write a message...'
                 value={this.state.textareaValue}
+                onChange={this.handleChange}
+                onKeyDown={this.handleKeyDown(chatMessages, chatIndex)}
             />
             <img
                 className={'panel__clip'}
@@ -146,8 +162,9 @@ export class RightColumn extends Component<TProps, TState> {
             chats = [],
             messages = []
         } = this.props
-        const chatMessages = getChatMessages(selectedChatId, chats, messages)
-        const chatIndex = getIndexChatMessage(selectedChatId, chats)
+        // TODO вынести в контейнер
+        const chatMessages: TDataChatMesseges = this.getChatMessages(selectedChatId, chats, messages)
+        const chatIndex: number = this.getIndexChatMessage(selectedChatId, chats)
 
         return (
             <div className={'rightColumn'}>

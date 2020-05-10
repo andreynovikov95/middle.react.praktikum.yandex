@@ -36,7 +36,7 @@ export type TDataChats = TChat[];
 
 export type TMessage = {
   dateMessagesId: string,
-  date: string,
+  date: number,
   dateMessages: TDateMessage[]
 };
 
@@ -81,10 +81,12 @@ export class Chat extends PureComponent<{}, TState>   {
     chatIndex: number
   ): void => {
     let hasCurrentDate = false
-    const nowDate = new Date();
-    const date = `${nowDate.getDate()}/${nowDate.getMonth() + 1}/${nowDate.getFullYear()}`
-    const newChatMessages = chatMessages.map((item) => {
-      if (item.date === date) {
+    const currentDate = new Date();
+    const date = this.getFormatDate(currentDate)
+    const newChatMessages: TMessage[] = chatMessages.map((item: TMessage) => {
+      const itemDate = new Date(item.date)
+      const itemDateFormat = this.getFormatDate(itemDate)
+      if (itemDateFormat === date) {
         item.dateMessages.push(message)
 
         hasCurrentDate = true
@@ -97,7 +99,7 @@ export class Chat extends PureComponent<{}, TState>   {
 
     newChatMessages.push({
       dateMessagesId: shortid.generate(),
-      date,
+      date: Date.parse(date),
       dateMessages: [message]
     })
 
@@ -114,6 +116,8 @@ export class Chat extends PureComponent<{}, TState>   {
       [...newChatMessages]
     ]}))
   }
+
+  getFormatDate = (date: Date) => `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 
   public render() {
     const {
