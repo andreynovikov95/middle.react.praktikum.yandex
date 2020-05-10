@@ -45,7 +45,7 @@ export const ChatBar = ({
                         {chatName}
                     </h1>
                     <div className={'bar__message__title__date'}>
-                        {`${formatDate.getUTCDay() + 1}/${formatDate.getUTCDate()}/${formatDate.getFullYear()}`}
+                        {`${formatDate.getUTCMonth() + 1}/${formatDate.getUTCDate()}/${formatDate.getFullYear()}`}
                     </div>
                 </div>
                 <div className={'bar__message__content'}>
