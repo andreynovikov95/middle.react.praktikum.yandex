@@ -15,7 +15,7 @@ type TProps = {
     chatMessages: TDataChatMesseges
 };
 
-const EMPTY_CHAT_TEXT = 'You have no messages yet'
+const EMPTY_CHAT_TEXT = 'You have no messages yet';
 
 const getFormatDate = (date: number) => new Date(date)
     .toLocaleString("en-US", {
@@ -62,7 +62,7 @@ const renderMessages = (
             </div>
         </div>
     )
-})
+});
 
 const renderDateMessages = (
     chatMessages: TDataChatMesseges,
