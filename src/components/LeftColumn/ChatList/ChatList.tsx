@@ -63,7 +63,9 @@ const prepareChatList = (
                   icon
           })
       })
-      .sort((a, b) => b.date - a.date)
+      .sort((a, b) => {
+        return b.date - a.date
+      })
 
 export const ChatList = ({
   selectedChatId,
