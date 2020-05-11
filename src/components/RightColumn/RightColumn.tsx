@@ -112,17 +112,13 @@ export class RightColumn extends PureComponent<TProps, TState> {
     );
     
     getChatMessages = (
-        selectedChatId: string,
+        chatIndex: number,
         chats: TDataChats = [],
         messages: TDataChatsMesseges = []
     ) : TDataChatMesseges => {
         let selectedChat
-        if (selectedChatId) {
-            selectedChat = chats.find(
-                ({ chatId }: {
-                    chatId: string
-                }) => chatId === selectedChatId
-            )
+        if (chatIndex) {
+            selectedChat = chats[chatIndex]
        }
     
         if (selectedChat) {
@@ -163,8 +159,8 @@ export class RightColumn extends PureComponent<TProps, TState> {
             messages = []
         } = this.props
         // TODO вынести в контейнер
-        const chatMessages: TDataChatMesseges = this.getChatMessages(selectedChatId, chats, messages)
         const chatIndex: number = this.getIndexChatMessage(selectedChatId, chats)
+        const chatMessages: TDataChatMesseges = this.getChatMessages(chatIndex, chats, messages)
 
         return (
             <div className={'rightColumn'}>

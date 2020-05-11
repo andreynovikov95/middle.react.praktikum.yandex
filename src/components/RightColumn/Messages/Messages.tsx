@@ -35,24 +35,33 @@ const renderMessages = (
     messageId,
     message,
     time
-})  => {
+}, index)  => {
     const {
         name = 'The Shrek 2',
         avatar = '/images/shrek2.png'
     } = authors[authorId]
+    const showAuthorInfo = index === 0 || (index > 0 && authorId !== messages[index - 1].authorId)
 
     return (
         <div
          className={'message'}
          key={messageId}
         >
+            
             <div className={'message__avatar'}>
-                <img src={avatar} alt={name} />
+                {showAuthorInfo && (
+                    <img
+                        src={avatar}
+                        alt={name}
+                    />
+                )}
             </div>
             <div className={'message__text'}>
+            {showAuthorInfo && (
                 <div className={'message__text__name'}>
-                    {name}
+                        {name}
                 </div>
+            )}
                 <div className={'message__text__message'}>
                     {message}
                 </div>

@@ -14,6 +14,8 @@ type TProps = {
     selectChat: (id: string) => () => void;
 };
 
+const MAX_LENGTH_PREVIEW_TEXT_MESSAGE = 18
+
 export const ChatBar = ({
     selectedChatId,
     chatId,
@@ -24,8 +26,8 @@ export const ChatBar = ({
     icon = 'react',
     selectChat
 }: TProps) => {
-    let message = lastMessage.length > 19
-        ? `${lastMessage.slice(0, 19).trim()}...`
+    let message = lastMessage.length > MAX_LENGTH_PREVIEW_TEXT_MESSAGE
+        ? `${lastMessage.slice(0, MAX_LENGTH_PREVIEW_TEXT_MESSAGE).trim()}...`
         : lastMessage
     const formatDate = new Date(date)
 
@@ -45,7 +47,7 @@ export const ChatBar = ({
                         {chatName}
                     </h1>
                     <div className={'bar__message__title__date'}>
-                        {`${formatDate.getUTCDay() + 1}/${formatDate.getUTCDate()}/${formatDate.getFullYear()}`}
+                        {`${formatDate.getUTCMonth() + 1}/${formatDate.getUTCDate()}/${formatDate.getFullYear()}`}
                     </div>
                 </div>
                 <div className={'bar__message__content'}>
