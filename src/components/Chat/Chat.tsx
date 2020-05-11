@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom'
 
+import { withChatId } from 'utils/hoc/withChatId'
 import { EmptyChat } from 'components/EmptyChat/EmptyChat';
 import { LeftColumn } from 'components/LeftColumn/LeftColumn';
 import { RightColumn } from 'components/RightColumn/RightColumn';
@@ -50,15 +51,15 @@ export type TDataChatMesseges = TMessage[];
 export type TDataChatsMesseges = TDataChatMesseges[];
 
 type TState = {
-  selectedChatId: string,
   authors: TDataAuthors,
   chats: TDataChats,
-  messages: TDataChatsMesseges
+  messages: TDataChatsMesseges,
 }
+
+const WithChatIdRightColumn = withChatId(RightColumn)
 
 export class Chat extends PureComponent<{}, TState>   {
   public state = {
-    selectedChatId: '',
     authors: [],
     chats: [],
     messages: []
@@ -118,7 +119,6 @@ export class Chat extends PureComponent<{}, TState>   {
 
   public render() {
     const {
-      selectedChatId,
       authors,
       chats,
       messages
@@ -127,7 +127,6 @@ export class Chat extends PureComponent<{}, TState>   {
     return (
       <div className="chat">
         <LeftColumn
-          selectedChatId={selectedChatId}
           authors={authors}
           chats={chats}
           messages={messages}
@@ -137,8 +136,9 @@ export class Chat extends PureComponent<{}, TState>   {
           <Route
             path='/chat'
             render={
-              (props) => <RightColumn
+              (props) => <WithChatIdRightColumn
                 {...props}
+                selectedChatId=''
                 authors={authors}
                 chats={chats}
                 messages={messages}

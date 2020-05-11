@@ -1,4 +1,8 @@
 import React, { useMemo } from 'react';
+import {
+  withRouter
+} from 'react-router-dom';
+import { withChatId } from 'utils/hoc/withChatId'
 import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 import {
   TDataAuthors,
@@ -10,7 +14,6 @@ import {
 import './ChatList.css'
 
 export type TProps = {
-  selectedChatId: string,
   authors: TDataAuthors,
   chats: TDataChats,
   messages: TDataChatsMesseges
@@ -66,8 +69,9 @@ const prepareChatList = (
         return b.date - a.date
       })
 
+const WithChatIdChatBar = withRouter(withChatId(ChatBar))
+
 export const ChatList = ({
-  selectedChatId,
   authors = [],
   chats = [],
   messages = []
@@ -87,10 +91,10 @@ export const ChatList = ({
                 lastMessage,
                 icon
             }) => (
-                <ChatBar
+                <WithChatIdChatBar
+                    selectedChatId=''
                     key={chatId}
                     chatId={chatId}
-                    selectedChatId={selectedChatId}
                     author={author}
                     date={date}
                     chatName={chatName}

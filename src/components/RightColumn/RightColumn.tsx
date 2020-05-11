@@ -22,11 +22,8 @@ export type TSendFuntion = (
     chatIndex: number
 ) => void
 
-type TLocation = {
-    pathname: string
-}
 type TProps = {
-    location: TLocation,
+    selectedChatId: string,
     authors: TDataAuthors,
     chats: TDataChats,
     messages: TDataChatsMesseges,
@@ -35,7 +32,7 @@ type TProps = {
 
 type TState = {
     textareaValue: string
-}
+};
 
 // TODO add draft, delete and edit
 export class RightColumn extends PureComponent<TProps, TState> {
@@ -55,7 +52,7 @@ export class RightColumn extends PureComponent<TProps, TState> {
     }
 
     public componentDidUpdate(prevProps: TProps) {
-        if (this.props.location.pathname !== prevProps.location.pathname) {
+        if (this.props.selectedChatId !== prevProps.selectedChatId) {
             this.handleResetTextareaValue()
         }
     }
@@ -167,13 +164,9 @@ export class RightColumn extends PureComponent<TProps, TState> {
             authors = [],
             chats = [],
             messages = [],
-            location: {
-                pathname = ''
-            }
+            selectedChatId
         } = this.props
         // TODO вынести в контейнер
-        const pathnameParts = pathname.split('/')
-        const selectedChatId = pathnameParts[pathnameParts.length - 1]
         const chatIndex: number = this.getIndexChatMessage(selectedChatId, chats)
         const chatMessages: TDataChatMesseges = this.getChatMessages(chatIndex, chats, messages)
 
