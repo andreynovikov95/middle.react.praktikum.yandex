@@ -1,5 +1,11 @@
 import React, { PureComponent } from 'react';
 import shortid from 'shortid'
+import {
+  Switch,
+  Route
+} from 'react-router-dom'
+
+import { EmptyChat } from 'components/EmptyChat/EmptyChat';
 import { LeftColumn } from 'components/LeftColumn/LeftColumn';
 import { RightColumn } from 'components/RightColumn/RightColumn';
 
@@ -7,8 +13,7 @@ import './Chat.css'
 import {
   AUTHORS,
   CHATS,
-  MESSAGES,
-  PLACEHOLDER_TEXT
+  MESSAGES
 } from './Chat.mock'
 
 type TAuthor = {
@@ -65,14 +70,6 @@ export class Chat extends PureComponent<{}, TState>   {
       chats: [...prevState.chats, ...CHATS],
       messages: [...prevState.messages, ...MESSAGES]
     }))
-  }
-
-  public selectChat = (id: string): () => void => (): void => {
-    if (this.state.selectedChatId === id) {
-      this.setState({ selectedChatId: '' })
-    } else {
-      this.setState({ selectedChatId: id })
-    }
   }
 
   public hanleSendMessage = (
@@ -134,22 +131,22 @@ export class Chat extends PureComponent<{}, TState>   {
           authors={authors}
           chats={chats}
           messages={messages}
-          selectChat={this.selectChat}
         />
-        {selectedChatId
-         ? <RightColumn
-            selectedChatId={selectedChatId}
-            authors={authors}
-            chats={chats}
-            messages={messages}
-            sendMessage={this.hanleSendMessage}
+        <Switch>
+          <Route exact path='/' component={EmptyChat}/>
+          <Route
+            path='/chat'
+            render={
+              (props) => <RightColumn
+                {...props}
+                authors={authors}
+                chats={chats}
+                messages={messages}
+                sendMessage={this.hanleSendMessage}
+              />
+            }/>
           />
-          : <div className="chat__placeholder">
-              <div className="chat__placeholder__text">
-                {PLACEHOLDER_TEXT}
-              </div>
-            </div>
-          }
+        </Switch>
       </div>
     );
   }

@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react'
 import shortid from 'shortid'
+import {
+    Switch,
+    Route
+} from 'react-router-dom'
 
 import { Messages } from './Messages/Messages'
 
@@ -18,8 +22,11 @@ export type TSendFuntion = (
     chatIndex: number
 ) => void
 
+type TLocation = {
+    pathname: string
+}
 type TProps = {
-    selectedChatId: string,
+    location: TLocation,
     authors: TDataAuthors,
     chats: TDataChats,
     messages: TDataChatsMesseges,
@@ -48,7 +55,7 @@ export class RightColumn extends PureComponent<TProps, TState> {
     }
 
     public componentDidUpdate(prevProps: TProps) {
-        if (this.props.selectedChatId !== prevProps.selectedChatId) {
+        if (this.props.location.pathname !== prevProps.location.pathname) {
             this.handleResetTextareaValue()
         }
     }
@@ -134,7 +141,10 @@ export class RightColumn extends PureComponent<TProps, TState> {
         chatIndex: number
     ) => (
         <div className={'panel'}>
-            <img src='icons/clip.svg' alt='clip' />
+            <img
+                src='/icons/clip.svg'
+                alt='clip'
+            />
             <textarea
                 className={'panel__textarea'}
                 ref={this.textareaRef} 
@@ -144,9 +154,9 @@ export class RightColumn extends PureComponent<TProps, TState> {
                 onKeyDown={this.handleKeyDown(chatMessages, chatIndex)}
             />
             <img
-                className={'panel__clip'}
-                src='icons/send.svg'
-                alt='clip'
+                className={'panel__send'}
+                src='/icons/send.svg'
+                alt='send button'
                 onClick={this.handleSendingMessage(chatMessages, chatIndex)}
             />
         </div>
@@ -154,23 +164,32 @@ export class RightColumn extends PureComponent<TProps, TState> {
 
     public render() {
         const {
-            selectedChatId,
             authors = [],
             chats = [],
-            messages = []
+            messages = [],
+            location: {
+                pathname = ''
+            }
         } = this.props
         // TODO вынести в контейнер
+        const pathnameParts = pathname.split('/')
+        const selectedChatId = pathnameParts[pathnameParts.length - 1]
         const chatIndex: number = this.getIndexChatMessage(selectedChatId, chats)
         const chatMessages: TDataChatMesseges = this.getChatMessages(chatIndex, chats, messages)
 
         return (
-            <div className={'rightColumn'}>
-                <Messages
-                    authors={authors}
-                    chatMessages={chatMessages}
-                />
+            <main className={'rightColumn'}>
+                <Switch>
+                    <Route path='/chat' render={(props) => (
+                        <Messages
+                            {...props}
+                            authors={authors}
+                            chatMessages={chatMessages}
+                        />
+                    )}/>
+                </Switch>
                 {this.renderPanel(chatMessages, chatIndex)}
-            </div>
+            </main>
         )
     }
 }
