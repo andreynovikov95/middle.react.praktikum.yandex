@@ -14,7 +14,7 @@ type TProps = {
     selectChat: (id: string) => () => void;
 };
 
-const MAX_LENGTh_PREVIEW_TEXT_MESSAGE = 18
+const MAX_LENGTH_PREVIEW_TEXT_MESSAGE = 18
 
 export const ChatBar = ({
     selectedChatId,
@@ -26,8 +26,8 @@ export const ChatBar = ({
     icon = 'react',
     selectChat
 }: TProps) => {
-    let message = lastMessage.length > MAX_LENGTh_PREVIEW_TEXT_MESSAGE
-        ? `${lastMessage.slice(0, 18).trim()}...`
+    let message = lastMessage.length > MAX_LENGTH_PREVIEW_TEXT_MESSAGE
+        ? `${lastMessage.slice(0, MAX_LENGTH_PREVIEW_TEXT_MESSAGE).trim()}...`
         : lastMessage
     const formatDate = new Date(date)
 
