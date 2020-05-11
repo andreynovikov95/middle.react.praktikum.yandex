@@ -30,7 +30,7 @@ type TState = {
     textareaValue: string
 }
 
-//TODO add draft
+// TODO add draft, delete and edit
 export class RightColumn extends PureComponent<TProps, TState> {
     public textareaRef: React.RefObject<HTMLTextAreaElement>;
 
@@ -59,19 +59,20 @@ export class RightColumn extends PureComponent<TProps, TState> {
         })
     };
 
-    handleClick = (chatMessages: TDataChatMesseges, chatIndex: number): () => void => (): void => {
+    handleSendingMessage = (chatMessages: TDataChatMesseges, chatIndex: number): () => void => (): void => {
         const {
             sendMessage
         } = this.props
         const {
             textareaValue
         } = this.state
+
         if (textareaValue.trim().length > 0) {
             const nowDate = new Date()
             sendMessage({
                 authorId: 3,
                 messageId: shortid.generate(),
-                message: textareaValue,
+                message: textareaValue.replace(/(\r\n|\n|\r)/gm, '<br>'),
                 time: `${nowDate.getHours()}:${nowDate.getMinutes()}:${nowDate.getSeconds()}`
             }, chatMessages, chatIndex)
 
@@ -97,8 +98,8 @@ export class RightColumn extends PureComponent<TProps, TState> {
             shiftKey
         } = event
 
-        if (key === 'Enter' && !shiftKey) {       
-            this.handleClick(chatMessages, chatIndex)()
+        if (key === 'Enter' && !shiftKey) {
+            this.handleSendingMessage(chatMessages, chatIndex)()
         }
     }
 
@@ -146,7 +147,7 @@ export class RightColumn extends PureComponent<TProps, TState> {
                 className={'panel__clip'}
                 src='icons/send.svg'
                 alt='clip'
-                onClick={this.handleClick(chatMessages, chatIndex)}
+                onClick={this.handleSendingMessage(chatMessages, chatIndex)}
             />
         </div>
     )
