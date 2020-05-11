@@ -5,6 +5,9 @@ import {
     TDataChatMesseges,
     TDateMessage
 } from 'components/Chat/Chat'
+import {
+    createMarkup
+} from 'utils/html'
 
 import './Messages.css'
 
@@ -62,9 +65,10 @@ const renderMessages = (
                         {name}
                 </div>
             )}
-                <div className={'message__text__message'}>
-                    {message}
-                </div>
+                <div
+                    className={'message__text__message'}
+                    dangerouslySetInnerHTML={createMarkup(message)}
+                />
             </div>
             <div className={'message__time'}>
                 {time}
