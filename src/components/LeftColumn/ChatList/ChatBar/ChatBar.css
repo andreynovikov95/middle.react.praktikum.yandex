@@ -1,8 +1,14 @@
+li {
+    list-style-type: none;
+}
+  
 .bar {
     display: flex;
     align-items: center;
     width: 360px;
     height: 80px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .bar:hover {

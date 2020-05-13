@@ -1,5 +1,12 @@
 import React, { PureComponent } from 'react'
 import shortid from 'shortid'
+import {
+    Switch,
+    Route
+} from 'react-router-dom'
+import {
+    THocWithChatIdProps
+} from 'utils/hoc/withChatId'
 
 import { Messages } from './Messages/Messages'
 
@@ -19,7 +26,6 @@ export type TSendFuntion = (
 ) => void
 
 type TProps = {
-    selectedChatId: string,
     authors: TDataAuthors,
     chats: TDataChats,
     messages: TDataChatsMesseges,
@@ -28,13 +34,13 @@ type TProps = {
 
 type TState = {
     textareaValue: string
-}
+};
 
 // TODO add draft, delete and edit
-export class RightColumn extends PureComponent<TProps, TState> {
+export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TState> {
     public textareaRef: React.RefObject<HTMLTextAreaElement>;
 
-    constructor(props: TProps) {
+    constructor(props: TProps & THocWithChatIdProps) {
         super(props);
         this.textareaRef = React.createRef();
     }
@@ -47,7 +53,7 @@ export class RightColumn extends PureComponent<TProps, TState> {
         this.textareaRef.current?.focus();
     }
 
-    public componentDidUpdate(prevProps: TProps) {
+    public componentDidUpdate(prevProps: TProps & THocWithChatIdProps) {
         if (this.props.selectedChatId !== prevProps.selectedChatId) {
             this.handleResetTextareaValue()
         }
@@ -134,7 +140,10 @@ export class RightColumn extends PureComponent<TProps, TState> {
         chatIndex: number
     ) => (
         <div className={'panel'}>
-            <img src='icons/clip.svg' alt='clip' />
+            <img
+                src='/icons/clip.svg'
+                alt='clip'
+            />
             <textarea
                 className={'panel__textarea'}
                 ref={this.textareaRef} 
@@ -144,9 +153,9 @@ export class RightColumn extends PureComponent<TProps, TState> {
                 onKeyDown={this.handleKeyDown(chatMessages, chatIndex)}
             />
             <img
-                className={'panel__clip'}
-                src='icons/send.svg'
-                alt='clip'
+                className={'panel__send'}
+                src='/icons/send.svg'
+                alt='send button'
                 onClick={this.handleSendingMessage(chatMessages, chatIndex)}
             />
         </div>
@@ -154,23 +163,28 @@ export class RightColumn extends PureComponent<TProps, TState> {
 
     public render() {
         const {
-            selectedChatId,
             authors = [],
             chats = [],
-            messages = []
+            messages = [],
+            selectedChatId
         } = this.props
         // TODO вынести в контейнер
         const chatIndex: number = this.getIndexChatMessage(selectedChatId, chats)
         const chatMessages: TDataChatMesseges = this.getChatMessages(chatIndex, chats, messages)
 
         return (
-            <div className={'rightColumn'}>
-                <Messages
-                    authors={authors}
-                    chatMessages={chatMessages}
-                />
+            <main className={'rightColumn'}>
+                <Switch>
+                    <Route path='/chat' render={(props) => (
+                        <Messages
+                            {...props}
+                            authors={authors}
+                            chatMessages={chatMessages}
+                        />
+                    )}/>
+                </Switch>
                 {this.renderPanel(chatMessages, chatIndex)}
-            </div>
+            </main>
         )
     }
 }

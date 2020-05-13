@@ -1,5 +1,12 @@
 import React, { PureComponent } from 'react';
 import shortid from 'shortid'
+import {
+  Switch,
+  Route
+} from 'react-router-dom'
+
+import { withChatId } from 'utils/hoc/withChatId'
+import { EmptyChat } from 'components/EmptyChat/EmptyChat';
 import { LeftColumn } from 'components/LeftColumn/LeftColumn';
 import { RightColumn } from 'components/RightColumn/RightColumn';
 
@@ -7,8 +14,7 @@ import './Chat.css'
 import {
   AUTHORS,
   CHATS,
-  MESSAGES,
-  PLACEHOLDER_TEXT
+  MESSAGES
 } from './Chat.mock'
 
 type TAuthor = {
@@ -45,15 +51,15 @@ export type TDataChatMesseges = TMessage[];
 export type TDataChatsMesseges = TDataChatMesseges[];
 
 type TState = {
-  selectedChatId: string,
   authors: TDataAuthors,
   chats: TDataChats,
-  messages: TDataChatsMesseges
+  messages: TDataChatsMesseges,
 }
+
+const WithChatIdRightColumn = withChatId(RightColumn)
 
 export class Chat extends PureComponent<{}, TState>   {
   public state = {
-    selectedChatId: '',
     authors: [],
     chats: [],
     messages: []
@@ -65,14 +71,6 @@ export class Chat extends PureComponent<{}, TState>   {
       chats: [...prevState.chats, ...CHATS],
       messages: [...prevState.messages, ...MESSAGES]
     }))
-  }
-
-  public selectChat = (id: string): () => void => (): void => {
-    if (this.state.selectedChatId === id) {
-      this.setState({ selectedChatId: '' })
-    } else {
-      this.setState({ selectedChatId: id })
-    }
   }
 
   public hanleSendMessage = (
@@ -121,7 +119,6 @@ export class Chat extends PureComponent<{}, TState>   {
 
   public render() {
     const {
-      selectedChatId,
       authors,
       chats,
       messages
@@ -130,26 +127,25 @@ export class Chat extends PureComponent<{}, TState>   {
     return (
       <div className="chat">
         <LeftColumn
-          selectedChatId={selectedChatId}
           authors={authors}
           chats={chats}
           messages={messages}
-          selectChat={this.selectChat}
         />
-        {selectedChatId
-         ? <RightColumn
-            selectedChatId={selectedChatId}
-            authors={authors}
-            chats={chats}
-            messages={messages}
-            sendMessage={this.hanleSendMessage}
+        <Switch>
+          <Route exact path='/' component={EmptyChat}/>
+          <Route
+            path='/chat'
+            render={
+              (props) => <WithChatIdRightColumn
+                {...props}
+                authors={authors}
+                chats={chats}
+                messages={messages}
+                sendMessage={this.hanleSendMessage}
+              />
+            }/>
           />
-          : <div className="chat__placeholder">
-              <div className="chat__placeholder__text">
-                {PLACEHOLDER_TEXT}
-              </div>
-            </div>
-          }
+        </Switch>
       </div>
     );
   }
