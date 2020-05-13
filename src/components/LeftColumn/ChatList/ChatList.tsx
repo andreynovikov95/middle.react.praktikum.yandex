@@ -1,7 +1,4 @@
 import React, { useMemo } from 'react';
-import {
-  withRouter
-} from 'react-router-dom';
 import { withChatId } from 'utils/hoc/withChatId'
 import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 import {
@@ -69,7 +66,7 @@ const prepareChatList = (
         return b.date - a.date
       })
 
-const WithChatIdChatBar = withRouter(withChatId(ChatBar))
+const WithChatIdChatBar = withChatId(ChatBar)
 
 export const ChatList = ({
   authors = [],
@@ -92,7 +89,6 @@ export const ChatList = ({
                 icon
             }) => (
                 <WithChatIdChatBar
-                    selectedChatId=''
                     key={chatId}
                     chatId={chatId}
                     author={author}

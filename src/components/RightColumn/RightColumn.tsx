@@ -4,6 +4,9 @@ import {
     Switch,
     Route
 } from 'react-router-dom'
+import {
+    THocWithChatIdProps
+} from 'utils/hoc/withChatId'
 
 import { Messages } from './Messages/Messages'
 
@@ -23,7 +26,6 @@ export type TSendFuntion = (
 ) => void
 
 type TProps = {
-    selectedChatId: string,
     authors: TDataAuthors,
     chats: TDataChats,
     messages: TDataChatsMesseges,
@@ -35,10 +37,10 @@ type TState = {
 };
 
 // TODO add draft, delete and edit
-export class RightColumn extends PureComponent<TProps, TState> {
+export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TState> {
     public textareaRef: React.RefObject<HTMLTextAreaElement>;
 
-    constructor(props: TProps) {
+    constructor(props: TProps & THocWithChatIdProps) {
         super(props);
         this.textareaRef = React.createRef();
     }
@@ -51,7 +53,7 @@ export class RightColumn extends PureComponent<TProps, TState> {
         this.textareaRef.current?.focus();
     }
 
-    public componentDidUpdate(prevProps: TProps) {
+    public componentDidUpdate(prevProps: TProps & THocWithChatIdProps) {
         if (this.props.selectedChatId !== prevProps.selectedChatId) {
             this.handleResetTextareaValue()
         }

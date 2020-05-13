@@ -138,7 +138,6 @@ export class Chat extends PureComponent<{}, TState>   {
             render={
               (props) => <WithChatIdRightColumn
                 {...props}
-                selectedChatId=''
                 authors={authors}
                 chats={chats}
                 messages={messages}

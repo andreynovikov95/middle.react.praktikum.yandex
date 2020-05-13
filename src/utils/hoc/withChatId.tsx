@@ -1,14 +1,15 @@
 import React, { ComponentType } from 'react'
 import {
-    RouteComponentProps
+    RouteComponentProps,
+    withRouter
 } from 'react-router-dom';
 
-type TProps = {
+export type THocWithChatIdProps = {
     selectedChatId: string
 }
 
-export function withChatId<T extends TProps>(Component: ComponentType<T>) {
-    return (props: T & RouteComponentProps) => {
+export function withChatId<T>(Component: ComponentType<T & THocWithChatIdProps>) {
+    return withRouter((props: T & RouteComponentProps) => {
         const {
             location: {
                 pathname = ''
@@ -23,5 +24,5 @@ export function withChatId<T extends TProps>(Component: ComponentType<T>) {
                 selectedChatId={selectedChatId}
             />
         )
-    }
+    })
 }

@@ -3,12 +3,14 @@ import cx from 'classnames'
 import {
     Link
 } from 'react-router-dom'
+import {
+    THocWithChatIdProps
+} from 'utils/hoc/withChatId'
 
 import './ChatBar.css'
 
 type TProps = {
     chatId: string,
-    selectedChatId: string,
     author: string,
     chatName: string,
     date: number,
@@ -18,7 +20,7 @@ type TProps = {
 
 const MAX_LENGTH_PREVIEW_TEXT_MESSAGE = 18;
 
-export class ChatBar extends PureComponent<TProps> {
+export class ChatBar extends PureComponent<TProps & THocWithChatIdProps> {
     render() {
         const {
             selectedChatId,
