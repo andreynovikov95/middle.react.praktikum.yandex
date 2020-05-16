@@ -1,10 +1,26 @@
 import React from 'react';
-import { Chat } from 'components/Chat/Chat'
+import {
+  Switch,
+  Route
+} from 'react-router-dom';
 
-import './App.css'
+import { Authorization } from 'components/Authorization/Authorization';
+import { Chat } from 'components/Chat/Chat';
+
+import './App.css';
 
 export const App = () => (
   <div className="app">
-    <Chat />
+    <Switch>
+        <Route
+          path='/authorization'
+          render={
+            (props) => <Authorization
+              {...props}
+            />
+          }/>
+          <Route path='/chat' component={Chat}/>
+        />
+      </Switch>
   </div>
 );

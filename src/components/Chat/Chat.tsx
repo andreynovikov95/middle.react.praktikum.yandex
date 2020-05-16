@@ -132,7 +132,7 @@ export class Chat extends PureComponent<{}, TState>   {
           messages={messages}
         />
         <Switch>
-          <Route exact path='/' component={EmptyChat}/>
+          <Route exact path='/chat' component={EmptyChat}/>
           <Route
             path='/chat'
             render={
