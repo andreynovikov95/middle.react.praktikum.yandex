@@ -34,6 +34,7 @@ type TAuthorizationProps = {
 const EMAIL_PLACEHOLDER = 'Email'
 const USERNAME_PLACEHOLDER = 'Username'
 const PASSWORD_PLACEHOLDER = 'Password'
+const PASSWORD_PLACEHOLDER_CONFIRM = 'Confirm password'
 const SING_UP = 'Sign Up'
 
 const handleChange = (setValue: (value: string) => string) => (
@@ -203,7 +204,7 @@ export const Registration = ({
             <input
                 className='registration__continer__input'
                 type='password'
-                placeholder={PASSWORD_PLACEHOLDER}
+                placeholder={PASSWORD_PLACEHOLDER_CONFIRM}
                 onChange={handleChange(setUserPasswordConfirm)}
                 onKeyDown={handleKeyDown(
                     userLogin,
