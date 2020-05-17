@@ -1,0 +1,18 @@
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.placeholder__text {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(201, 243, 247, 0.4);
+    border-radius: 10px;
+    width: 344px;
+    height: 40px;
+    color: #828282;
+}

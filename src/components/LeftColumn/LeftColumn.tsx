@@ -9,28 +9,21 @@ import {
 import './LeftColumn.css'
 
 type TProps = {
-  selectedChatId: string,
   authors: TDataAuthors,
   chats: TDataChats,
-  messages: TDataChatsMesseges,
-  selectChat: (id: string) => () => void
+  messages: TDataChatsMesseges
 };
 
-
 export const LeftColumn = ({
-    selectedChatId,
     authors,
     chats,
-    messages,
-    selectChat
+    messages
 }: TProps) => (
-    <div className='leftColumn'>
+    <header className='leftColumn'>
       <ChatList
-        selectedChatId={selectedChatId}
         authors={authors}
         chats={chats}
         messages={messages}
-        selectChat={selectChat}
       />
-    </div>
+    </header>
 );

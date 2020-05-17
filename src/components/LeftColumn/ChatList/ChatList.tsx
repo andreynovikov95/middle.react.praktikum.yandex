@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { withChatId } from 'utils/hoc/withChatId'
 import { ChatBar } from 'components/LeftColumn/ChatList/ChatBar/ChatBar';
 import {
   TDataAuthors,
@@ -10,17 +11,15 @@ import {
 import './ChatList.css'
 
 export type TProps = {
-  selectedChatId: string;
   authors: TDataAuthors,
   chats: TDataChats,
-  messages: TDataChatsMesseges,
-  selectChat: (id: string) => () => void
+  messages: TDataChatsMesseges
 };
 
 type TChatList = {
   author: string,
   chatId: string,
-  date: string,
+  date: number,
   chatName: string,
   lastMessage: string,
   icon: string
@@ -28,12 +27,10 @@ type TChatList = {
 
 export type DataChatList = TChatList[];
 
-// TODO use unix timestamp for date
-const convertDate = (date: string): string => date
-  .split('/')
-  .reverse()
-  .join('-')
-
+// TODO Вопрос: Думал про {chatId: [message1, message2]},
+// но проблема в том, что у меня не БД, и я вручную проставляю айдишники
+// чтобы не следить за этим, использую shortid.generate()
+// Вот это плохо себе представляю  Record<chatId, Maessage[]> можно пример? 
 const prepareChatList = (
   chats: TDataChats,
   messages: TDataChatsMesseges,
@@ -66,25 +63,22 @@ const prepareChatList = (
           })
       })
       .sort((a, b) => {
-          const dateA = convertDate(a.date)
-          const dateB = convertDate(b.date)
-
-          return Date.parse(dateB) - Date.parse(dateA)
+        return b.date - a.date
       })
 
+const WithChatIdChatBar = withChatId(ChatBar)
+
 export const ChatList = ({
-  selectedChatId,
   authors = [],
   chats = [],
-  messages = [],
-  selectChat
+  messages = []
 }: TProps) => {
   const chatList = useMemo(() => prepareChatList(chats, messages, authors),
     [chats, messages, authors]
   )
 
   return (
-    <div className="chatList">
+    <ul className="chatList">
       {chatList
         .map(({
                 author,
@@ -94,19 +88,17 @@ export const ChatList = ({
                 lastMessage,
                 icon
             }) => (
-                <ChatBar
+                <WithChatIdChatBar
                     key={chatId}
                     chatId={chatId}
-                    selectedChatId={selectedChatId}
                     author={author}
                     date={date}
                     chatName={chatName}
                     lastMessage={lastMessage}
                     icon={icon}
-                    selectChat={selectChat}
                 />
             )
         )}
-    </div>
+    </ul>
   );
 }
