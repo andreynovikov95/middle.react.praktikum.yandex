@@ -32,9 +32,10 @@ export class ChatBar extends PureComponent<TProps & THocWithChatIdProps> {
             icon = 'react'
         } = this.props
 
-        let message = lastMessage.length > MAX_LENGTH_PREVIEW_TEXT_MESSAGE
-            ? `${lastMessage.slice(0, MAX_LENGTH_PREVIEW_TEXT_MESSAGE).trim()}...`
-            : lastMessage
+        let message = lastMessage.replace(/<br>/g, ' ')
+        message = message.length > MAX_LENGTH_PREVIEW_TEXT_MESSAGE
+            ? `${message.slice(0, MAX_LENGTH_PREVIEW_TEXT_MESSAGE).trim()}...`
+            : message
         const formatDate = new Date(date)
 
         return (
