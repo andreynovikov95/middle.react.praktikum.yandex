@@ -3,7 +3,8 @@ import {
   Switch,
   Route,
   RouteComponentProps,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom'
 import cx from 'classnames'
 
@@ -20,7 +21,9 @@ type TProps = {
     userName: string,
     userPassword: string,
     setUserName: (value: string) => any,
-    setUserPassword: (value: string) => any
+    setUserPassword: (value: string) => any,
+    setAuthorization: (value: boolean) => any,
+    isAuthorization: boolean
 }
 
 
@@ -82,7 +85,9 @@ export class Authorization extends PureComponent<RouteComponentProps & TProps> {
         userName,
         userPassword,
         setUserName,
-        setUserPassword
+        setUserPassword,
+        setAuthorization,
+        isAuthorization
     } = this.props
 
     return (
@@ -100,6 +105,8 @@ export class Authorization extends PureComponent<RouteComponentProps & TProps> {
                                 userPassword={userPassword}
                                 setUserName={setUserName}
                                 setUserPassword={setUserPassword}
+                                setAuthorization={setAuthorization}
+                                isAuthorization={isAuthorization}
                             /> 
                         )}
                     />

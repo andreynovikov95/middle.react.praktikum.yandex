@@ -15,6 +15,11 @@ type TProps = {
     setUserPassword: (value: string) => string
 }
 
+type TAuthorizationProps = {
+    setAuthorization: (value: boolean) => boolean,
+    isAuthorization: boolean
+}
+
 const USERNAME_PLACEHOLDER = 'Username'
 const PASSWORD_PLACEHOLDER = 'Password'
 const REMEMBER_ME = 'Remember me'
@@ -33,11 +38,25 @@ const handleChange = (setValue: (value: string) => string) => (
     setValue(value)
 }
 
-const openChat = (routeProps: RouteComponentProps) => () => {
-    routeProps.history.push('/chat');
+const openChat = (
+    userName: string,
+    userPassword: string,
+    {
+        history,
+        setAuthorization,
+    }: RouteComponentProps & TAuthorizationProps
+) => () => {
+    if (userName.trim().length > 0 && userPassword.trim().length > 0) {
+        setAuthorization(true)
+        history.push('/chat');
+    }
 };
 
-const handleKeyDown = (routeProps: RouteComponentProps): (
+const handleKeyDown = (
+    userName: string,
+    userPassword: string,
+    routeProps: RouteComponentProps & TAuthorizationProps
+): (
     event: KeyboardEvent<HTMLInputElement>
 ) => void => (
     event: KeyboardEvent<HTMLInputElement>
@@ -47,7 +66,7 @@ const handleKeyDown = (routeProps: RouteComponentProps): (
     } = event
 
     if (key === 'Enter') {
-        openChat(routeProps)
+        openChat(userName, userPassword, routeProps)
     }
 }
 
@@ -57,7 +76,7 @@ export const Login = ({
     setUserName,
     setUserPassword,
     ...rest
-}: TProps & RouteComponentProps) => (
+}: TProps & TAuthorizationProps & RouteComponentProps) => (
     <div className='login'>
         <div className='login__continer'>
             <img
@@ -67,10 +86,11 @@ export const Login = ({
             />
             <input
                 className='login__continer__input'
+                type='email'
                 placeholder={USERNAME_PLACEHOLDER}
                 value={userName}
                 onChange={handleChange(setUserName)}
-                onKeyDown={handleKeyDown(rest)}
+                onKeyDown={handleKeyDown(userName, userPassword, rest)}
                 required
             />
         </div>
@@ -86,7 +106,7 @@ export const Login = ({
                 placeholder={PASSWORD_PLACEHOLDER}
                 value={userPassword}
                 onChange={handleChange(setUserPassword)}
-                onKeyDown={handleKeyDown(rest)}
+                onKeyDown={handleKeyDown(userName, userPassword, rest)}
                 required
             />
         </div>
@@ -108,7 +128,8 @@ export const Login = ({
         </div>
         <button
             className='login__button'
-            onClick={openChat(rest)}
+            type='submit'
+            onClick={openChat(userName, userPassword, rest)}
         >
             {LOGIN}
         </button>

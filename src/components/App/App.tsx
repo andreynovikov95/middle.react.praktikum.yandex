@@ -13,34 +13,47 @@ import './App.css';
 export const App = () => {
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  const [isAuthorization, setAuthorization] = useState(false)
 
   return (
     <div className="app">
-      <Switch>
-          <Route
-            path='/authorization'
-            render={
-              (props) => (
-                <Authorization
-                  {...props}
-                  userName={userName}
-                  userPassword={userPassword}
-                  setUserName={setUserName}
-                  setUserPassword={setUserPassword}
+      {isAuthorization
+          ? (
+            <Switch>
+                <Route
+                  path='/chat'
+                  component={Chat}
                 />
-              )
-            }/>
-            <Route
-              path='/chat'
-              component={Chat}
-            />
-            <Route
-              path='*'
-              render={() => <Redirect to='/authorization' />}
-              exact
-            />
-          />
-        </Switch>
+                <Route
+                  path='*'
+                  render={() => <Redirect to='/chat' />}
+                />
+            </Switch>
+          )
+          : (
+             <Switch>
+              <Route
+                path='/authorization'
+                render={
+                  (props) => (
+                    <Authorization
+                      {...props}
+                      userName={userName}
+                      userPassword={userPassword}
+                      setUserName={setUserName}
+                      setUserPassword={setUserPassword}
+                      setAuthorization={setAuthorization}
+                      isAuthorization={isAuthorization}
+                    />
+                  )
+                }/>
+              <Route
+                path='*'
+                render={() => <Redirect to='/authorization' />}
+              />
+            </Switch>
+          )
+      }
     </div>
   );
 }
