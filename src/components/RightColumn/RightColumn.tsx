@@ -152,7 +152,7 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
     ) => (
         <div className={'panel'}>
             <img
-                src='/icons/clip.svg'
+                src='/react-messenger/icons/clip.svg'
                 alt='clip'
             />
             <textarea
@@ -165,7 +165,7 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
             />
             <img
                 className={'panel__send'}
-                src='/icons/send.svg'
+                src='/react-messenger/icons/send.svg'
                 alt='send button'
                 onClick={this.handleSendingMessage(chatMessages, chatIndex)}
             />

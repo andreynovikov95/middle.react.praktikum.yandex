@@ -131,7 +131,7 @@ export const Registration = ({
                     'registration__continer__img', 
                     'registration__continer__img_email'
                 )}
-                src='/icons/email.svg'
+                src='/react-messenger/icons/email.svg'
                 alt='email icon'
             />
             <input
@@ -153,7 +153,7 @@ export const Registration = ({
             <div className='registration__continer'>
             <img
                 className='registration__continer__img'
-                src='/icons/profile.svg'
+                src='/react-messenger/icons/profile.svg'
                 alt='profile icon'
             />
             <input
@@ -175,7 +175,7 @@ export const Registration = ({
         <div className='registration__continer'>
             <img
                 className='registration__continer__img'
-                src='/icons/lock.svg'
+                src='/react-messenger/icons/lock.svg'
                 alt='profile icon'
             />
             <input
@@ -197,7 +197,7 @@ export const Registration = ({
         <div className='registration__continer'>
             <img
                 className='registration__continer__img'
-                src='/icons/lock.svg'
+                src='/react-messenger/icons/lock.svg'
                 alt='profile icon'
             />
             <input

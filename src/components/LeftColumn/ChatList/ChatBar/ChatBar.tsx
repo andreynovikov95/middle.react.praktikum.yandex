@@ -47,7 +47,7 @@ export class ChatBar extends PureComponent<TProps & THocWithChatIdProps> {
                     to={`/chat/${chatId}`}
                 >
                     <div className={'bar__icon'}>
-                        <img src={`/icons/${icon}.svg`} alt={icon}/>
+                        <img src={`/react-messenger/icons/${icon}.svg`} alt={icon}/>
                     </div>
                     <div className={'bar__message'}>
                         <div className={'bar__message__title'}>

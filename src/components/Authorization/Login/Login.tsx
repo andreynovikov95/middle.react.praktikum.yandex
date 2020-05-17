@@ -104,7 +104,7 @@ export const Login = ({
         <div className='login__continer'>
             <img
                 className='login__continer__img'
-                src='/icons/profile.svg'
+                src='/react-messenger/icons/profile.svg'
                 alt='profile icon'
             />
             <input
@@ -119,7 +119,7 @@ export const Login = ({
         <div className='login__continer'>
             <img
                 className='login__continer__img'
-                src='/icons/lock.svg'
+                src='/react-messenger/icons/lock.svg'
                 alt='profile icon'
             />
             <input
