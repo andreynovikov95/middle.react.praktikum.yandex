@@ -25,12 +25,12 @@
     resize: none;   
 }
 
-.panel__clip {
+.panel__send {
     padding-right: 6px;
     transition: 0.5s;
 }
 
-.panel__clip:hover {
+.panel__send:hover {
     cursor: pointer;
     rotate: 45deg;
 }

@@ -1,8 +1,6 @@
 import shortid from 'shortid'
 import { loremIpsum } from "lorem-ipsum";
 
-export const PLACEHOLDER_TEXT = 'Please select a chat to start messaging'
-
 export const CHATS = [
     {
         chatId: shortid.generate(),
@@ -70,7 +68,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '14/3/2020',
+            date: 1584144000000, // '14/3/2020'
             dateMessages: [
                 {
                     authorId: 0,
@@ -106,7 +104,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '15/3/2020',
+            date: 1584230400000, //'15/3/2020'
             dateMessages:     [
                 {
                     authorId: 1,
@@ -144,7 +142,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '13/3/2020',
+            date: 1552435200000, // '13/3/2019'
             dateMessages: [
                 {
                     authorId: 3,
@@ -180,7 +178,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '17/3/2020',
+            date: 1552780800000, // '17/3/2019'
             dateMessages:  [
                 {
                     authorId: 3,
@@ -218,7 +216,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '7/6/2019',
+            date: 1559865600000, // '7/6/2019'
             dateMessages:     [
                 {
                     authorId: 2,
@@ -254,7 +252,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '20/1/2020',
+            date: 1579478400000, // '20/1/2020'
             dateMessages: [
                 {
                     authorId: 1,
@@ -292,7 +290,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '17/3/2020',
+            date: 1584403200000, // '17/3/2020'
             dateMessages:     [
                 {
                     authorId: 0,
@@ -328,7 +326,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '18/3/2020',
+            date: 1584489600000, // '18/3/2020'
             dateMessages: [
                 {
                     authorId: 0,
@@ -366,7 +364,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '17/3/2020',
+            date: 1584403200000, // '17/3/2020'
             dateMessages: [
                 {
                     authorId: 3,
@@ -402,7 +400,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '19/3/2020',
+            date: 1584576000000, // '19/3/2020'
             dateMessages: [
                 {
                     authorId: 1,
@@ -440,7 +438,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '7/6/2019',
+            date: 1559865600000, // '7/6/2019'
             dateMessages:  [
                 {
                     authorId: 3,
@@ -476,7 +474,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '21/6/2019',
+            date: 1561075200000, // '21/6/2019'
             dateMessages: [
                 {
                     authorId: 1,
@@ -514,7 +512,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '5/12/2019',
+            date: 1557619200000, // '5/12/2019'
             dateMessages:     [
                 {
                     authorId: 1,
@@ -550,7 +548,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '17/1/2020',
+            date: 1579219200000, // '17/1/2020'
             dateMessages:     [
                 {
                     authorId: 1,
@@ -588,7 +586,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '20/1/2020',
+            date: 1579478400000, // '20/1/2020'
             dateMessages: [
                 {
                     authorId: 1,
@@ -624,7 +622,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '9/2/2020',
+            date: 1581206400000, // '9/2/2020'
             dateMessages:     [
                 {
                     authorId: 1,
@@ -662,7 +660,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '8/3/2020',
+            date: 1596412800000, // '8/3/2020'
             dateMessages: [
                 {
                     authorId: 0,
@@ -698,7 +696,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '11/3/2020',
+            date: 1583884800000, // '11/3/2020'
             dateMessages: [
                 {
                     authorId: 0,
@@ -736,7 +734,7 @@ export const MESSAGES = [
     [
         {
             dateMessagesId: shortid.generate(),
-            date: '13/3/2020',
+            date: 1584057600000, // '13/3/2020'
             dateMessages:     [
                 {
                     authorId: 1,
@@ -772,7 +770,7 @@ export const MESSAGES = [
         },
         {
             dateMessagesId: shortid.generate(),
-            date: '14/3/2020',
+            date: 1584144000000, // '14/3/2020'
             dateMessages:     [
                 {
                     authorId: 0,
@@ -811,19 +809,27 @@ export const MESSAGES = [
 
 export const AUTHORS = [
     {
+        email: 'test1@test.com',
         name: 'The Shrek 1',
-        avatar: 'shrek1.png'
+        avatar: 'shrek1',
+        password: '123456'
     },
     {
+        email: 'test2@test.com',
         name: 'The Shrek 2',
-        avatar: 'shrek2.png'
+        avatar: 'shrek2',
+        password: '1234567'
     },
     {
+        email: 'test3@test.com',
         name: 'Rick Dalton 1',
-        avatar: 'RickDalton1.png'
+        avatar: 'RickDalton1',
+        password: '12345678'
     },
     {
+        email: 'test4@test.com',
         name: 'Rick Dalton 2',
-        avatar: 'RickDalton2.png'
+        avatar: 'RickDalton2',
+        password: '123456789'
     }
 ]

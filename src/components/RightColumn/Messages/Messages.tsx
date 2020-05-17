@@ -1,6 +1,9 @@
 import React from 'react'
 
 import {
+    createMarkup
+} from 'utils/html'
+import {
     TDataAuthors,
     TDataChatMesseges,
     TDateMessage
@@ -15,9 +18,17 @@ type TProps = {
     chatMessages: TDataChatMesseges
 };
 
-// TODO вопрос: куда выносить константы
-// раньше выносил в mock, чтобы не было по 300+ строчек кода
-const EMPTY_CHAT_TEXT = 'You have no messages yet'
+const EMPTY_CHAT_TEXT = 'You have no messages yet';
+
+const getFormatDate = (date: number) => new Date(date)
+    .toLocaleString("en-US", {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        weekday: 'short',
+        timeZone: 'UTC'
+    }) 
+    .replace(/,/g, '')
 
 const renderMessages = (
     messages: TDateMessages,
@@ -27,34 +38,45 @@ const renderMessages = (
     messageId,
     message,
     time
-})  => {
+}, index)  => {
     const {
-        name = 'The Shrek 2',
-        avatar = '/react-messenger/images/shrek2.png'
+        name = 'Anonymous',
+        avatar = 'Anonymous'
     } = authors[authorId]
+    const showAuthorInfo = index === 0 || (index > 0 && authorId !== messages[index - 1].authorId)
 
     return (
         <div
          className={'message'}
          key={messageId}
         >
+            
             <div className={'message__avatar'}>
-                <img src={`/react-messenger//images/${avatar}`} alt={name} />
+                {showAuthorInfo && (
+                    <img
+                        src={`/react-messenger/images/${avatar}.png`}
+                        alt={name}
+                        width={50}
+                    />
+                )}
             </div>
             <div className={'message__text'}>
+            {showAuthorInfo && (
                 <div className={'message__text__name'}>
-                    {name}
+                        {name}
                 </div>
-                <div className={'message__text__message'}>
-                    {message}
-                </div>
+            )}
+                <div
+                    className={'message__text__message'}
+                    dangerouslySetInnerHTML={createMarkup(message)}
+                />
             </div>
             <div className={'message__time'}>
                 {time}
             </div>
         </div>
     )
-})
+});
 
 const renderDateMessages = (
     chatMessages: TDataChatMesseges,
@@ -64,13 +86,15 @@ const renderDateMessages = (
     dateMessagesId,
     dateMessages
 })  => {
+    const formatDate = getFormatDate(date)
+
     return (
         <div
             className={'dateMessages'}
             key={dateMessagesId}
         >
             <div className={'dateMessages__date'}>
-                {date}
+                {formatDate}
             </div>
             <div className={'dateMessages__messages'}>
                 {renderMessages(dateMessages, authors)}

@@ -1,19 +1,26 @@
 import React, { PureComponent } from 'react';
 import shortid from 'shortid'
+import {
+  Switch,
+  Route
+} from 'react-router-dom'
+
+import { withChatId } from 'utils/hoc/withChatId'
+import { EmptyChat } from 'components/EmptyChat/EmptyChat';
 import { LeftColumn } from 'components/LeftColumn/LeftColumn';
 import { RightColumn } from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
-  AUTHORS,
   CHATS,
-  MESSAGES,
-  PLACEHOLDER_TEXT
+  MESSAGES
 } from './Chat.mock'
 
-type TAuthor = {
+export type TAuthor = {
+  email: string,
   name: string,
-  avatar: string
+  avatar: string,
+  password: string
 }
 
 export type TDataAuthors = TAuthor[];
@@ -36,7 +43,7 @@ export type TDataChats = TChat[];
 
 export type TMessage = {
   dateMessagesId: string,
-  date: string,
+  date: number,
   dateMessages: TDateMessage[]
 };
 
@@ -44,35 +51,29 @@ export type TDataChatMesseges = TMessage[];
 
 export type TDataChatsMesseges = TDataChatMesseges[];
 
-type TState = {
-  selectedChatId: string,
-  authors: TDataAuthors,
-  chats: TDataChats,
-  messages: TDataChatsMesseges
+type TProps = {
+  currentUserId?: number,
+  authors: TDataAuthors
 }
 
-export class Chat extends PureComponent<{}, TState>   {
+type TState = {
+  chats: TDataChats,
+  messages: TDataChatsMesseges,
+}
+
+const WithChatIdRightColumn = withChatId(RightColumn)
+
+export class Chat extends PureComponent<TProps, TState>   {
   public state = {
-    selectedChatId: '',
-    authors: [],
     chats: [],
     messages: []
   }
 
    componentDidMount = () => {
-     this.setState({
-      authors: AUTHORS,
-      chats: CHATS,
-      messages: MESSAGES
-    })
-  }
-
-  public selectChat = (id: string): () => void => (): void => {
-    if (this.state.selectedChatId === id) {
-      this.setState({ selectedChatId: '' })
-    } else {
-      this.setState({ selectedChatId: id })
-    }
+     this.setState(prevState => ({
+      chats: [...prevState.chats, ...CHATS],
+      messages: [...prevState.messages, ...MESSAGES]
+    }))
   }
 
   public hanleSendMessage = (
@@ -81,10 +82,12 @@ export class Chat extends PureComponent<{}, TState>   {
     chatIndex: number
   ): void => {
     let hasCurrentDate = false
-    const nowDate = new Date();
-    const date = `${nowDate.getDate()}/${nowDate.getMonth() + 1}/${nowDate.getFullYear()}`
-    const newChatMessages = chatMessages.map((item) => {
-      if (item.date === date) {
+    const currentDate = new Date();
+    const date = this.getFormatDate(currentDate)
+    const newChatMessages: TMessage[] = chatMessages.map((item: TMessage) => {
+      const itemDate = new Date(item.date)
+      const itemDateFormat = this.getFormatDate(itemDate)
+      if (itemDateFormat === date) {
         item.dateMessages.push(message)
 
         hasCurrentDate = true
@@ -97,7 +100,7 @@ export class Chat extends PureComponent<{}, TState>   {
 
     newChatMessages.push({
       dateMessagesId: shortid.generate(),
-      date,
+      date: Date.parse(date),
       dateMessages: [message]
     })
 
@@ -115,10 +118,14 @@ export class Chat extends PureComponent<{}, TState>   {
     ]}))
   }
 
+  getFormatDate = (date: Date) => `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+
   public render() {
     const {
-      selectedChatId,
-      authors,
+      currentUserId,
+      authors
+    } = this.props
+    const {
       chats,
       messages
     } = this.state
@@ -126,26 +133,26 @@ export class Chat extends PureComponent<{}, TState>   {
     return (
       <div className="chat">
         <LeftColumn
-          selectedChatId={selectedChatId}
           authors={authors}
           chats={chats}
           messages={messages}
-          selectChat={this.selectChat}
         />
-        {selectedChatId
-         ? <RightColumn
-            selectedChatId={selectedChatId}
-            authors={authors}
-            chats={chats}
-            messages={messages}
-            sendMessage={this.hanleSendMessage}
+        <Switch>
+          <Route exact path='/chat' component={EmptyChat}/>
+          <Route
+            path='/chat'
+            render={
+              (props) => <WithChatIdRightColumn
+                {...props}
+                currentUserId={currentUserId}
+                authors={authors}
+                chats={chats}
+                messages={messages}
+                sendMessage={this.hanleSendMessage}
+              />
+            }/>
           />
-          : <div className="chat__placeholder">
-              <div className="chat__placeholder__text">
-                {PLACEHOLDER_TEXT}
-              </div>
-            </div>
-          }
+        </Switch>
       </div>
     );
   }
