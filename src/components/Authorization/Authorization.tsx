@@ -3,14 +3,17 @@ import {
   Switch,
   Route,
   RouteComponentProps,
-  Link,
-  Redirect
+  Link
 } from 'react-router-dom'
 import cx from 'classnames'
 
 import {
     getLastPathnamePart
 } from 'utils/getLastPathnamePart'
+import {
+    TAuthor,
+    TDataAuthors
+} from 'components/Chat/Chat'
 
 import { Login } from './Login/Login'
 
@@ -20,9 +23,11 @@ import './Authorization.css'
 type TProps = {
     userName: string,
     userPassword: string,
-    setUserName: (value: string) => any,
-    setUserPassword: (value: string) => any,
-    setAuthorization: (value: boolean) => any,
+    authors: TDataAuthors,
+    setUserName: (userName: string) => any,
+    setUserPassword: (userPassword: string) => any,
+    setAuthorization: (isAuthorization: boolean) => any,
+    setCurrentUser: (currentUserId: number) => any,
     isAuthorization: boolean
 }
 
@@ -84,9 +89,11 @@ export class Authorization extends PureComponent<RouteComponentProps & TProps> {
     const {
         userName,
         userPassword,
+        authors,
         setUserName,
         setUserPassword,
         setAuthorization,
+        setCurrentUser,
         isAuthorization
     } = this.props
 
@@ -103,9 +110,11 @@ export class Authorization extends PureComponent<RouteComponentProps & TProps> {
                                 {...props }
                                 userName={userName}
                                 userPassword={userPassword}
+                                authors={authors}
                                 setUserName={setUserName}
                                 setUserPassword={setUserPassword}
                                 setAuthorization={setAuthorization}
+                                setCurrentUser={setCurrentUser}
                                 isAuthorization={isAuthorization}
                             /> 
                         )}

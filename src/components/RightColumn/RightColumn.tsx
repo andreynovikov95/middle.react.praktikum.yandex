@@ -34,6 +34,7 @@ export type TSendFuntion = (
 type TProps = {
     authors: TDataAuthors,
     chats: TDataChats,
+    currentUserId?: number,
     messages: TDataChatsMesseges,
     sendMessage: TSendFuntion
 };
@@ -71,8 +72,12 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
         })
     };
 
-    handleSendingMessage = (chatMessages: TDataChatMesseges, chatIndex: number): () => void => (): void => {
+    handleSendingMessage = (
+        chatMessages: TDataChatMesseges,
+        chatIndex: number
+    ): () => void => (): void => {
         const {
+            currentUserId,
             sendMessage
         } = this.props
         const {
@@ -82,7 +87,7 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
         if (textareaValue.trim().length > 0) {
             const nowDate = new Date()
             sendMessage({
-                authorId: 3,
+                authorId: currentUserId || 0,
                 messageId: shortid.generate(),
                 message: textareaValue.replace(/(\r\n|\n|\r)/gm, '<br>'),
                 time: `${nowDate.getHours()}:${nowDate.getMinutes()}:${nowDate.getSeconds()}`

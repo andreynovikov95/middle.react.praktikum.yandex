@@ -5,18 +5,23 @@ import React, {
 import {
     RouteComponentProps,
   } from 'react-router-dom'
+import {
+    TDataAuthors
+} from 'components/Chat/Chat'
 
 import './Login.css'
 
 type TProps = {
     userName: string,
     userPassword: string,
-    setUserName: (value: string) => string,
-    setUserPassword: (value: string) => string
+    setUserName: (userName: string) => string,
+    setUserPassword: (userPassword: string) => string
 }
 
 type TAuthorizationProps = {
-    setAuthorization: (value: boolean) => boolean,
+    authors: TDataAuthors,
+    setAuthorization: (isAuthorization: boolean) => boolean,
+    setCurrentUser: (currentUserId: number) => number,
     isAuthorization: boolean
 }
 
@@ -43,12 +48,22 @@ const openChat = (
     userPassword: string,
     {
         history,
+        authors,
         setAuthorization,
+        setCurrentUser
     }: RouteComponentProps & TAuthorizationProps
 ) => () => {
     if (userName.trim().length > 0 && userPassword.trim().length > 0) {
-        setAuthorization(true)
-        history.push('/chat');
+        const currentUserId = authors.findIndex(({ email }: {
+                email: string
+            }) => email === userName
+        )
+
+    if (currentUserId >= 0 && authors[currentUserId].password === userPassword) {
+            setAuthorization(true)
+            setCurrentUser(currentUserId)
+            history.push('/chat');
+        }
     }
 };
 
@@ -128,7 +143,7 @@ export const Login = ({
         </div>
         <button
             className='login__button'
-            type='submit'
+            type='button'
             onClick={openChat(userName, userPassword, rest)}
         >
             {LOGIN}

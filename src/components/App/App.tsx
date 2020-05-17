@@ -7,6 +7,12 @@ import {
 
 import { Authorization } from 'components/Authorization/Authorization';
 import { Chat } from 'components/Chat/Chat';
+import {
+  TDataAuthors
+} from 'components/Chat/Chat';
+import {
+  AUTHORS
+} from 'components/Chat/Chat.mock'
 
 import './App.css';
 
@@ -14,6 +20,8 @@ export const App = () => {
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [isAuthorization, setAuthorization] = useState(false)
+  const [authors, addNewAuthor] = useState<TDataAuthors>(AUTHORS)
+  const [currentUserId, setCurrentUser] = useState(0)
 
   return (
     <div className="app">
@@ -22,7 +30,14 @@ export const App = () => {
             <Switch>
                 <Route
                   path='/chat'
-                  component={Chat}
+                  render={
+                    (props) => (
+                      <Chat
+                        {...props}
+                        currentUserId={currentUserId}
+                      />
+                    )
+                  }
                 />
                 <Route
                   path='*'
@@ -38,11 +53,13 @@ export const App = () => {
                   (props) => (
                     <Authorization
                       {...props}
+                      authors={authors}
                       userName={userName}
                       userPassword={userPassword}
                       setUserName={setUserName}
                       setUserPassword={setUserPassword}
                       setAuthorization={setAuthorization}
+                      setCurrentUser={setCurrentUser}
                       isAuthorization={isAuthorization}
                     />
                   )

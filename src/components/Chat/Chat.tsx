@@ -17,9 +17,11 @@ import {
   MESSAGES
 } from './Chat.mock'
 
-type TAuthor = {
+export type TAuthor = {
+  email: string,
   name: string,
-  avatar: string
+  avatar: string,
+  password: string
 }
 
 export type TDataAuthors = TAuthor[];
@@ -50,6 +52,10 @@ export type TDataChatMesseges = TMessage[];
 
 export type TDataChatsMesseges = TDataChatMesseges[];
 
+type TProps = {
+  currentUserId?: number
+}
+
 type TState = {
   authors: TDataAuthors,
   chats: TDataChats,
@@ -58,7 +64,7 @@ type TState = {
 
 const WithChatIdRightColumn = withChatId(RightColumn)
 
-export class Chat extends PureComponent<{}, TState>   {
+export class Chat extends PureComponent<TProps, TState>   {
   public state = {
     authors: [],
     chats: [],
@@ -119,6 +125,9 @@ export class Chat extends PureComponent<{}, TState>   {
 
   public render() {
     const {
+      currentUserId
+    } = this.props
+    const {
       authors,
       chats,
       messages
@@ -138,6 +147,7 @@ export class Chat extends PureComponent<{}, TState>   {
             render={
               (props) => <WithChatIdRightColumn
                 {...props}
+                currentUserId={currentUserId}
                 authors={authors}
                 chats={chats}
                 messages={messages}
