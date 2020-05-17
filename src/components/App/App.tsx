@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 
 import { Authorization } from 'components/Authorization/Authorization';
@@ -29,7 +30,15 @@ export const App = () => {
                 />
               )
             }/>
-            <Route path='/chat' component={Chat}/>
+            <Route
+              path='/chat'
+              component={Chat}
+            />
+            <Route
+              path='*'
+              render={() => <Redirect to='/authorization' />}
+              exact
+            />
           />
         </Switch>
     </div>
