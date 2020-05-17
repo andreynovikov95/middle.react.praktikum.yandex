@@ -1,13 +1,13 @@
 import React from 'react'
 
 import {
+    createMarkup
+} from 'utils/html'
+import {
     TDataAuthors,
     TDataChatMesseges,
     TDateMessage
 } from 'components/Chat/Chat'
-import {
-    createMarkup
-} from 'utils/html'
 
 import './Messages.css'
 

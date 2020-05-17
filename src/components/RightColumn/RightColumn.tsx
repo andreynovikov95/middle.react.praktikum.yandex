@@ -1,4 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, {
+    PureComponent,
+    ChangeEvent,
+    RefObject,
+    createRef,
+    KeyboardEvent
+} from 'react'
 import shortid from 'shortid'
 import {
     Switch,
@@ -28,6 +34,7 @@ export type TSendFuntion = (
 type TProps = {
     authors: TDataAuthors,
     chats: TDataChats,
+    currentUserId?: number,
     messages: TDataChatsMesseges,
     sendMessage: TSendFuntion
 };
@@ -38,11 +45,11 @@ type TState = {
 
 // TODO add draft, delete and edit
 export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TState> {
-    public textareaRef: React.RefObject<HTMLTextAreaElement>;
+    public textareaRef: RefObject<HTMLTextAreaElement>;
 
     constructor(props: TProps & THocWithChatIdProps) {
         super(props);
-        this.textareaRef = React.createRef();
+        this.textareaRef = createRef();
     }
 
     public state = {
@@ -59,14 +66,18 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
         }
     }
 
-    handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         this.setState({
             textareaValue: event.target.value
         })
     };
 
-    handleSendingMessage = (chatMessages: TDataChatMesseges, chatIndex: number): () => void => (): void => {
+    handleSendingMessage = (
+        chatMessages: TDataChatMesseges,
+        chatIndex: number
+    ): () => void => (): void => {
         const {
+            currentUserId,
             sendMessage
         } = this.props
         const {
@@ -76,7 +87,7 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
         if (textareaValue.trim().length > 0) {
             const nowDate = new Date()
             sendMessage({
-                authorId: 3,
+                authorId: currentUserId || 0,
                 messageId: shortid.generate(),
                 message: textareaValue.replace(/(\r\n|\n|\r)/gm, '<br>'),
                 time: `${nowDate.getHours()}:${nowDate.getMinutes()}:${nowDate.getSeconds()}`
@@ -96,8 +107,8 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
     handleKeyDown = (
         chatMessages: TDataChatMesseges,
         chatIndex: number
-    ): (event: React.KeyboardEvent<HTMLTextAreaElement>) => void => (
-        event: React.KeyboardEvent<HTMLTextAreaElement>
+    ): (event: KeyboardEvent<HTMLTextAreaElement>) => void => (
+        event: KeyboardEvent<HTMLTextAreaElement>
     ) => {
         const {
             key,

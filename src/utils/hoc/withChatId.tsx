@@ -4,6 +4,10 @@ import {
     withRouter
 } from 'react-router-dom';
 
+import {
+    getLastPathnamePart
+} from 'utils/getLastPathnamePart'
+
 export type THocWithChatIdProps = {
     selectedChatId: string
 }
@@ -15,8 +19,7 @@ export function withChatId<T>(Component: ComponentType<T & THocWithChatIdProps>)
                 pathname = ''
             }
         } = props
-        const pathnameParts = pathname.split('/')
-        const selectedChatId: string = pathnameParts[pathnameParts.length - 1]
+        const selectedChatId: string = getLastPathnamePart(pathname)
 
         return (
             <Component
