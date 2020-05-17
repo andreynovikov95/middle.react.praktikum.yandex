@@ -1,4 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, {
+    PureComponent,
+    ChangeEvent,
+    RefObject,
+    createRef,
+    KeyboardEvent
+} from 'react'
 import shortid from 'shortid'
 import {
     Switch,
@@ -38,11 +44,11 @@ type TState = {
 
 // TODO add draft, delete and edit
 export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TState> {
-    public textareaRef: React.RefObject<HTMLTextAreaElement>;
+    public textareaRef: RefObject<HTMLTextAreaElement>;
 
     constructor(props: TProps & THocWithChatIdProps) {
         super(props);
-        this.textareaRef = React.createRef();
+        this.textareaRef = createRef();
     }
 
     public state = {
@@ -59,7 +65,7 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
         }
     }
 
-    handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         this.setState({
             textareaValue: event.target.value
         })
@@ -96,8 +102,8 @@ export class RightColumn extends PureComponent<TProps & THocWithChatIdProps, TSt
     handleKeyDown = (
         chatMessages: TDataChatMesseges,
         chatIndex: number
-    ): (event: React.KeyboardEvent<HTMLTextAreaElement>) => void => (
-        event: React.KeyboardEvent<HTMLTextAreaElement>
+    ): (event: KeyboardEvent<HTMLTextAreaElement>) => void => (
+        event: KeyboardEvent<HTMLTextAreaElement>
     ) => {
         const {
             key,

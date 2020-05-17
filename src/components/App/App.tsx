@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Switch,
   Route
@@ -9,18 +9,29 @@ import { Chat } from 'components/Chat/Chat';
 
 import './App.css';
 
-export const App = () => (
-  <div className="app">
-    <Switch>
-        <Route
-          path='/authorization'
-          render={
-            (props) => <Authorization
-              {...props}
-            />
-          }/>
-          <Route path='/chat' component={Chat}/>
-        />
-      </Switch>
-  </div>
-);
+export const App = () => {
+  const [userName, setUserName] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+
+  return (
+    <div className="app">
+      <Switch>
+          <Route
+            path='/authorization'
+            render={
+              (props) => (
+                <Authorization
+                  {...props}
+                  userName={userName}
+                  userPassword={userPassword}
+                  setUserName={setUserName}
+                  setUserPassword={setUserPassword}
+                />
+              )
+            }/>
+            <Route path='/chat' component={Chat}/>
+          />
+        </Switch>
+    </div>
+  );
+}

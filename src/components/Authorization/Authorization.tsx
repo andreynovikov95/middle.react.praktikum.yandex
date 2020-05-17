@@ -15,6 +15,15 @@ import { Login } from './Login/Login'
 
 import './Authorization.css'
 
+// TODO пока не получилось избавить от any
+type TProps = {
+    userName: string,
+    userPassword: string,
+    setUserName: (value: string) => any,
+    setUserPassword: (value: string) => any
+}
+
+
 const TABS = [
     {
         id: 'authorization',
@@ -28,9 +37,8 @@ const TABS = [
     }
 ]
 
-export class Authorization extends PureComponent<RouteComponentProps> {
+export class Authorization extends PureComponent<RouteComponentProps & TProps> {
     renderTabs = () => {
-        console.log(this.props)
         const {
             location: {
                 pathname
@@ -70,6 +78,12 @@ export class Authorization extends PureComponent<RouteComponentProps> {
     }
 
     public render() {
+    const {
+        userName,
+        userPassword,
+        setUserName,
+        setUserPassword
+    } = this.props
 
     return (
         <div className="authorization">
@@ -77,7 +91,18 @@ export class Authorization extends PureComponent<RouteComponentProps> {
             {this.renderTabs()}
             <div className="authorization__form__content">
                 <Switch>
-                    <Route path='/authorization' component={Login} />
+                    <Route
+                        path='/authorization'
+                        render={(props) =>  (
+                            <Login
+                                {...props }
+                                userName={userName}
+                                userPassword={userPassword}
+                                setUserName={setUserName}
+                                setUserPassword={setUserPassword}
+                            /> 
+                        )}
+                    />
                     <Route exact path='/authorization/register' render={(props) =>  <div {...props }> </div> } />
                 </Switch>
             </div>

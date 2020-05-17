@@ -17,6 +17,7 @@
     position: absolute;
     top: 9px;
     left: 7px;
+    z-index: 1;
 }
 
 .login__continer__input {
