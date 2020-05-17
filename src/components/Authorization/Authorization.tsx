@@ -11,21 +11,26 @@ import {
     getLastPathnamePart
 } from 'utils/getLastPathnamePart'
 import {
-    TAuthor,
     TDataAuthors
 } from 'components/Chat/Chat'
 
 import { Login } from './Login/Login'
+import { Registration } from './Registration/Registration'
 
 import './Authorization.css'
 
 // TODO пока не получилось избавить от any
 type TProps = {
+    userLogin: string,
     userName: string,
     userPassword: string,
+    userPasswordConfirm: string,
     authors: TDataAuthors,
+    addNewAuthor: (author: any) => any,
+    setUserLogin: (userName: string) => any,
     setUserName: (userName: string) => any,
     setUserPassword: (userPassword: string) => any,
+    setUserPasswordConfirm: (userPasswordConfirm: string) => any,
     setAuthorization: (isAuthorization: boolean) => any,
     setCurrentUser: (currentUserId: number) => any,
     isAuthorization: boolean
@@ -45,6 +50,7 @@ const TABS = [
     }
 ]
 
+// TODO refactor Login and Registration, add showing message
 export class Authorization extends PureComponent<RouteComponentProps & TProps> {
     renderTabs = () => {
         const {
@@ -87,11 +93,16 @@ export class Authorization extends PureComponent<RouteComponentProps & TProps> {
 
     public render() {
     const {
+        userLogin,
         userName,
         userPassword,
+        userPasswordConfirm,
         authors,
+        addNewAuthor,
+        setUserLogin,
         setUserName,
         setUserPassword,
+        setUserPasswordConfirm,
         setAuthorization,
         setCurrentUser,
         isAuthorization
@@ -118,8 +129,29 @@ export class Authorization extends PureComponent<RouteComponentProps & TProps> {
                                 isAuthorization={isAuthorization}
                             /> 
                         )}
+                        exact
                     />
-                    <Route exact path='/authorization/register' render={(props) =>  <div {...props }> </div> } />
+                    <Route
+                        path='/authorization/register'
+                        render={(props) =>  (
+                            <Registration
+                                {...props}
+                                authors={authors}
+                                userLogin={userLogin}
+                                userName={userName}
+                                userPassword={userPassword}
+                                userPasswordConfirm={userPasswordConfirm}
+                                setUserLogin={setUserLogin}
+                                setUserPasswordConfirm={setUserPasswordConfirm}
+                                addNewAuthor={addNewAuthor}
+                                setUserName={setUserName}
+                                setUserPassword={setUserPassword}
+                                setAuthorization={setAuthorization}
+                                setCurrentUser={setCurrentUser}
+                                isAuthorization={isAuthorization}
+                            /> 
+                        )}
+                    />
                 </Switch>
             </div>
         </form>
