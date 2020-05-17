@@ -17,11 +17,13 @@ import {
 import './App.css';
 
 export const App = () => {
+  const [userLogin, setUserLogin] = useState('');
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [isAuthorization, setAuthorization] = useState(false)
-  const [authors, addNewAuthor] = useState<TDataAuthors>(AUTHORS)
-  const [currentUserId, setCurrentUser] = useState(0)
+  const [userPasswordConfirm, setUserPasswordConfirm] = useState('');
+  const [isAuthorization, setAuthorization] = useState(false);
+  const [authors, addNewAuthor] = useState<TDataAuthors>(AUTHORS);
+  const [currentUserId, setCurrentUser] = useState(0);
 
   return (
     <div className="app">
@@ -35,6 +37,7 @@ export const App = () => {
                       <Chat
                         {...props}
                         currentUserId={currentUserId}
+                        authors={authors}
                       />
                     )
                   }
@@ -54,8 +57,13 @@ export const App = () => {
                     <Authorization
                       {...props}
                       authors={authors}
+                      userLogin={userLogin}
                       userName={userName}
                       userPassword={userPassword}
+                      userPasswordConfirm={userPasswordConfirm}
+                      setUserLogin={setUserLogin}
+                      setUserPasswordConfirm={setUserPasswordConfirm}
+                      addNewAuthor={addNewAuthor}
                       setUserName={setUserName}
                       setUserPassword={setUserPassword}
                       setAuthorization={setAuthorization}

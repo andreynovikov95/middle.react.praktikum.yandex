@@ -12,7 +12,6 @@ import { RightColumn } from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
-  AUTHORS,
   CHATS,
   MESSAGES
 } from './Chat.mock'
@@ -53,11 +52,11 @@ export type TDataChatMesseges = TMessage[];
 export type TDataChatsMesseges = TDataChatMesseges[];
 
 type TProps = {
-  currentUserId?: number
+  currentUserId?: number,
+  authors: TDataAuthors
 }
 
 type TState = {
-  authors: TDataAuthors,
   chats: TDataChats,
   messages: TDataChatsMesseges,
 }
@@ -66,14 +65,12 @@ const WithChatIdRightColumn = withChatId(RightColumn)
 
 export class Chat extends PureComponent<TProps, TState>   {
   public state = {
-    authors: [],
     chats: [],
     messages: []
   }
 
    componentDidMount = () => {
      this.setState(prevState => ({
-      authors: [...prevState.authors, ...AUTHORS],
       chats: [...prevState.chats, ...CHATS],
       messages: [...prevState.messages, ...MESSAGES]
     }))
@@ -125,10 +122,10 @@ export class Chat extends PureComponent<TProps, TState>   {
 
   public render() {
     const {
-      currentUserId
+      currentUserId,
+      authors
     } = this.props
     const {
-      authors,
       chats,
       messages
     } = this.state

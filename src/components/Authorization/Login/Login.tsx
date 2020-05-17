@@ -56,7 +56,15 @@ const openChat = (
     if (userName.trim().length > 0 && userPassword.trim().length > 0) {
         const currentUserId = authors.findIndex(({ email }: {
                 email: string
-            }) => email === userName
+            }) => {
+                if (email === userName) {
+                    return true
+                }
+
+                const user = email.split('@')[0]
+
+                return user === userName
+            }
         )
 
     if (currentUserId >= 0 && authors[currentUserId].password === userPassword) {
@@ -97,11 +105,10 @@ export const Login = ({
             <img
                 className='login__continer__img'
                 src='/icons/profile.svg'
-                alt='profile-icon'
+                alt='profile icon'
             />
             <input
                 className='login__continer__input'
-                type='email'
                 placeholder={USERNAME_PLACEHOLDER}
                 value={userName}
                 onChange={handleChange(setUserName)}
@@ -113,7 +120,7 @@ export const Login = ({
             <img
                 className='login__continer__img'
                 src='/icons/lock.svg'
-                alt='profile-icon'
+                alt='profile icon'
             />
             <input
                 className='login__continer__input'
