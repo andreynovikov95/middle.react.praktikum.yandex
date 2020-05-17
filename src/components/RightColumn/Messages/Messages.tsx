@@ -1,13 +1,13 @@
 import React from 'react'
 
 import {
+    createMarkup
+} from 'utils/html'
+import {
     TDataAuthors,
     TDataChatMesseges,
     TDateMessage
 } from 'components/Chat/Chat'
-import {
-    createMarkup
-} from 'utils/html'
 
 import './Messages.css'
 
@@ -40,8 +40,8 @@ const renderMessages = (
     time
 }, index)  => {
     const {
-        name = 'The Shrek 2',
-        avatar = '/images/shrek2.png'
+        name = 'Anonymous',
+        avatar = 'Anonymous'
     } = authors[authorId]
     const showAuthorInfo = index === 0 || (index > 0 && authorId !== messages[index - 1].authorId)
 
@@ -54,8 +54,9 @@ const renderMessages = (
             <div className={'message__avatar'}>
                 {showAuthorInfo && (
                     <img
-                        src={avatar}
+                        src={`/images/${avatar}.png`}
                         alt={name}
+                        width={50}
                     />
                 )}
             </div>

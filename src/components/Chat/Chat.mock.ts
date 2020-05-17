@@ -809,19 +809,27 @@ export const MESSAGES = [
 
 export const AUTHORS = [
     {
+        email: 'test1@test.com',
         name: 'The Shrek 1',
-        avatar: '/images/shrek1.png'
+        avatar: 'shrek1',
+        password: '123456'
     },
     {
+        email: 'test2@test.com',
         name: 'The Shrek 2',
-        avatar: '/images/shrek2.png'
+        avatar: 'shrek2',
+        password: '1234567'
     },
     {
+        email: 'test3@test.com',
         name: 'Rick Dalton 1',
-        avatar: '/images/RickDalton1.png'
+        avatar: 'RickDalton1',
+        password: '12345678'
     },
     {
+        email: 'test4@test.com',
         name: 'Rick Dalton 2',
-        avatar: '/images/RickDalton2.png'
+        avatar: 'RickDalton2',
+        password: '123456789'
     }
 ]

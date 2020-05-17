@@ -12,14 +12,15 @@ import { RightColumn } from 'components/RightColumn/RightColumn';
 
 import './Chat.css'
 import {
-  AUTHORS,
   CHATS,
   MESSAGES
 } from './Chat.mock'
 
-type TAuthor = {
+export type TAuthor = {
+  email: string,
   name: string,
-  avatar: string
+  avatar: string,
+  password: string
 }
 
 export type TDataAuthors = TAuthor[];
@@ -50,24 +51,26 @@ export type TDataChatMesseges = TMessage[];
 
 export type TDataChatsMesseges = TDataChatMesseges[];
 
+type TProps = {
+  currentUserId?: number,
+  authors: TDataAuthors
+}
+
 type TState = {
-  authors: TDataAuthors,
   chats: TDataChats,
   messages: TDataChatsMesseges,
 }
 
 const WithChatIdRightColumn = withChatId(RightColumn)
 
-export class Chat extends PureComponent<{}, TState>   {
+export class Chat extends PureComponent<TProps, TState>   {
   public state = {
-    authors: [],
     chats: [],
     messages: []
   }
 
    componentDidMount = () => {
      this.setState(prevState => ({
-      authors: [...prevState.authors, ...AUTHORS],
       chats: [...prevState.chats, ...CHATS],
       messages: [...prevState.messages, ...MESSAGES]
     }))
@@ -119,7 +122,10 @@ export class Chat extends PureComponent<{}, TState>   {
 
   public render() {
     const {
-      authors,
+      currentUserId,
+      authors
+    } = this.props
+    const {
       chats,
       messages
     } = this.state
@@ -132,12 +138,13 @@ export class Chat extends PureComponent<{}, TState>   {
           messages={messages}
         />
         <Switch>
-          <Route exact path='/' component={EmptyChat}/>
+          <Route exact path='/chat' component={EmptyChat}/>
           <Route
             path='/chat'
             render={
               (props) => <WithChatIdRightColumn
                 {...props}
+                currentUserId={currentUserId}
                 authors={authors}
                 chats={chats}
                 messages={messages}
